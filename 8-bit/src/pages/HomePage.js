@@ -9,15 +9,15 @@ const HomePage = () => {
         <div className= { styles.Gameslist }>
             <Link to="/SpaceInvaders">
                 <img className= { styles.img } src={ SpaceInvaders } alt="SpaceInvaders" />
-                {/* <p> Space Invaders </p> */}
+                <p> Space Invaders </p> 
             </Link>
             <Link to="/Pong">
                 <img className = { styles.img } src= { Pong } alt="Pong" />
-                {/* <p> Pong </p> */}
+                <p> Pong </p> 
             </Link>
             <Link to="/Breakout">
-                <img className= { styles.img }src= { Breakout } alt="Breakout" />
-                {/* <p> Breakout </p> */}
+                <img className= { styles.img } src= { Breakout } alt="Breakout" />
+                <p> Breakout </p> 
             </Link>
         </div>
     );

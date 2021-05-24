@@ -19,7 +19,6 @@ function App() {
                 <LoginPage />
               </Route>
             </Switch>
-
           </div>
       </div>
     </Router>
