@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron&display=swap');
+
+  .Header {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    max-width: 600px;
+    margin: 0 auto;
+    border-bottom: 1px solid #969696;
+  }
+  
+  .Header .links {
+    margin-left: auto;
+  }
+  .Header a {
+    margin-left: 5px;
+    text-decoration: none;
+    padding: 5px;
+  }
+  .Header a:hover {
+    color: #f1356d;
+  }
