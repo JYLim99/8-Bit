@@ -6,9 +6,10 @@ const Header = () => {
         <nav className= {styles.Header}>
             <h1>8 Bit</h1>
             <div className= {styles.links}>
-                <input types="text" placeholder="Search games"></input>
-                <Link to="/">Home</Link>
-                <Link to="/LoginPage">Login</Link>
+                <ul>
+                    <Link to="/">Home</Link>
+                    <Link to="/Login">Login</Link>
+                </ul>
             </div>
         </nav>
      );
