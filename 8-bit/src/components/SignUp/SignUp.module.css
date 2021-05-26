@@ -1,0 +1,30 @@
+.signUpForm {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.errorMsg {
+    font-size: smaller;
+    text-align: center;
+    color:tomato
+}
+
+.redirect {
+    font-size: smaller;   
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.linkLogin {
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 3px 6px;
+    background-color: #04AA6D;
+    color: white;
+    margin: 5px;
+}

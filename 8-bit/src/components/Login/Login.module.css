@@ -1,0 +1,57 @@
+.Login {
+    display: flex;
+    margin-left: auto;
+    margin-right: auto;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+input[type=text], input[type=password] {
+    padding: 6px 15px;
+    margin: 5px;
+    display: inline-block;
+    border: 0.5px solid #ccc;
+    box-sizing: border-box;
+}
+
+.loginForm {
+    display: block;
+    margin: auto;
+    border-radius: 0em;
+    border-color: aquamarine;
+    text-align: center;
+    padding: 10px;
+}
+
+button {
+    background-color: #04AA6D;
+    color: white;
+    padding: 7px 10px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.errorMsg {
+    font-size: smaller;
+    text-align: center;
+    color:tomato
+}
+
+.redirect {
+    font-size: smaller;   
+    text-align: center;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.linkSignUp {
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 3px 6px;
+    background-color: #04AA6D;
+    color: white;
+    margin: 5px;
+}

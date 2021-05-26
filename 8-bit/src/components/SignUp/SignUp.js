@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
-import { Card, Form, Button, Alert } from 'react-bootstrap';
 import { useAuth } from '../Context/AuthContext';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
+import styles from './SignUp.module.css';
 
 const SignUp = () => {
 
@@ -10,6 +10,7 @@ const SignUp = () => {
     const { signUp } = useAuth();
     const [error, setError] = useState('');
     const [loading, setLoading] = useState(false);
+    const history = useHistory();
 
     async function handleSubmit(event) {
         event.preventDefault();
@@ -17,6 +18,7 @@ const SignUp = () => {
             setError('');
             setLoading(true);
             await signUp(emailRef.current.value, passwordRef.current.value);
+            history.push('/');
         } catch {
             setError('Failed to create an account');
         }
@@ -25,27 +27,19 @@ const SignUp = () => {
 
     return (
         <>
-            <Card>
-                <Card.Body>
-                    <h2 className="A">Sign Up</h2>
-                    {error && <Alert variant="danger">{ error }</Alert>}
-                    <Form onSubmit={ handleSubmit }>
-                        <Form.Group id="email">
-                            <Form.Label> Email: </Form.Label>
-                            <Form.Control type="email" ref={ emailRef }required />
-                        </Form.Group>
-                        <Form.Group id="email">
-                            <Form.Label> Password: </Form.Label>
-                            <Form.Control type="password" ref={ passwordRef }required />
-                        </Form.Group>
-                        <Button disabled={ loading } className="B" type="submit"> Sign Up </Button>
-                    </Form>
-                </Card.Body>
-            </Card>
-            <div className="Something">
-                Already have an account? <Link to="/Login"> Login </Link> or sign in with Google 
+            <form className= { styles.signUpForm } onSubmit={ handleSubmit }>
+                <label for="email"> Email address: </label>
+                    <input type="text" ref={ emailRef } placeholder="example@gmail.com" required /> 
+                    <br></br>
+                <label for="password"> Password: </label>
+                    <input type="password" ref={ passwordRef } placeholder="At least six characters" required />
+                    <br></br>
+                <button disabled={ loading } type="submit"> Sign Up </button>
+            </form>
+            <p className={ styles.errorMsg }> { error } </p>
+            <div className={ styles.redirect }>
+                Already have an account? <Link to="/Login" className={ styles.linkLogin }> Login now! </Link>
             </div>
-            <div> or, Login with Google </div>
         </>
     );
 }

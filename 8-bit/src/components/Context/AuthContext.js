@@ -11,8 +11,18 @@ export function AuthProvider({ children }) {
     const [currentUser, setCurrentUser] = useState();
     const [loading, setLoading] = useState(true);
 
+    // sign up functionality using firebase
     function signUp(email, password) {
         return auth.createUserWithEmailAndPassword(email, password);
+    }
+
+    // login functionality using firebase
+    function login(email, password) {
+        return auth.signInWithEmailAndPassword(email, password);
+    }
+
+    function logout() {
+        return auth.signOut()
     }
 
     useEffect( () => {
@@ -20,13 +30,16 @@ export function AuthProvider({ children }) {
             setCurrentUser(user);
             setLoading(false);
         })
-        return unsubscribe
+        return unsubscribe;
     }, [])      
 
     const value = {
         currentUser,
-        signUp
+        login,
+        signUp,
+        logout
     }
+
     return (
         <AuthContext.Provider value={ value }>
             { !loading && children }
