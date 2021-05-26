@@ -28,11 +28,13 @@ const Breakout = () => {
   return (
     <div className={styles.page}>
       <div className={styles.instructions}>
-        <h3> Instructions </h3>
-        <ui>
-          <li> Press Spacebar to start/pass </li>
-          <li> Left and right arrow keys to move </li>
-        </ui>
+        <text>
+          <h3> Instructions </h3>
+          <ui>
+            <li> Press Spacebar to start/pass </li>
+            <li> Left and right arrow keys to move </li>
+          </ui>
+        </text>
       </div>
       <div className={styles.sceneContainer} ref={sceneContainer}>
         {size && <Scene width={size.width} height={size.height} />}
