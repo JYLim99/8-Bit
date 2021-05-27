@@ -131,7 +131,7 @@ const HANDLER = {
       renderScores(0)
       return {
         ...newState,
-        game: getGameStateFromLevel(LEVELS[state.level], false), //**Check**
+        game: getGameStateFromLevel(LEVELS[state.level], false), //Player lost the game
       }
     } else if (newGame.blocks.length < 1) {
       const level =
