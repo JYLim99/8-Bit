@@ -5,7 +5,12 @@ import styles from "./scene.module.css"
 
 import { LEVELS } from "../levels"
 
-import { MOVEMENT, getNewGameState, getGameStateFromLevel } from "../core"
+import {
+  MOVEMENT,
+  getNewGameState,
+  getGameStateFromLevel,
+  renderScores,
+} from "../core"
 
 import { registerListener } from "../utils"
 
@@ -52,11 +57,15 @@ const getProjectors = (containerSize, gameSize) => {
 //Initial level is level 1
 const getInitialState = (containerSize) => {
   const level = 0
-  const game = getGameStateFromLevel(LEVELS[level])
+  const game = getGameStateFromLevel(LEVELS[level], true)
+
   const { projectDistance, projectVector } = getProjectors(
     containerSize,
     game.size
   )
+
+  renderScores(0)
+
   return {
     level,
     game,
@@ -119,12 +128,16 @@ const HANDLER = {
     )
     const newState = { ...state, time }
     if (newGame.lives < 1) {
-      return { ...newState, game: getGameStateFromLevel(LEVELS[state.level]) }
+      renderScores(0)
+      return {
+        ...newState,
+        game: getGameStateFromLevel(LEVELS[state.level], false), //**Check**
+      }
     } else if (newGame.blocks.length < 1) {
       const level =
         state.level === LEVELS.length ? state.level : state.level + 1
       localStorage.setItem("level", level)
-      const game = getGameStateFromLevel(LEVELS[state.level])
+      const game = getGameStateFromLevel(LEVELS[state.level], true)
       return {
         ...newState,
         level,
@@ -151,6 +164,7 @@ const reducer = (state, { type, payload }) => {
 export default (containerSize) => {
   const [state, dispatch] = useReducer(reducer, containerSize, getInitialState)
   const act = (type, payload) => dispatch({ type, payload })
+
   const {
     projectDistance,
     projectVector,

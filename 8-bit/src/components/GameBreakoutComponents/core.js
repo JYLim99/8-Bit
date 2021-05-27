@@ -44,12 +44,10 @@ export const getInitialPaddleAndBall = (width, height, paddleWidth) => {
 }
 
 //Determine game state from the given level specifications
-export const getGameStateFromLevel = ({
-  lives,
-  paddleWidth,
-  speed,
-  blocks,
-}) => {
+export const getGameStateFromLevel = (
+  { lives, paddleWidth, speed, blocks },
+  lost
+) => {
   const width = blocks[0].length
   const height = width
 
@@ -69,12 +67,17 @@ export const getGameStateFromLevel = ({
     width,
     height,
   }
+
   return {
     size,
     blocks: flatten(rowsOfBlocks),
     ...getInitialPaddleAndBall(width, height, paddleWidth),
     lives,
     speed,
+    score:
+      parseInt(document.getElementById("current-score").innerText) && lost
+        ? parseInt(document.getElementById("current-score").innerText)
+        : 0,
   }
 }
 
@@ -137,6 +140,11 @@ const getAdjustedVector = (normal, vector, minAngle = 15) => {
   return vector
 }
 
+//Function to update score
+export const renderScores = (score) => {
+  document.getElementById("current-score").innerText = score
+}
+
 //Function to create a new state
 //This function receives all states and determine
 //the next game state to commence
@@ -157,6 +165,7 @@ export const getNewGameState = (state, movement, timespan) => {
     }
   }
 
+  //Moving ball for each scene
   const withNewBallProps = (props) => ({
     ...state,
     paddle,
@@ -196,6 +205,10 @@ export const getNewGameState = (state, movement, timespan) => {
   )
   if (block) {
     const density = block.density - 1
+    const score = state.score + 1 //Contact with block, score + 1
+
+    renderScores(score)
+
     const newBlock = { ...block, density }
     const blocks =
       density < 0
@@ -216,6 +229,7 @@ export const getNewGameState = (state, movement, timespan) => {
     return {
       ...withNewBallDirection(getNewBallNormal()),
       blocks,
+      score,
     }
   }
   return withNewBallProps({ center: newBallCenter })
