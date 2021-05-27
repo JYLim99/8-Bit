@@ -6,6 +6,7 @@ import './App.css';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { AuthProvider } from './components/Context/AuthContext';
 import Breakout from "./pages/Breakout";
+import Pong from './components/Pong/Pong';
 
 function App() {
   return (
@@ -15,20 +16,25 @@ function App() {
             <div className="Header"></div>
               <Header />
               <div className="Content">
-                <Switch>
-                  <Route exact path="/">
-                    <HomePage />
-                  </Route>
-                  <Route exact path="/SignUp">
-                    <SignUp />
-                  </Route>
-                  <Route path="/Login">
-                    <Login />
-                  </Route> 
-                  <Route path="/Breakout">
-                    <Breakout />
-                  </Route>
-                </Switch>
+                <body>
+                  <Switch>
+                    <Route exact path="/">
+                      <HomePage />
+                    </Route>
+                    <Route exact path="/SignUp">
+                      <SignUp />
+                    </Route>
+                    <Route path="/Login">
+                      <Login />
+                    </Route> 
+                    <Route path="/Breakout">
+                      <Breakout />
+                    </Route>
+                    <Route path="/Pong">
+                      <Pong />
+                    </Route>
+                  </Switch>
+                </body>
               </div>
           </div>
       </AuthProvider>
