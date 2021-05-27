@@ -43,10 +43,7 @@ div.current-score p {
   position: absolute;
 }
 
-div.instructions h3,
-li,
-p,
-span {
+div.page * {
   font-family: "Orbitron";
   color: #eeeeee;
   font-size: 14px;

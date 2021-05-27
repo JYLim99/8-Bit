@@ -1,17 +1,17 @@
 .Gameslist {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .Gameslist a {
-    text-align: center;
-    text-decoration: none;
+  text-align: center;
+  text-decoration: none;
 }
 
 .img {
-    display: inline-block;
-    width:  350px;
-    height: 300px;
-    padding: 15px;  
+  display: inline-block;
+  width: 350px;
+  height: 300px;
+  padding: 15px;
 }
