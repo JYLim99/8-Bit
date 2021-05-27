@@ -39,16 +39,15 @@ A website where users can click on images (similar to Y8/Miniclip) and play vint
 
 ### May
 
-	* Develop the game Breakout to be featured
-	* Login feature
-	* Link up with firebase
+* Develop the game Breakout to be featured
+* Login feature
+* Link up with firebase
 
 ### June
 
-* Develop the other games ie. Space Invaders and Breakout
+* Develop the other games ie. Space Invaders and Pong
 * Implement design for the interface and website (CSS)
 * Develop a point system with a leaderboard
-* Make the website to be mobile-friendly
 * Develop the multiplayer feature
 
 ### July
