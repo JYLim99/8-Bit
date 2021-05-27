@@ -36,6 +36,11 @@ const Breakout = () => {
           </ui>
         </text>
       </div>
+      <div>
+        <p>
+          Score: <span id="current-score"></span>
+        </p>
+      </div>
       <div className={styles.sceneContainer} ref={sceneContainer}>
         {size && <Scene width={size.width} height={size.height} />}
       </div>
