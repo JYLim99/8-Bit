@@ -41,6 +41,16 @@ const Breakout = () => {
           Score: <span id="current-score"></span>
         </p>
       </div>
+      <h1 className={styles.factsTitle}>
+        <strong>Do you know?</strong>
+      </h1>
+      <div className={styles.facts}>
+        <p>
+          Breakout is an arcade game developed and published by Atari, Inc., and
+          released on May 13, 1976. It was conceptualized by Nolan Bushnell and
+          Steve Bristow, influenced by the seminal 1972 Atari arcade game Pong.
+        </p>
+      </div>
       <div className={styles.sceneContainer} ref={sceneContainer}>
         {size && <Scene width={size.width} height={size.height} />}
       </div>
