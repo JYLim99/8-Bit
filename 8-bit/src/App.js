@@ -16,7 +16,6 @@ function App() {
             <div className="Header"></div>
               <Header />
               <div className="Content">
-                <body>
                   <Switch>
                     <Route exact path="/">
                       <HomePage />
@@ -34,7 +33,6 @@ function App() {
                       <Pong />
                     </Route>
                   </Switch>
-                </body>
               </div>
           </div>
       </AuthProvider>
