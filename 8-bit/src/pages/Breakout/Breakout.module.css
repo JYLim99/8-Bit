@@ -41,7 +41,7 @@ div.instructions {
 div.facts {
   display: flex;
   position: absolute;
-  left: 70%;
+  left: 75%;
   padding: 20px;
   align-items: center;
   text-align: justify;
@@ -51,7 +51,7 @@ div.facts {
 h1.factsTitle {
   display: flex;
   position: absolute;
-  left: 70%;
+  left: 75%;
   padding: 20px;
   align-items: center;
   text-align: justify;
