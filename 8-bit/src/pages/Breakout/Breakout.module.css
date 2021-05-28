@@ -38,6 +38,26 @@ div.instructions {
   top: 50%;
 }
 
+div.facts {
+  display: flex;
+  position: absolute;
+  left: 70%;
+  padding: 20px;
+  align-items: center;
+  text-align: justify;
+  top: 50%;
+}
+
+h1.factsTitle {
+  display: flex;
+  position: absolute;
+  left: 70%;
+  padding: 20px;
+  align-items: center;
+  text-align: justify;
+  top: 47%;
+}
+
 div.current-score p {
   display: flex;
   position: absolute;
@@ -59,6 +79,20 @@ div.page * {
 @media only screen and (max-height: 310px) {
   div.instructions h3,
   li {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 1430px) {
+  h1.factsTitle,
+  div.facts {
+    display: none;
+  }
+}
+
+@media only screen and (max-height: 310px) {
+  h1.factsTitle,
+  div.facts {
     display: none;
   }
 }
