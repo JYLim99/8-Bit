@@ -44,7 +44,7 @@ const Login = () => {
                 <label for="password"> Password: </label>
                     <input type="password" ref={ passwordRef } required />
                     <br></br>
-                <button disabled={ loading } type="submit"> Login </button>
+                <button className= { styles.loginButton } disabled={ loading } type="submit"> Login </button>
             </form>
             <p className={ styles.errorMsg }> { error } </p>
             <div className={ styles.redirect }>
