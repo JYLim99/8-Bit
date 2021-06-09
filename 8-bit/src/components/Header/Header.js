@@ -15,7 +15,7 @@ const Header = () => {
     if (!currentUser) {
         return ( 
             <nav className= {styles.Header}>
-                <h1>8 Bit</h1>
+                <Link to="/"> 8 Bit </Link>
                 <div className= {styles.links}>
                     <ul>
                         <Link to="/"> Home </Link>
@@ -27,7 +27,7 @@ const Header = () => {
     } else {
         return ( 
             <nav className= {styles.Header}>
-                <h1>8 Bit</h1>
+                <Link to="/"> 8 Bit </Link>
                 <div className= {styles.links}>
                     <ul>
                         <Link to="/"> Home </Link>

@@ -7,6 +7,7 @@ const ProfilePage = () => {
     const [ name, setName ] = useState("");
     const [ status, setStatus ] = useState("");
     const [ hasProfile, setHasProfile ] = useState(false);
+    const [ favGame, setFavGame ] = useState("");
 
     const handleImage = (event) => {
         setImg(URL.createObjectURL(event.target.files[0]))
@@ -38,9 +39,10 @@ const ProfilePage = () => {
     } else {
         return(
             <div className={ styles.editedProfile }>
-                <img src={ img }></img>
-                <div> {name} </div>
-                <div> { status }</div>
+                <img className={styles.image} src={ img }></img>
+                <div> Name: {name} </div>
+                <div> Status: { status }</div>
+                <div> Favourite game: { favGame } </div>
             </div>
         );
     }
