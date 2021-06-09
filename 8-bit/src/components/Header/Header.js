@@ -31,7 +31,9 @@ const Header = () => {
                 <div className= {styles.links}>
                     <ul>
                         <Link to="/"> Home </Link>
+                        <Link to="/ProfilePage"> Profile </Link>
                         <button onClick= { handleLogout }> Logout </button>
+
                     </ul>
                 </div>
             </nav>

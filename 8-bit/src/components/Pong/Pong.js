@@ -97,11 +97,11 @@ const Pong = () => {
         
             if(collision(ball, player)) {
         
-                let collidePoint = ball.y - (player.y + player.paddleHeight/2);
+                let contact = ball.y - (player.y + player.paddleHeight/2);
         
-                collidePoint = collidePoint / (player.paddleHeight / 2);
+                contact = contact / (player.paddleHeight / 2);
         
-                let angleRad = collidePoint * (Math.PI / 4);
+                let angleRad = contact * (Math.PI / 4);
         
                 let direction = (ball.x + ball.radius < width / 2) ? 1 : -1;
         
@@ -117,11 +117,11 @@ const Pong = () => {
         function game() {
             update();
             render();
+            requestAnimationFrame(game);
         }
 
         if(gameStarted) {
-            const fPS = 50;
-            setInterval(game, 1000/fPS);
+            game();
         }
 
     }, [gameStarted])

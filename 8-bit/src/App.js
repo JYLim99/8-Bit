@@ -7,6 +7,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { AuthProvider } from './components/Context/AuthContext';
 import Breakout from "./pages/Breakout";
 import Pong from './components/Pong/Pong';
+import ProfilePage from './pages/ProfilePage';
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
                     <Route path="/Login">
                       <Login />
                     </Route> 
+                    <Route path="/ProfilePage">
+                      <ProfilePage />
+                    </Route>
                     <Route path="/Breakout">
                       <Breakout />
                     </Route>
