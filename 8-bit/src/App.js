@@ -15,8 +15,9 @@ function App() {
     <Router>
       <AuthProvider>
         <div className="App">
-          <div className="Header"></div>
-          <Header />
+          <div className="Header">
+            <Header />
+          </div>
           <div className="Content">
             <Switch>
               <Route exact path="/">

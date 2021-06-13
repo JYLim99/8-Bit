@@ -1,11 +1,3 @@
-.Main {
-  height: 100vh;
-  height: 100vh;
-  margin-top: 0px;
-  padding: 56px;
-  justify-content: center;
-}
-
 .SpaceInvaderContainer {
   box-sizing: border-box;
   height: 100vh;
@@ -19,7 +11,7 @@
   margin-top: 5%;
   height: 50%;
   float: left;
-  width: 65%;
+  width: 58%;
   padding: 20px;
 }
 
@@ -42,7 +34,7 @@
 
 .SpaceInvaderButton {
   position: relative;
-  left: 10%;
+  left: 14%;
   margin-top: 2%;
   font-family: "Montserrat", "sans-serif";
   border: none;
@@ -75,7 +67,7 @@
   margin-top: 3%;
   height: 88%;
   float: left;
-  width: 45%;
+  width: 40%;
   padding: 20px;
 }
 
@@ -88,7 +80,7 @@
   font-size: x-large;
   font-weight: bold;
   float: left;
-  width: 55%;
+  width: 50%;
   padding: 20px;
 }
 
@@ -125,7 +117,6 @@
 
 .BreakoutImg {
   margin-top: 5%;
-  margin-left: 5%;
   height: 80%;
   float: left;
   width: 50%;
@@ -146,8 +137,8 @@
 
 .BreakoutButton {
   position: absolute;
-  left: 65%;
-  margin-top: 35%;
+  left: 67%;
+  margin-top: 32%;
   font-family: "Montserrat", "sans-serif";
   border: none;
   background-color: white;
