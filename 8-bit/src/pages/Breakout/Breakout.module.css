@@ -2,12 +2,6 @@ html {
   height: 100vh;
 }
 
-* {
-  box-sizing: border-box;
-  outline: 0;
-  margin: 0;
-}
-
 body {
   height: 100%;
   margin: 0;
@@ -49,6 +43,7 @@ div.facts {
 }
 
 h1.factsTitle {
+  font-size: 14px;
   display: flex;
   position: absolute;
   left: 75%;
@@ -59,14 +54,21 @@ h1.factsTitle {
 }
 
 div.current-score p {
+  font-size: 14px;
   display: flex;
   position: absolute;
+  box-sizing: border-box;
+  outline: 0;
+  margin: 0;
 }
 
-div.page * {
+div.page {
   font-family: "Orbitron";
   color: #eeeeee;
   font-size: 14px;
+  box-sizing: border-box;
+  outline: 0;
+  margin: 0;
 }
 
 @media only screen and (max-width: 1308px) {

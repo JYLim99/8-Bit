@@ -13,6 +13,7 @@ export const LEVELS = [
     nextRow: 5,
     animateDir: "right",
     maxAlienRight: 0,
+    maxAlienLeft: Infinity,
     alienLaserFuse: false,
     screen: "start",
     keys: {
@@ -36,7 +37,7 @@ export const LEVELS = [
     laser: {
       width: 5,
       height: 10,
-      speed: 10,
+      speed: 5,
       alienWidth: 5,
       alienHeight: 10,
       alienSpeed: 2,
@@ -93,11 +94,11 @@ export const LEVELS = [
     nextRow: 5,
     animateDir: "right",
     maxAlienRight: 0,
-    //alienLaserFuse: true, For multiple shots if false
+    maxAlienLeft: Infinity,
     laser: {
       width: 5,
       height: 10,
-      speed: 10,
+      speed: 5,
       alienWidth: 5,
       alienHeight: 10,
       alienSpeed: 2,
@@ -110,7 +111,7 @@ export const LEVELS = [
       movement: {
         side: 10,
         down: 40,
-        left: 85, //*
+        left: 20,
         right: 20,
       },
       width: 40,

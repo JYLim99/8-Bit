@@ -1,9 +1,9 @@
-import React, { Component, useRef, useEffect, useState } from "react"
+import React, { Component } from "react"
 import Player from "../Player/Player"
 import Alien from "../Alien/Alien"
 import StartScreen from "../../../pages/SpaceInvaders/Start"
 import EndScreen from "../../../pages/SpaceInvaders/End"
-import "../../../pages/SpaceInvaders/Ui.css"
+import "./Ui.css"
 import "./Game.css"
 import "../Alien/keyframes.css"
 import { LEVELS } from "../Levels"
@@ -166,19 +166,17 @@ class Game extends Component {
       this.state.settings.height -
       (this.state.alien.width + this.state.alien.padding)
     const minLeft = this.state.alien.movement.left
-    let minAlienLeft = 0
 
     this.aliens.map((item, i, a) => {
-      if (i === 0) {
-        minAlienLeft = item.left
-        this.setState({
-          maxAlienRight: 0,
-        })
-      }
-
       if (alienWidth + item.left > this.state.maxAlienRight) {
         this.setState({
           maxAlienRight: alienWidth + item.left,
+        })
+      }
+
+      if (item.left < this.state.maxAlienLeft) {
+        this.setState({
+          maxAlienLeft: item.left,
         })
       }
 
@@ -187,7 +185,7 @@ class Game extends Component {
           newDir = "down"
           newSteps++
         } else if (
-          minAlienLeft - movement.side <= minLeft &&
+          this.state.maxAlienLeft - movement.side <= minLeft &&
           newDir === "left"
         ) {
           newDir = "down"
@@ -250,7 +248,7 @@ class Game extends Component {
     })
     nextRow = nextRow - 1 < 1 ? 5 : nextRow - 1
     this.setState({
-      animate: this.state.animate++,
+      animate: this.state.animate + 1,
       nextRow: nextRow,
       animateDir: newDir,
     })
@@ -333,6 +331,10 @@ class Game extends Component {
 
   //Function to remove alien that has been shot
   removeAlien(index) {
+    this.setState({
+      maxAlienRight: 0,
+      maxAlienLeft: Infinity,
+    })
     this.aliens[index].explode = true
     setTimeout(() => {
       this.aliens.splice(index, 1)
@@ -530,6 +532,29 @@ class Game extends Component {
 
     return (
       <div className="page">
+        <div className="instructions">
+          <text>
+            <h3> Instructions </h3>
+            <ui>
+              <li> Press Spacebar to shoot </li>
+              <li>
+                A & D or left & right arrow keys <br /> to move
+              </li>
+              <li> P to pause </li>
+            </ui>
+          </text>
+        </div>
+        <h3 className="factsTitle">
+          <strong>Do you know?</strong>
+        </h3>
+        <div className="facts">
+          <p>
+            Space Invaders is a 1978 shoot 'em up arcade game developed by
+            Tomohiro Nishikado. Space Invaders was the first fixed shooter and
+            set the template for the shoot 'em up genre. It was inspired by
+            Atari arcade game Breakout.
+          </p>
+        </div>
         <div className="App--Game" style={styles}>
           <span className="App--Game-TopScore App--Game-Gui">
             <p>hi-score: {this.state.topScore}</p>
