@@ -1,30 +1,102 @@
-.signUpForm {
+@import url('https://fonts.googleapis.com/css2?family=Della+Respira&display=swap');
+
+.signUpContainer {
     display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
+    background-color: #efefe3;
+    height: 100vh;
     align-items: center;
-    padding: 20px;
+    justify-content: center;
+}
+
+.signUpForm {
+    height: 80%;
+    width: 30%;
+    padding: 30px;
+}
+
+.header {
+    font-family: 'Italiana', serif;
+    padding: 10px;
+    border-radius: 15px;
+    color: #181818;
+    display: block;
+    text-decoration: none;
+    font-weight: 700;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    margin-bottom: 20%;
+    letter-spacing: 1px;
+}
+
+.signUpInput {
+    display: inline-block;
+    text-indent: 0px;
+    text-align: start;
+    cursor: text;
+    font-family: 'Italiana', serif;
+    box-sizing: border-box;
+    border-radius: 0;
+    overflow: visible;
+    margin: 0;
+    border: 0px;
+    color: #323a3d;
+    font-size: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #77858a;
+    background-color: transparent;
+    width: 100%;
+    margin-bottom: 8%;
+}
+
+.signUpInput:hover {
+    transform: scale(1.05);
+}
+
+.button {
+    font-family: 'Della Respira', serif;
+    font-size: 14px;
+    margin-top: 30px;
+    border-radius: 15px;
+    border: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    background-color: transparent;
+    color: #181818;
+    padding: 15px;
+    font-weight: 500;
+    align-items: center;
+    width: 30%;
+    float: right;
+    cursor: pointer;
+}
+
+.button:hover {
+    color: #ee4540;
 }
 
 .errorMsg {
+    font-family: 'Della Respira', serif;
     font-size: smaller;
-    text-align: center;
-    color:tomato
-}
-
-.redirect {
-    font-size: smaller;   
-    text-align: center;
-    padding: 10px;
-    text-decoration: none;
+    color: #ee4540;
+    margin-bottom: 5%;
 }
 
 .linkLogin {
+    font-family: 'Italiana', serif;
+    padding: 10px;
+    border-radius: 15px;
+    opacity: 0.9;
+    color: #181818;
+    display: block;
     text-decoration: none;
-    border-radius: 5px;
-    padding: 3px 6px;
-    background-color: #04AA6D;
-    color: white;
-    margin: 5px;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 50%;
+    position: relative;
+    width: 100%;
+}
+
+.linkLogin:hover {
+    color: #ee4540;
 }

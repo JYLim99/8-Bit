@@ -19,28 +19,37 @@ const SignUp = () => {
             setLoading(true);
             await signUp(emailRef.current.value, passwordRef.current.value);
             history.push('/');
-        } catch {
-            setError('Failed to create an account');
+        } catch(error) {
+            console.log(error.code);
+            switch (error.code) {
+                case "auth/invalid-email":
+                case "auth/email-already-exists":
+                    setError(error.message);
+                    break;
+                case "auth/weak-password":
+                    setError("Password must be at least six characters");
+                    break;
+                default:
+            }
         }
         setLoading(false);
     }
 
     return (
-        <>
+        <div className={ styles.signUpContainer }>
             <form className= { styles.signUpForm } onSubmit={ handleSubmit }>
-                <label for="email"> Email address: </label>
-                    <input type="text" ref={ emailRef } placeholder="example@gmail.com" required /> 
-                    <br></br>
-                <label for="password"> Password: </label>
-                    <input type="password" ref={ passwordRef } placeholder="At least six characters" required />
-                    <br></br>
-                <button disabled={ loading } type="submit"> Sign Up </button>
+                <h2 className={ styles.header }> Join Us </h2>
+                <input className={ styles.signUpInput } type="text" ref={ emailRef } placeholder="Email address" required /> 
+                <br></br>
+                <input className={ styles.signUpInput } type="password" ref={ passwordRef } placeholder="Password" required />
+                <br></br>
+                <button className={ styles.button }disabled={ loading } type="submit"> Sign Up </button>
+                <p className={ styles.errorMsg }> { error } </p>
+                <div className={ styles.redirect }>
+                    <Link to="/Login" className={ styles.linkLogin }> Login </Link>
+                </div>
             </form>
-            <p className={ styles.errorMsg }> { error } </p>
-            <div className={ styles.redirect }>
-                Already have an account? <Link to="/Login" className={ styles.linkLogin }> Login now! </Link>
-            </div>
-        </>
+        </div>
     );
 }
  

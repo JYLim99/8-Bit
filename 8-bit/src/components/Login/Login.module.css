@@ -1,57 +1,118 @@
-.Login {
-    display: flex;
-    margin-left: auto;
-    margin-right: auto;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
+@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
 
-input[type=text], input[type=password] {
-    padding: 6px 15px;
-    margin: 5px;
-    display: inline-block;
-    border: 0.5px solid #ccc;
-    box-sizing: border-box;
+.Container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: #efefe3;
 }
 
 .loginForm {
-    display: block;
-    margin: auto;
-    border-radius: 0em;
-    border-color: aquamarine;
-    text-align: center;
+    height: 80%;
+    width: 30%;
+    padding: 30px;
+}
+
+.header {
+    font-family: 'Italiana', serif;
     padding: 10px;
+    border-radius: 15px;
+    color: #181818;
+    display: block;
+    text-decoration: none;
+    font-weight: 700;
+    text-align: center;
+    position: relative;
+    width: 100%;
+    margin-bottom: 20%;
+    letter-spacing: 1px;
+}
+
+.loginInput {
+    display: inline-block;
+    text-indent: 0px;
+    text-align: start;
+    cursor: text;
+    font-family: 'Italiana', serif;
+    box-sizing: border-box;
+    border-radius: 0;
+    overflow: visible;
+    margin: 0;
+    border: 0px;
+    color: #323a3d;
+    font-size: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #77858a;
+    background-color: transparent;
+    width: 100%;
+    margin-bottom: 8%;
+}
+
+.loginInput:hover {
+    transform: scale(1.05);
 }
 
 .loginButton {
-    background-color: #04AA6D;
-    color: white;
-    padding: 7px 10px;
-    margin: 8px 0;
+    font-family: 'Italiana', serif;
+    font-size: 14px;
+    margin-top: 30px;
+    border-radius: 15px;
     border: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    background-color: transparent;
+    color: black;
+    padding: 15px;
+    font-weight: 700;
+    align-items: center;
+    width: 30%;
+    float: right;
     cursor: pointer;
-    border-radius: 5px;
+}
+
+.loginButton:hover {
+    color: #ee4540;
 }
 
 .errorMsg {
+    font-family: 'Italiana', serif;
     font-size: smaller;
-    text-align: center;
-    color:tomato
+    color: #ee4540;
+    margin-bottom: 5%;
 }
 
-.redirect {
-    font-size: smaller;   
-    text-align: center;
+.forgetPassLink {
+    font-family: 'Italiana', serif;
+    color: black;
+    display: block;
+    text-decoration: none;
+    float: left;
+    font-size: small;
+    padding-left: 10px;
+    font-weight: 700;
+}
+
+.forgetPassLink:hover {
+    color: #ee4540;
+}
+
+.signUpLink {
+    font-family: 'Italiana', serif;
     padding: 10px;
+    border-radius: 15px;
+    opacity: 0.9;
+    color: black;
+    display: block;
     text-decoration: none;
+    font-size: 15px;
+    font-weight: 700;
+    text-align: center;
+    margin-top: 50%;
+    position: relative;
+    width: 100%;
 }
 
-.linkSignUp {
-    text-decoration: none;
-    border-radius: 5px;
-    padding: 3px 6px;
-    background-color: #04AA6D;
-    color: white;
-    margin: 5px;
+.signUpLink:hover {
+    color: #ee4540;
+    transform: scale(1.05);
 }
