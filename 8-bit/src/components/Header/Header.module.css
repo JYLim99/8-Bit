@@ -1,21 +1,89 @@
-  .Header {
-    padding: 20px;
-    display: flex;
-    align-items: center;
-    max-width: 600px;
-    margin: 0 auto;
-    border-bottom: 1px solid #969696;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Vollkorn+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Marcellus+SC&display=swap');
+
+.Header {
+  display: flex;
+  height: 80px;
+  max-width: 1140px;
+  margin: 0px auto;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+.SpaceInvaderIcon {
+  position: relative;
+  padding: 5px;
+  margin-right: 1%;
+  height: 50px;
+  width: 50px;
+  text-decoration: none;
+  color: #494949;
+}
+
+.Name {
+  position: relative;
+  float: left;
+  font-size: 25px;
+  text-decoration: none;
+  color: #494949;
+  font-family: 'Marcellus SC', serif;
+}
+
+
+.LinkContainer {
+  position: relative;
+  left: 0px;
+  right: 0px;
+  top: 0%;
+  bottom: 0%;
+  display: flex;
+  margin-right: 0px;
+  margin-left: auto;
+  justify-content: center;
+  align-items: flex-start;
+  flex: 0 auto;
+}
   
-  .Header .links {
-    margin-left: auto;
-  }
+.HomeLink {
+  display: inline-block;
+  padding: 20px;
+  flex-direction: row;
+  align-items: flex-start;
+  font-size: 20px;
+  max-width: 100%;
+  box-sizing: border-box;
+  text-decoration: none; 
+  color: #494949; 
+  font-family: 'Vollkorn SC', serif;
+}
   
-  .Header a {
-    margin-left: 5px;
-    text-decoration: none;
-    padding: 5px;
-  }
-  .Header a:hover {
-    color: #f1356d;
-  }
+.LoginLink {
+  color: #494949;
+  display: inline-block;
+  padding: 20px;
+  flex-direction: row;
+  align-items: flex-start;
+  font-size: 20px;
+  max-width: 100%;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Vollkorn SC', serif;
+}
+
+.ForumLink {
+  color: #494949;
+  display: inline-block;
+  padding: 20px;
+  flex-direction: row;
+  align-items: flex-start;
+  font-size: 20px;
+  max-width: 100%;
+  box-sizing: border-box;
+  text-decoration: none;
+  font-family: 'Vollkorn SC', serif;
+}
+
+.Header a:hover {
+  padding-bottom: 3px;
+  border-bottom: 3px solid #ffdf00;
+}

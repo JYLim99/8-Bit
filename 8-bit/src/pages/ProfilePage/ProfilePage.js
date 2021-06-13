@@ -21,6 +21,10 @@ const ProfilePage = () => {
         setStatus(event.target.value);
     }
 
+    const handleGame = (event) => {
+        setFavGame(event.target.value)
+    }
+
     if(hasProfile === false) {
         return (
             <div className={ styles.profileContainer }> 
@@ -33,7 +37,10 @@ const ProfilePage = () => {
                 <br></br>
                 <label> Staus: </label>
                 <input type="text" onChange={ handleStatus } placeholder="I am Bob the Builder" required />
-                <button type="submit" onClick={()=> setHasProfile(true)}> Edit </button>
+                <br></br>
+                <label> Favourite Game: </label>
+                <input type="text" onChange={ handleGame } placeholder="Pong" />
+                <button type="submit" onClick={()=> setHasProfile(true)}> Save </button>
             </div>
         );
     } else {
@@ -43,6 +50,7 @@ const ProfilePage = () => {
                 <div> Name: {name} </div>
                 <div> Status: { status }</div>
                 <div> Favourite game: { favGame } </div>
+
             </div>
         );
     }
