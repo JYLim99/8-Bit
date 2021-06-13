@@ -1,0 +1,122 @@
+/*Alien type 2*/
+@-webkit-keyframes happyAlien2 {
+    0% {
+        background-position: 30% 10px;
+    }
+    50% {
+        background-position: 50% 10px;
+    }
+}
+@-moz-keyframes happyAlien2 {
+    0% {
+        background-position: 30% 10px;
+    }
+    50% {
+        background-position: 60% 10px;
+    }
+}
+@-o-keyframes happyAlien2 {
+    0% {
+        background-position: 30% 10px;
+    }
+    50% {
+        background-position: 60% 10px;
+    }
+}
+@keyframes happyAlien2 {
+    49% {
+        background-position: 30% 10px;
+    }
+    50% {
+        background-position: 0% 10px;
+    }
+}
+
+.App--Game--Alien-Animation2 {
+    -webkit-animation: happyAlien2 500ms step-end infinite; /* Safari 4+ */
+    -moz-animation: happyAlien2 500ms step-end infinite; /* Fx 5+ */
+    -o-animation: happyAlien2 500ms step-end infinite; /* Opera 12+ */
+    animation: happyAlien2 500ms step-end infinite; /* IE 10+, Fx 29+ */
+}
+
+/*Alien type 1*/
+@-webkit-keyframes happyAlien1 {
+    0% {
+        background-position: 61.782% 2.194%;
+    }
+    50% {
+        background-position: 84.752% 2.194%;
+    }
+}
+@-moz-keyframes happyAlien1 {
+    0% {
+        background-position: 61.782% 2.194%;
+    }
+    50% {
+        background-position: 84.752% 2.194%;
+    }
+}
+@-o-keyframes happyAlien1 {
+    0% {
+        background-position: 61.782% 2.194%;
+    }
+    50% {
+        background-position: 84.752% 2.194%;
+    }
+}
+@keyframes happyAlien1 {
+    49% {
+        background-position: 61.782% 2.194%;
+    }
+    50% {
+        background-position: 84.752% 2.194%;
+    }
+}
+
+.App--Game--Alien-Animation1 {
+    -webkit-animation: happyAlien1 500ms step-end infinite; /* Safari 4+ */
+    -moz-animation: happyAlien1 500ms step-end infinite; /* Fx 5+ */
+    -o-animation: happyAlien1 500ms step-end infinite; /* Opera 12+ */
+    animation: happyAlien1 500ms step-end infinite; /* IE 10+, Fx 29+ */
+}
+
+/*Alien type 3*/
+@-webkit-keyframes happyAlien3 {
+    0% {
+        background-position: 34.409% 21.003%;
+    }
+    50% {
+        background-position: 4.086% 21.003%;
+    }
+}
+@-moz-keyframes happyAlien3 {
+    0% {
+        background-position: 34.409% 21.003%;
+    }
+    50% {
+        background-position: 4.086% 21.003%;
+    }
+}
+@-o-keyframes happyAlien3 {
+    0% {
+        background-position: 34.409% 21.003%;
+    }
+    50% {
+        background-position: 4.086% 21.003%;
+    }
+}
+@keyframes happyAlien3 {
+    49% {
+        background-position: 34.409% 21.003%;
+    }
+    50% {
+        background-position: 4.086% 21.003%;
+    }
+}
+
+.App--Game--Alien-Animation3 {
+    -webkit-animation: happyAlien3 500ms step-end infinite; /* Safari 4+ */
+    -moz-animation: happyAlien3 500ms step-end infinite; /* Fx 5+ */
+    -o-animation: happyAlien3 500ms step-end infinite; /* Opera 12+ */
+    animation: happyAlien3 500ms step-end infinite; /* IE 10+, Fx 29+ */
+}
