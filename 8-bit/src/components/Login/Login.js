@@ -36,21 +36,17 @@ const Login = () => {
     }
 
     return (
-        <>
+        <div className={ styles.Container }>
             <form className= { styles.loginForm } onSubmit={ handleSubmit }>
-                <label for="email"> Email address: </label>
-                    <input type="text" ref={ emailRef } placeholder="example@gmail.com" required /> 
-                    <br></br>
-                <label for="password"> Password: </label>
-                    <input type="password" ref={ passwordRef } required />
-                    <br></br>
+                <h2 className={ styles.header }> Welcome back </h2>
+                <input className={ styles.loginInput } type="text" ref={ emailRef } placeholder="Email address" required /> 
+                <input className= { styles.loginInput } type="password" ref={ passwordRef } placeholder="Password"required />
                 <button className= { styles.loginButton } disabled={ loading } type="submit"> Login </button>
+                <p className={ styles.errorMsg }> { error } </p>
+                <Link to="/ForgotPassowrd" className={ styles.forgetPassLink }> Forgot Password </Link>
+                <Link to="/SignUp" className={ styles.signUpLink }> Sign up </Link>
             </form>
-            <p className={ styles.errorMsg }> { error } </p>
-            <div className={ styles.redirect }>
-                No account? <Link to="/SignUp" className={ styles.linkSignUp }> Sign up now! </Link>
-            </div>
-        </>
+        </div>
     );
 }
  

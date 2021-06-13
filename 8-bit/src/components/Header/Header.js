@@ -1,4 +1,5 @@
 import { Link, useHistory } from 'react-router-dom';
+import SpaceInvaderIcon from '../../images/SpaceInvaderIcon.png';
 import styles from './Header.module.css';
 import { useAuth } from '../Context/AuthContext';
 
@@ -14,29 +15,28 @@ const Header = () => {
     
     if (!currentUser) {
         return ( 
-            <nav className= {styles.Header}>
-                <Link to="/"> 8 Bit </Link>
-                <div className= {styles.links}>
-                    <ul>
-                        <Link to="/"> Home </Link>
-                        <Link to="/Login"> Login </Link>
-                    </ul>
-                </div>
-            </nav>
+            <div className={ styles.Header }>
+                <img className={ styles.SpaceInvaderIcon } src={ SpaceInvaderIcon } alt="SpaceInvaderIcon"/>
+                <Link to="/" className={ styles.Name }> 8 Bit </Link>
+                <nav className={ styles.LinkContainer }>
+                    <Link to="/" className={ styles.HomeLink }> Home </Link>
+                    <Link to="/Forum" className={ styles.ForumLink }> Forum </Link>
+                    <Link to="/Login" className={ styles.LoginLink }> Login </Link>
+                </nav>
+            </div>
         );
     } else {
         return ( 
-            <nav className= {styles.Header}>
-                <Link to="/"> 8 Bit </Link>
-                <div className= {styles.links}>
-                    <ul>
-                        <Link to="/"> Home </Link>
-                        <Link to="/ProfilePage"> Profile </Link>
-                        <button onClick= { handleLogout }> Logout </button>
-
-                    </ul>
-                </div>
-            </nav>
+            <div className={ styles.Header }>
+                <img className={ styles.SpaceInvaderIcon } src={ SpaceInvaderIcon } alt="SpaceInvaderIcon"/>
+                <Link to="/" className={ styles.Name }> 8 Bit </Link>
+                <nav className={ styles.LinkContainer }>
+                    <Link to="/" className={ styles.HomeLink }> Home </Link>
+                    <Link to="/Forum" className={ styles.ForumLink }> Forum </Link>
+                    <Link to="/ProfilePage" className={ styles.ProfileLink }> Profile </Link>
+                    <button className={ styles.Button } onClick= { handleLogout }> Logout </button>
+                </nav>
+            </div>
         );
     }
 }

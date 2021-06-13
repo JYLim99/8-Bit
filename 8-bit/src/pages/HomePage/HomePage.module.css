@@ -1,17 +1,168 @@
-.Gameslist {
-  display: flex;
-  align-items: center;
+.Main {
+  height: 100vh;
+  height: 100vh;
+  margin-top: 0px;
+  padding: 56px;
   justify-content: center;
 }
 
-.Gameslist a {
-  text-align: center;
-  text-decoration: none;
+.SpaceInvaderContainer {
+  box-sizing: border-box;
+  height: 100vh;
+  margin-top: 0px;
+  padding: 56px;
+  justify-content: center;
+  background-color: #E7EBE0FF;
 }
 
-.img {
+.SpaceInvaderImg {
+  margin-top: 5%;
+  height: 50%;
+  float: left;
+  width: 65%;
+  padding: 20px;
+}
+
+.SpaceInvaderContent {
+  position: relative;
+  width: 100%;
+  top: 23%;
+}
+
+.SpaceInvaderText {
+  position: relative;
+  font-family: "Montserrat", "sans-serif";
+  font-size: x-large;
+  font-weight: bold;
+  color: #393e46;
+  float: left;
+  width: 35%;
+  padding: 20px;
+}
+
+.SpaceInvaderButton {
+  position: relative;
+  left: 10%;
+  margin-top: 2%;
+  font-family: "Montserrat", "sans-serif";
+  border: none;
+  background-color: white;
+  color: #4592af;
   display: inline-block;
-  width: 350px;
-  height: 300px;
-  padding: 15px;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #4592af
+}
+
+.SpaceInvaderButton:hover {
+  cursor: pointer;
+  background-color: #4592af;
+  color: white;
+}
+
+.PongContainer {
+  box-sizing: border-box;
+  height: 100vh;
+  background-color: #ffe9ec;
+  padding: 56px;
+  justify-content: center;
+}
+
+.PongImg {
+  margin-top: 3%;
+  height: 88%;
+  float: left;
+  width: 45%;
+  padding: 20px;
+}
+
+.PongText {
+  margin-top: 15%;
+  height: 50%;
+  position: relative;
+  color: #685454;
+  font-family: "Montserrat", "sans-serif";
+  font-size: x-large;
+  font-weight: bold;
+  float: left;
+  width: 55%;
+  padding: 20px;
+}
+
+.PongButton {
+  position: absolute;
+  left: 21%;
+  margin-top: 30%;
+  font-family: "Montserrat", "sans-serif";
+  border: none;
+  background-color: white;
+  color: #fd5e53;
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #fd5e53;
+}
+
+.PongButton:hover {
+  cursor: pointer;
+  background-color: #fd5e53;
+  color: white;
+}
+
+.BreakoutContainer {
+  box-sizing: border-box;
+  height: 100vh;
+  padding: 56px;
+  justify-content: center;
+  background-color: #faf6e9;
+}
+
+.BreakoutImg {
+  margin-top: 5%;
+  margin-left: 5%;
+  height: 80%;
+  float: left;
+  width: 50%;
+  padding: 20px;
+}
+
+.BreakoutText {
+  margin-top: 15%;
+  position: relative;
+  font-family: "Montserrat", "sans-serif";
+  color: #494949;
+  font-size: x-large;
+  font-weight: bold;
+  float: left;
+  width: 40%;
+  padding: 20px;
+}
+
+.BreakoutButton {
+  position: absolute;
+  left: 65%;
+  margin-top: 35%;
+  font-family: "Montserrat", "sans-serif";
+  border: none;
+  background-color: white;
+  color: #854836;
+  display: inline-block;
+  text-decoration: none;
+  padding: 10px;
+  font-size: 20px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #854836;
+}
+
+.BreakoutButton:hover {
+  cursor: pointer;
+  background-color: #854836;
+  color: white;
 }
