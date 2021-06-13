@@ -1,0 +1,128 @@
+@font-face {
+  font-family: pixel;
+  src: url("../fonts/PressStart2P.ttf");
+}
+
+.page {
+  width: 100%;
+  height: 100%;
+  background: #17181a;
+  padding-top: 62px;
+  padding-bottom: 62px;
+}
+
+.App--Game {
+  font-family: "pixel";
+  text-transform: uppercase;
+  color: white;
+  background: black;
+  margin: 0 auto;
+  margin-top: 0px;
+  position: relative;
+}
+.App--Game-Gui {
+  z-index: 15;
+  position: absolute;
+  top: 0;
+}
+.App--Game-TopScore {
+  right: 50px;
+}
+.App--Game-CurrScore {
+  left: 50px;
+}
+.App--Game--Player {
+  z-index: 4;
+  position: absolute;
+  background: green;
+  background: url("../img/sprite.png") no-repeat;
+}
+.App--Game--Player-Life {
+  background-position: 30% 100%;
+  background-size: 660%;
+}
+.App--Game--Player-Explode {
+  background-position: 49% 100%;
+  background-size: 630%;
+}
+.App--Game--Player-Hide {
+  display: none;
+}
+
+/*Getting sprite and explosion from sprite.png*/
+.App--Game--Alien1 {
+  position: absolute;
+  background: blue;
+  font-size: 12px;
+  background: url("../img/sprite.png") no-repeat;
+  background-position: 61.782% 2.194%;
+  background-size: 500%;
+}
+
+.App--Game--Alien2 {
+  position: absolute;
+  background: blue;
+  font-size: 12px;
+  background: url("../img/sprite.png") no-repeat;
+  background-position: 30% 10px;
+  background-size: 400%;
+}
+
+.App--Game--Alien3 {
+  position: absolute;
+  background: blue;
+  font-size: 12px;
+  background: url("../img/sprite.png") no-repeat;
+  background-position: 34.409% 21.003%;
+  background-size: 500%;
+}
+
+.App--Game--Explode {
+  background: url("../img/sprite.png") no-repeat;
+  background-position: 75% 98%;
+  background-size: 480%;
+}
+.App--Canvas {
+  z-index: 3;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.instructions {
+  font-family: "Orbitron";
+  font-size: 14px;
+  padding-left: 60px;
+  color: #eeeeee;
+  display: flex;
+  position: absolute;
+  top: 50vh;
+}
+
+.facts {
+  font-family: "Orbitron";
+  font-size: 14px;
+  color: #eeeeee;
+  display: flex;
+  position: absolute;
+  left: 75%;
+  padding-left: 60px;
+  padding-right: 60px;
+  align-items: center;
+  text-align: justify;
+  top: 50%;
+}
+
+.factsTitle {
+  font-family: "Orbitron";
+  font-size: 14px;
+  color: #eeeeee;
+  display: flex;
+  position: absolute;
+  left: 75%;
+  padding-left: 60px;
+  padding-right: 60px;
+  align-items: center;
+  text-align: justify;
+  top: 46%;
+}
