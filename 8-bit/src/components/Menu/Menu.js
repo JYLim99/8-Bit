@@ -11,21 +11,21 @@ const Menu = () => {
                 <div className={ styles.container }>
                     <div className={ styles.menuInner }>
                         <ul className={ styles.list }>
-                            <Link className="link" to="/">
-                                <div className="wrapper">
-                                    <div className="lineLeft">
-                                        <div className="mask"></div>
-                                        <div className="title">
-                                            <h2>
-                                                <div className="text">
-                                                    Home
-                                                </div>
+                            <li className={ styles.li }>
+                                <Link to="/" className={ styles.link } >
+                                    <div className={ styles.wrapper }>
+                                        <div className="lineLeft">
+                                            {/* <div className="mask"></div> */}
+                                        </div>
+                                        <div className={ styles.title }>
+                                            <h2 className={ styles.header }>
+                                                <div className={ styles.text }> Home </div>
                                             </h2>
                                         </div>
                                         <div className="lineRight"></div>
                                     </div>
-                                </div>
-                            </Link>
+                                </Link>
+                            </li>
                         </ul>
                     </div>
                 </div>

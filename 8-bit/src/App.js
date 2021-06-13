@@ -16,7 +16,8 @@ function App() {
       <AuthProvider>
           <div className="App">
             <div className="Header">
-                <Header />
+                {/* <Header /> */}
+                <Menu />
               </div>
               <div className="Content">
                   <Switch>
