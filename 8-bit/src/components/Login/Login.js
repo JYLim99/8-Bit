@@ -43,7 +43,7 @@ const Login = () => {
                 <input className= { styles.loginInput } type="password" ref={ passwordRef } placeholder="Password"required />
                 <button className= { styles.loginButton } disabled={ loading } type="submit"> Login </button>
                 <p className={ styles.errorMsg }> { error } </p>
-                <Link to="/ForgotPassowrd" className={ styles.forgetPassLink }> Forgot Password </Link>
+                <Link to="/ForgetPassword" className={ styles.forgetPassLink }> Forgot Password </Link>
                 <Link to="/SignUp" className={ styles.signUpLink }> Sign up </Link>
             </form>
         </div>
