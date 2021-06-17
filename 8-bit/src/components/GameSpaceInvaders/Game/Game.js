@@ -532,29 +532,6 @@ class Game extends Component {
 
     return (
       <div className="page">
-        <div className="instructions">
-          <text>
-            <h3> Instructions </h3>
-            <ui>
-              <li> Press Spacebar to shoot </li>
-              <li>
-                A & D or left & right arrow keys <br /> to move
-              </li>
-              <li> P to pause </li>
-            </ui>
-          </text>
-        </div>
-        <h3 className="factsTitle">
-          <strong>Do you know?</strong>
-        </h3>
-        <div className="facts">
-          <p>
-            Space Invaders is a 1978 shoot 'em up arcade game developed by
-            Tomohiro Nishikado. Space Invaders was the first fixed shooter and
-            set the template for the shoot 'em up genre. It was inspired by
-            Atari arcade game Breakout.
-          </p>
-        </div>
         <div className="App--Game" style={styles}>
           <span className="App--Game-TopScore App--Game-Gui">
             <p>hi-score: {this.state.topScore}</p>

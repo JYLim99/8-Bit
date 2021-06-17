@@ -1,5 +1,6 @@
-html {
-  height: 100vh;
+@font-face {
+  font-family: pixel;
+  src: url("./fonts/PressStart2P.ttf");
 }
 
 body {
@@ -27,33 +28,14 @@ body {
 }
 
 div.instructions {
+  font-size: 10px;
   display: flex;
   position: absolute;
-  top: 50%;
-}
-
-div.facts {
-  display: flex;
-  position: absolute;
-  left: 75%;
-  padding: 20px;
-  align-items: center;
-  text-align: justify;
-  top: 50%;
-}
-
-h1.factsTitle {
-  font-size: 14px;
-  display: flex;
-  position: absolute;
-  left: 75%;
-  padding: 20px;
-  align-items: center;
-  text-align: justify;
-  top: 47%;
+  top: 60%;
 }
 
 div.current-score p {
+  padding-top: 20px;
   font-size: 14px;
   display: flex;
   position: absolute;
@@ -63,7 +45,7 @@ div.current-score p {
 }
 
 div.page {
-  font-family: "Orbitron";
+  font-family: "pixel";
   color: #eeeeee;
   font-size: 14px;
   box-sizing: border-box;
@@ -71,7 +53,7 @@ div.page {
   margin: 0;
 }
 
-@media only screen and (max-width: 1308px) {
+@media only screen and (max-width: 1420px) {
   div.instructions h3,
   li {
     display: none;
@@ -81,20 +63,6 @@ div.page {
 @media only screen and (max-height: 310px) {
   div.instructions h3,
   li {
-    display: none;
-  }
-}
-
-@media only screen and (max-width: 1430px) {
-  h1.factsTitle,
-  div.facts {
-    display: none;
-  }
-}
-
-@media only screen and (max-height: 310px) {
-  h1.factsTitle,
-  div.facts {
     display: none;
   }
 }

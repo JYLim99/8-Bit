@@ -20,6 +20,7 @@ class StartScreen extends Component {
         <span className="App--Ui-Controls">
           <p>Use [A][D] or [←][→] to MOVE</p>
           <p>Use [SPACE] to SHOOT</p>
+          <p>Use [P] to PAUSE</p>
         </span>
       </div>
     )
