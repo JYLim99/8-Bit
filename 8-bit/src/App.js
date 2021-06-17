@@ -1,5 +1,5 @@
 import Header from "./components/Header";
-import { useState, Fragment } from "react";
+import { Fragment } from "react";
 import Menu from "./components/Menu";
 import HomePage from "./pages/HomePage/HomePage";
 import SignUp from "./components/SignUp/SignUp";
@@ -11,6 +11,7 @@ import Breakout from "./pages/Breakout";
 import Pong from "./components/Pong/Pong";
 import SpaceInvaders from "./components/GameSpaceInvaders/Game/Game";
 import ProfilePage from "./pages/ProfilePage";
+import ForgetPassword  from "./components/ForgetPassword/ForgetPassword";
 
 function App() {
   return (
@@ -46,6 +47,9 @@ function App() {
                 </Route>
                 <Route path="/Pong">
                   <Pong />
+                </Route>
+                <Route path="/ForgetPassword">
+                  <ForgetPassword />
                 </Route>
               </Fragment>
             </Switch>
