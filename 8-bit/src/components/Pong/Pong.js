@@ -68,10 +68,20 @@ const Pong = () => {
       if (ball.x - ball.radius < 0) {
         lives--
         resetBall()
+
+        let angleRad = Math.PI / 4
+        let direction = ball.x + ball.radius < width / 2 ? 1 : -1
+        ball.dx = -(direction * ball.speed * Math.cos(angleRad))
+        ball.dy = ball.speed * Math.sin(angleRad)
       } else if (ball.x + ball.radius > width) {
         user.score++
         com.computerLevel += 0.005
         resetBall()
+
+        let angleRad = Math.PI / 4
+        let direction = ball.x + ball.radius < width / 2 ? 1 : -1
+        ball.dx = direction * ball.speed * Math.cos(angleRad)
+        ball.dy = ball.speed * Math.sin(angleRad)
       }
 
       if (lives === 0) {
