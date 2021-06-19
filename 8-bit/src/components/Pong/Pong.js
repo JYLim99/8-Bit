@@ -1,7 +1,7 @@
-import React, { useRef, useEffect, useState } from "react"
-import { ball, drawBall, resetBall } from "./Ball"
-import { user, drawUser, resetUser } from "./UserPaddle"
-import { com, drawCom, resetCom } from "./ComPaddle"
+import React, { useRef, useLayoutEffect, useState } from "react"
+import { ball, drawBall } from "./Ball"
+import { user, drawUser } from "./UserPaddle"
+import { com, drawCom } from "./ComPaddle"
 import { Dimensions } from "./Dimensions"
 import styles from "./Pong.module.css"
 
@@ -25,14 +25,8 @@ function collision(ball, rect) {
 
 function drawText(context, text, x, y) {
   context.fillStyle = "WHITE"
-  context.font = "15px orbitron"
+  context.font = "15px pixel"
   context.fillText(text, x, y)
-}
-
-function restartGame() {
-  resetUser()
-  resetCom()
-  resetBall()
 }
 
 let lives = 5
@@ -41,13 +35,17 @@ const Pong = () => {
   const canvasRef = useRef(null)
   const [gameOver, setGameOver] = useState(false)
   const [gameStarted, setGameStarted] = useState(false)
+  const ballRef = useRef(ball)
+  const userRef = useRef(user)
+  const comRef = useRef(com)
 
-  useEffect(() => {
+  useLayoutEffect(() => {
+
     const canvas = canvasRef.current
     const context = canvas.getContext("2d")
 
     function render() {
-      drawBall(context, canvas)
+      drawBall(context, canvas, ballRef.current.x, ballRef.current.y, ballRef.current.radius)
       drawUser(context)
       drawCom(context)
       drawText(context, "SCORE: ", width / 15, height / 10)
@@ -61,122 +59,126 @@ const Pong = () => {
     function movePaddle(event) {
       let rect = canvas.getBoundingClientRect()
 
-      user.y = event.clientY - rect.top - user.paddleHeight / 2
+      userRef.current.y = event.clientY - rect.top - userRef.current.paddleHeight / 2
     }
 
     function update() {
-      if (ball.x - ball.radius < 0) {
-        lives--
-        resetBall()
-
-        let angleRad = Math.PI / 4
-        let direction = ball.x + ball.radius < width / 2 ? 1 : -1
-        ball.dx = -(direction * ball.speed * Math.cos(angleRad))
-        ball.dy = ball.speed * Math.sin(angleRad)
-      } else if (ball.x + ball.radius > width) {
-        user.score++
-        com.computerLevel += 0.005
-        resetBall()
-
-        let angleRad = Math.PI / 4
-        let direction = ball.x + ball.radius < width / 2 ? 1 : -1
-        ball.dx = direction * ball.speed * Math.cos(angleRad)
-        ball.dy = ball.speed * Math.sin(angleRad)
+      if (ballRef.current.x - ballRef.current.radius < 0) {
+        lives--;
+        ballRef.current.x = width / 2;
+        ballRef.current.y = height / 2;
+        ballRef.current.dx = -5;
+        ballRef.current.speed = 7;
+      } else if (ballRef.current.x + ballRef.current.radius > width) {
+        userRef.current.score++;
+        ballRef.current.x = width / 2;
+        ballRef.current.y = height / 2;
+        ballRef.current.dx = -5;
+        ballRef.current.speed = 7;
       }
 
       if (lives === 0) {
         setGameOver(true)
       }
 
-      ball.x += ball.dx
-      ball.y += ball.dy
+      ballRef.current.x += ballRef.current.dx
+      ballRef.current.y += ballRef.current.dy
 
-      com.y += (ball.y - (com.y + com.paddleHeight / 2)) * com.computerLevel
+      comRef.current.y += (ballRef.current.y - (comRef.current.y + comRef.current.paddleHeight / 2)) * comRef.current.computerLevel
 
       if (
-        ball.y + ball.dy < ball.radius ||
-        ball.y + ball.dy > height - ball.radius
+        ballRef.current.y + ballRef.current.dy < ballRef.current.radius ||
+        ballRef.current.y + ballRef.current.dy > height - ballRef.current.radius
       ) {
-        ball.dy = -ball.dy
+        ballRef.current.dy = -ballRef.current.dy
       }
 
-      let player = ball.x + ball.radius < width / 2 ? user : com
+      let player = ballRef.current.x + ballRef.current.radius < width / 2 ? userRef.current : comRef.current
 
-      if (collision(ball, player)) {
-        let contact = ball.y - (player.y + player.paddleHeight / 2)
+      if (collision(ballRef.current, player)) {
+        let contact = ballRef.current.y - (player.y + player.paddleHeight / 2)
 
         contact = contact / (player.paddleHeight / 2)
 
         let angleRad = contact * (Math.PI / 4)
 
-        let direction = ball.x + ball.radius < width / 2 ? 1 : -1
+        let direction = ballRef.current.x + ballRef.current.radius < width / 2 ? 1 : -1
 
-        ball.dx = direction * ball.speed * Math.cos(angleRad)
+        ballRef.current.dx = direction * ballRef.current.speed * Math.cos(angleRad)
 
-        ball.dy = ball.speed * Math.sin(angleRad)
+        ballRef.current.dy = ballRef.current.speed * Math.sin(angleRad)
 
-        ball.speed += 1
+        ballRef.current.speed += 2;
       }
     }
 
-    function game() {
-      update()
-      render()
-      requestAnimationFrame(game)
-    }
-
     if (gameStarted) {
+      function game() {
+        update()
+        render()
+        requestAnimationFrame(game)
+      }
+
       game()
+
+      cancelAnimationFrame(game);
     }
   }, [gameStarted])
+
+  const Instructions = () => {
+    return(
+      <div className={styles.instructsBody}>
+        <ui>
+          <ul> Press anywhere to play </ul>
+          <br />
+          <ul> Move your mouse up and down to move </ul>
+          <br />
+          <ul> You have 5 tries before you lose</ul>
+        </ui>
+      </div>
+    )
+  }
+
+  const Header = () => {
+    return(
+      <h3 className={ styles.Header }> Pong </h3>
+    )
+  }
+  const [ instructDisplay, setInstructDisplay ] = useState(true);
+  const [ headerDisplay, setHeaderDisplay ] = useState(true);
 
   if (!gameOver) {
     return (
       <>
-        <h3 className={styles.instructs}>
-          <strong> Instructions: </strong>
-        </h3>
-        <div className={styles.instructsBody}>
-          <ui>
-            <ul> Press start game to play </ul>
-            <ul> Move your mouse up and down to move </ul>
-            <ul> You have 5 tries before you lose</ul>
-          </ui>
-        </div>
-        <div>
+        { headerDisplay ? <Header /> : null }
           <canvas
             ref={canvasRef}
             height={height}
             width={width}
             className={styles.canvasContainer}
-          />
-          <button
-            className={styles.gameButton}
             onClick={() => {
-              setGameStarted(true)
+              setGameStarted(!gameStarted)
+              setInstructDisplay(false)
+              setHeaderDisplay(false)
             }}
-          >
-            {" "}
-            Start game
-          </button>
-        </div>
+          />
+        { instructDisplay ? <Instructions /> : null}
       </>
     )
   } else {
     return (
-      <div className={styles.gameOver}>
-        <h1> GAME OVER! Your score: {user.score}</h1>
+      <>
+        <h1 className={styles.gameOverHeader}> GAME OVER! Your score: {user.score}</h1>
         <button
+          className={styles.restartButton}
           onClick={() => {
             setGameOver(false)
-            restartGame()
             window.location.reload()
           }}
         >
-          {" "}
-          Restart{" "}
+          Restart
         </button>
-      </div>
+      </>
     )
   }
 }

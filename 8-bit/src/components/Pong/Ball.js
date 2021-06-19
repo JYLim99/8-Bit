@@ -11,21 +11,11 @@ export const ball = {
     speed: 7
 }
 
-export function resetBall() {
-    ball.x = width / 2;
-    ball.y = height / 2;
-    ball.dx = -ball.dx;
-    ball.speed = 7;
-}
-
-export function drawBall(context, canvas) {
+export function drawBall(context, canvas, x, y, radius) {
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.fillStyle = "WHITE";
     context.beginPath();
-    context.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2, true);
+    context.arc(x, y, radius, 0, Math.PI * 2, true);
     context.closePath();
     context.fill();
 }
-
-
-

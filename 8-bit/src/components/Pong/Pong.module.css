@@ -3,22 +3,25 @@
   src: url("./fonts/PressStart2P.ttf");
 }
 
-.instructs {
+.Header {
   font-family: "pixel";
-  font-size: 14px;
-  display: flex;
-  position: absolute;
-  top: 45%;
-  left: 10%;
-  color: red;
+  font-size: 75px;
+  font-weight: 500;
+  color: white;
+  z-index: 1;
+  position: relative;
+  text-align: center;
+  margin-top: 10%;
 }
 
 .instructsBody {
   font-family: "pixel";
-  font-size: 11px;
-  display: flex;
-  position: absolute;
-  top: 50%;
+  font-size: 18px;
+  position: relative;
+  margin-top: 10%;
+  color: white;
+  z-index: 1;
+  text-align: center;
 }
 
 .canvasContainer {
@@ -29,15 +32,26 @@
   bottom: 0;
   right: 0;
   left: 0;
+  border-radius: 15px;
 }
 
-.gameButton {
-  display: flex;
+.restartButton {
+  display: block;
   margin: auto;
-  margin-top: 550px;
+  margin-top: 5%;
+  border: none;
+  background-color: black;
+  color: white;
+  padding: 20px;
+  border-radius: 15px;
+  font-family: pixel;
+  font-size: large;
 }
 
-.gameOver {
-  padding: 20px;
+.gameOverHeader {
   text-align: center;
+  margin-top: 10%;
+  position: relative;
+  z-index: 1;
+  font-family: pixel;
 }
