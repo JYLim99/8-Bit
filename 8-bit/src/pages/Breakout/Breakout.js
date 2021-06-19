@@ -31,17 +31,13 @@ const Breakout = () => {
         <text>
           <h3> Instructions </h3>
           <ui>
-            <li> Press Spacebar to start/pass </li>
+            <li> Press Spacebar to start/pause </li>
             <br />
             <li> Left and right arrow keys to move </li>
           </ui>
         </text>
       </div>
-      <div>
-        <p>
-          Score: <span id="current-score"></span>
-        </p>
-      </div>
+      Score: <span id="current-score"></span>
       <div className={styles.sceneContainer} ref={sceneContainer}>
         {size && <Scene width={size.width} height={size.height} />}
       </div>
