@@ -111,18 +111,18 @@ const Pong = () => {
         ballRef.current.speed += 2;
       }
     }
+    
+    function game() {
+      update()
+      render()
+      requestAnimationFrame(game)
+    }
 
     if (gameStarted) {
-      function game() {
-        update()
-        render()
-        requestAnimationFrame(game)
-      }
-
-      game()
-
-      cancelAnimationFrame(game);
+      requestAnimationFrame(game)
+      return () => cancelAnimationFrame(game);
     }
+    return () => cancelAnimationFrame(game);
   }, [gameStarted])
 
   const Instructions = () => {
