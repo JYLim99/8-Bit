@@ -27,14 +27,14 @@ body {
   justify-content: center;
 }
 
-div.instructions {
+.instructions {
   font-size: 10px;
   display: flex;
   position: absolute;
   top: 60%;
 }
 
-div.current-score p {
+.current-score {
   padding-top: 20px;
   font-size: 14px;
   display: flex;
@@ -44,7 +44,7 @@ div.current-score p {
   margin: 0;
 }
 
-div.page {
+.page {
   font-family: "pixel";
   color: #eeeeee;
   font-size: 14px;
