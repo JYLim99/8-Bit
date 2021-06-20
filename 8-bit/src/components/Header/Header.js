@@ -7,8 +7,10 @@ const Header = () => {
         <div className={ styles.Header }>
             <div className={ styles.container }>
                 <div className={ styles.HeaderInner }>
-                    <img className={ styles.SpaceInvaderIcon } src={ SpaceInvaderIcon } alt="SpaceInvaderIcon"/>
-                    <Link to="/" className={ styles.Name }> 8 Bit </Link>
+                    <Link to="/" className={ styles.Name }> 
+                        <img className={ styles.SpaceInvaderIcon } src={ SpaceInvaderIcon } alt="SpaceInvaderIcon"/>
+                        8 Bit 
+                    </Link>
                     <Link to="/Menu">
                         <div className={ styles.nav }>
                             <span className={ styles.span }></span>
