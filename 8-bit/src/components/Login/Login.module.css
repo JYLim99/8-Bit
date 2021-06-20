@@ -87,7 +87,7 @@
     display: block;
     text-decoration: none;
     float: left;
-    font-size: small;
+    font-size: 14px;
     padding-left: 10px;
     font-weight: 700;
 }
@@ -107,12 +107,44 @@
     font-size: 15px;
     font-weight: 700;
     text-align: center;
-    margin-top: 50%;
+    margin-top: 15%;
     position: relative;
-    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .signUpLink:hover {
     color: #ee4540;
     transform: scale(1.05);
+}
+
+.googleBlock {
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.googleTag {
+    margin-top: 5%;
+    font-family: 'Italiana', serif;
+    padding: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
+    text-align: center;
+}
+
+.googleIcon {
+    height: 32px;
+    width: 32px;
+    cursor: pointer;
+    align-items: center;
+    padding-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
 }
