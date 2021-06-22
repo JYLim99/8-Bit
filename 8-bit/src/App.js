@@ -10,8 +10,9 @@ import './App.css';
 import Breakout from "./pages/Breakout";
 import Pong from "./components/Pong/Pong";
 import SpaceInvaders from "./components/GameSpaceInvaders/Game/Game";
-import ProfilePage from "./pages/ProfilePage";
+import Dashboard from "./pages/Dashboard";
 import ForgetPassword  from "./components/ForgetPassword/ForgetPassword";
+import Chat from "./components/Chat/Chat";
 
 function App() {
   return (
@@ -22,6 +23,9 @@ function App() {
             <Switch>
               <Route exact path="/Menu">
                   <Menu />
+              </Route>
+              <Route exact path="/Chat">
+                  <Chat />
               </Route>
               <Fragment>
                 <div className="Header">
@@ -36,8 +40,8 @@ function App() {
                 <Route path="/Login">
                   <Login />
                 </Route>
-                <Route path="/ProfilePage">
-                  <ProfilePage />
+                <Route path="/Dashboard">
+                  <Dashboard />
                 </Route>
                 <Route path="/SpaceInvaders">
                   <SpaceInvaders />

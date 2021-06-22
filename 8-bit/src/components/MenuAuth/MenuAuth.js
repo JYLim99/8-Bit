@@ -146,7 +146,7 @@ const MenuAuth = () => {
                   </Link>
                 </li>
                 <li className={styles.list}>
-                  <Link to="/Login" className={styles.home}>
+                  <Link to="/Dashboard" className={styles.home}>
                     <div className={styles.wrapper}>
                       <div className={styles.lineLeft4}>
                         <motion.div
@@ -162,7 +162,7 @@ const MenuAuth = () => {
                             variants={slideUp}
                             transition={transition}
                           >
-                            Profile
+                            Dashboard
                           </motion.div>
                         </h2>
                       </div>
@@ -177,7 +177,7 @@ const MenuAuth = () => {
                   </Link>
                 </li>
                 <li className={styles.list}>
-                  <Link to="/Login" className={styles.home}>
+                  <Link to="/" className={styles.home}>
                     <div className={styles.wrapper}>
                       <div className={styles.lineLeft5}>
                         <motion.div

@@ -45,7 +45,7 @@ const Pong = () => {
     const context = canvas.getContext("2d")
 
     function render() {
-      drawBall(context, canvas, ballRef.current.x, ballRef.current.y, ballRef.current.radius)
+      drawBall(context, canvas)
       drawUser(context)
       drawCom(context)
       drawText(context, "SCORE: ", width / 15, height / 10)
@@ -108,7 +108,7 @@ const Pong = () => {
 
         ballRef.current.dy = ballRef.current.speed * Math.sin(angleRad)
 
-        ballRef.current.speed += 2;
+        ballRef.current.speed += 0.05;
       }
     }
     
@@ -120,9 +120,10 @@ const Pong = () => {
 
     if (gameStarted) {
       requestAnimationFrame(game)
-      return () => cancelAnimationFrame(game);
+    } else {
+      cancelAnimationFrame(game)
     }
-    return () => cancelAnimationFrame(game);
+
   }, [gameStarted])
 
   const Instructions = () => {

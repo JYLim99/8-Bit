@@ -11,11 +11,11 @@ export const ball = {
     speed: 7
 }
 
-export function drawBall(context, canvas, x, y, radius) {
+export function drawBall(context, canvas) {
     context.clearRect(0, 0, canvas.width, canvas.height);
     context.fillStyle = "WHITE";
     context.beginPath();
-    context.arc(x, y, radius, 0, Math.PI * 2, true);
+    context.arc(ball.x, ball.y, ball.radius, 0, Math.PI * 2, true);
     context.closePath();
     context.fill();
 }

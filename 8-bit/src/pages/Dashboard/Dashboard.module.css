@@ -7,6 +7,10 @@
     padding: 20px;
 }
 
+.name {
+    margin-bottom: 20px;
+}
+
 .editedProfile {
     text-align: center;
     justify-content: center;
