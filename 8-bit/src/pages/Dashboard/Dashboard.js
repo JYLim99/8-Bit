@@ -30,15 +30,17 @@ const Dashboard = () => {
         )
      } else {
          return (
-             <>
-                <img src={ imgData } />
-                { status }
-                 <br />
-                 <div> { currentUser.displayName }</div>
-                 <br />
-                 <div> { currentUser.email } </div>
-                 <Link to='/UpdateProfile'> Update Profile </Link>
-             </>
+             <div className={ styles.profileContainer }>
+                <img className={ styles.profileImage } src={ imgData } />
+                <br />
+                <div className={ styles.info }> Display Name: { currentUser.displayName }</div>
+                <br />
+                <div className={ styles.info }> Status: { status } </div>
+                <br />
+                <div className={ styles.info }> Email: { currentUser.email } </div>
+                <br />
+                <Link className={ styles.redirect } to='/UpdateProfile'> Update Profile </Link>
+             </div>
          )
      }
 }
