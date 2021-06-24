@@ -1,0 +1,91 @@
+@font-face {
+    font-family: cheri;
+    src: url("./CHERI_.TTF");
+}
+
+.background {
+    background-color: #fff7af;
+    height: 100vh;
+    width: 100vw;
+}
+
+.profileContainer {
+    padding: 50px 100px;
+    align-items: center;
+    justify-items: center;
+    margin: 0;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    width: 20vw;
+    top: 10%;
+}
+
+.label {
+    font-family: cheri;
+    font-size: 18px;
+}
+
+.input {
+    display: block;
+    width: 100%;
+    font-size: 18px;
+    line-height: 36px;
+    margin-bottom: 36px;
+    border: none;
+    border-bottom: 5px solid rgba(0,0,0,1);
+    background: #f8f4e5;
+    min-width: 250px;
+    padding-left: 5px;
+    outline: none;
+    color: rgba(0,0,0,1);
+    font-family: cheri;
+}
+
+.input:focus {
+    border-bottom: 5px solid #ffa580;
+}
+
+.profileLabel {
+    margin-top: 15%;
+}
+
+.profileImg {
+    display: inline-block;
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    padding: 20px;
+    border: 2px solid rgba(0,0,0,1);
+}
+
+.submitButton {
+    font-family: cheri;
+    display: block;
+    margin: 0 auto;
+    line-height: 36px;
+    padding: 0 25px;
+    border-radius: 15px;
+    background: #ffa580;
+    letter-spacing: 2px;
+    outline: none;
+    border: 2px solid rgba(0,0,0,1);
+    cursor: pointer;
+    margin-bottom: 10%;
+}
+
+.dashboardButton {
+    font-family: cheri;
+    display: block;
+    margin: 0 auto;
+    line-height: 36px;
+    padding: 0 25px;
+    border-radius: 15px;
+    background: #ffa580;
+    letter-spacing: 2px;
+    outline: none;
+    border: 2px solid rgba(0,0,0,1);
+    cursor: pointer;
+}
+

@@ -13,6 +13,7 @@ import SpaceInvaders from "./components/GameSpaceInvaders/Game/Game";
 import Dashboard from "./pages/Dashboard";
 import ForgetPassword  from "./components/ForgetPassword/ForgetPassword";
 import Chat from "./components/Chat/Chat";
+import UpdateProfile from "./components/UpdateProfile/UpdateProfile";
 
 function App() {
   return (
@@ -54,6 +55,9 @@ function App() {
                 </Route>
                 <Route path="/ForgetPassword">
                   <ForgetPassword />
+                </Route>
+                <Route path="/UpdateProfile">
+                  <UpdateProfile />
                 </Route>
               </Fragment>
             </Switch>
