@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
+@font-face {
+    font-family: Caramel Sweets;
+    src: url('./CaramelSweets.ttf');
+}
 
 .Container {
     display: flex;
@@ -15,10 +18,10 @@
 }
 
 .header {
-    font-family: 'Italiana', serif;
+    font-family: Caramel Sweets;
     padding: 10px;
     border-radius: 15px;
-    color: #181818;
+    color: black;
     display: block;
     text-decoration: none;
     font-weight: 700;
@@ -34,13 +37,13 @@
     text-indent: 0px;
     text-align: start;
     cursor: text;
-    font-family: 'Italiana', serif;
+    font-family: Caramel Sweets;
     box-sizing: border-box;
     border-radius: 0;
     overflow: visible;
     margin: 0;
     border: 0px;
-    color: #323a3d;
+    color: black;
     font-size: 18px;
     padding-bottom: 10px;
     border-bottom: 1px solid #77858a;
@@ -54,20 +57,20 @@
 }
 
 .loginButton {
-    font-family: 'Italiana', serif;
+    font-family: Caramel Sweets;
     font-size: 14px;
     margin-top: 30px;
     border-radius: 15px;
-    border: none;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     background-color: transparent;
-    color: black;
+    color: #d4a373;
     padding: 15px;
     font-weight: 700;
     align-items: center;
     width: 30%;
     float: right;
     cursor: pointer;
+    letter-spacing: 1.5px;
+    border: 3px solid #d4a373;
 }
 
 .loginButton:hover {
@@ -75,14 +78,14 @@
 }
 
 .errorMsg {
-    font-family: 'Italiana', serif;
+    font-family: Caramel Sweets;
     font-size: smaller;
     color: #ee4540;
     margin-bottom: 5%;
 }
 
 .forgetPassLink {
-    font-family: 'Italiana', serif;
+    font-family: Caramel Sweets;
     color: black;
     display: block;
     text-decoration: none;
@@ -97,7 +100,7 @@
 }
 
 .signUpLink {
-    font-family: 'Italiana', serif;
+    font-family: Caramel Sweets;
     padding: 10px;
     border-radius: 15px;
     opacity: 0.9;
@@ -121,14 +124,14 @@
 .googleBlock {
     margin-left: auto;
     margin-right: auto;
-    margin-top: 20%;
+    margin-top: 25%;
     margin-left: auto;
     margin-right: auto;
 }
 
 .googleTag {
     margin-top: 5%;
-    font-family: 'Italiana', serif;
+    font-family: Caramel Sweets;
     padding: 10px;
     margin-left: auto;
     margin-right: auto;
@@ -136,6 +139,7 @@
     margin-left: auto;
     margin-right: auto; 
     text-align: center;
+    color: black;
 }
 
 .googleIcon {

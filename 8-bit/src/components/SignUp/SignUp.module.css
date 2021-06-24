@@ -1,4 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Della+Respira&display=swap');
+@font-face {
+    font-family: Caramel Sweets;
+    src: url('./CaramelSweets.ttf');
+}
 
 .signUpContainer {
     display: flex;
@@ -15,7 +18,7 @@
 }
 
 .header {
-    font-family: 'Italiana', serif;
+    font-family: Caramel Sweets;
     padding: 10px;
     border-radius: 15px;
     color: #181818;
@@ -34,7 +37,7 @@
     text-indent: 0px;
     text-align: start;
     cursor: text;
-    font-family: 'Italiana', serif;
+    font-family: Caramel Sweets;
     box-sizing: border-box;
     border-radius: 0;
     overflow: visible;
@@ -54,20 +57,20 @@
 }
 
 .button {
-    font-family: 'Della Respira', serif;
+    font-family: Caramel Sweets;
     font-size: 14px;
     margin-top: 30px;
     border-radius: 15px;
-    border: none;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
     background-color: transparent;
-    color: #181818;
+    color: #d4a373;
     padding: 15px;
     font-weight: 500;
     align-items: center;
     width: 30%;
     float: right;
     cursor: pointer;
+    letter-spacing: 1.5px;
+    border: 3px solid #d4a373;
 }
 
 .button:hover {
@@ -75,14 +78,14 @@
 }
 
 .errorMsg {
-    font-family: 'Della Respira', serif;
+    font-family: Caramel Sweets;
     font-size: smaller;
     color: #ee4540;
     margin-bottom: 5%;
 }
 
 .linkLogin {
-    font-family: 'Italiana', serif;
+    font-family: Caramel Sweets;
     padding: 10px;
     border-radius: 15px;
     opacity: 0.9;
@@ -99,4 +102,5 @@
 
 .linkLogin:hover {
     color: #ee4540;
+    transform: scale(1.05);
 }
