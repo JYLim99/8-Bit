@@ -14,6 +14,7 @@ import Dashboard from "./pages/Dashboard";
 import ForgetPassword  from "./components/ForgetPassword/ForgetPassword";
 import Chat from "./components/Chat/Chat";
 import UpdateProfile from "./components/UpdateProfile/UpdateProfile";
+import Game from "./pages/GamePage/Game";
 
 function App() {
   return (
@@ -34,6 +35,9 @@ function App() {
                 </div>
                 <Route exact path="/">
                   <HomePage />
+                </Route>
+                <Route exact path="/Games">
+                  <Game />
                 </Route>
                 <Route exact path="/SignUp">
                   <SignUp />

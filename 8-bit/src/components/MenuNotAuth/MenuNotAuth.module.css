@@ -14,29 +14,13 @@
     top: 3rem;
     left: 5.8rem;
     font-size: 1.4rem;
-    z-index: 1000;
+    z-index: 10;
     position: absolute;
     color: black;
     right: 5.8rem;
     display: flex;
     align-items: center;
     letter-spacing: 0.05rem;
-    cursor: pointer;
-}
-
-.close {
-    font-family: 'IBM Plex Sans', sans-serif;
-    box-sizing: border-box;
-    z-index: 1000;
-    position: absolute;
-    color: black;
-    top: 3rem;
-    right: 5.8rem;
-    display: flex;
-    align-items: center;
-    text-transform: uppercase;
-    font-size: 0.875rem;
-    letter-spacing: 0.05;
     cursor: pointer;
 }
 
@@ -306,6 +290,50 @@
 }
 
 .lineRight4:after {
+    content: "";
+    position: absolute;
+    height: 6px;
+    width: 6px;
+    border-radius: 100%;
+    background-color: black;
+    left: 0;
+}
+
+.lineLeft5 {
+    box-sizing: border-box;
+    height: 1px;
+    width: 100%;
+    background: #000;
+    margin-bottom: .8rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 1 1;
+}
+
+.lineLeft5:after {
+    content: "";
+    position: absolute;
+    height: 6px;
+    width: 6px;
+    border-radius: 100%;
+    background-color: black;
+    right: 0;
+}
+
+.lineRight5 {
+    box-sizing: border-box;
+    height: 1px;
+    width: 100%;
+    background: #000;
+    margin-bottom: .8rem;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex: 5 1;
+}
+
+.lineRight5:after {
     content: "";
     position: absolute;
     height: 6px;

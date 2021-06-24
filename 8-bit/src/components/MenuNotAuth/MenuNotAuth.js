@@ -76,9 +76,40 @@ const MenuNotAuth = () => {
                   </Link>
                 </motion.li>
                 <li className={styles.list}>
-                  <Link to="/Forum" className={styles.home}>
+                  <Link to="/Games" className={styles.home}>
                     <div className={styles.wrapper}>
                       <div className={styles.lineLeft2}>
+                        <motion.div
+                          className={styles.maskLeft}
+                          variants={lineAnimate}
+                          transition={{ ...transition, duration: 1 }}
+                        ></motion.div>
+                      </div>
+                      <div className={styles.title}>
+                        <h2 className={styles.menuHeader}>
+                          <motion.div
+                            className={styles.text}
+                            variants={slideUp}
+                            transition={transition}
+                          >
+                            Games
+                          </motion.div>
+                        </h2>
+                      </div>
+                      <div className={styles.lineRight2}>
+                        <motion.div
+                          className={styles.maskRight}
+                          variants={lineAnimate}
+                          transition={{ ...transition, duration: 1 }}
+                        ></motion.div>
+                      </div>
+                    </div>
+                  </Link>
+                </li>
+                <li className={styles.list}>
+                  <Link to="/Forum" className={styles.home}>
+                    <div className={styles.wrapper}>
+                      <div className={styles.lineLeft3}>
                         <motion.div
                           className={styles.maskLeft}
                           variants={lineAnimate}
@@ -96,7 +127,7 @@ const MenuNotAuth = () => {
                           </motion.div>
                         </h2>
                       </div>
-                      <div className={styles.lineRight2}>
+                      <div className={styles.lineRight3}>
                         <motion.div
                           className={styles.maskRight}
                           variants={lineAnimate}
@@ -109,7 +140,7 @@ const MenuNotAuth = () => {
                 <li className={styles.list}>
                   <Link to="/Leaderboard" className={styles.home}>
                     <div className={styles.wrapper}>
-                      <div className={styles.lineLeft3}>
+                      <div className={styles.lineLeft4}>
                         <motion.div
                           className={styles.maskLeft}
                           variants={lineAnimate}
@@ -127,7 +158,7 @@ const MenuNotAuth = () => {
                           </motion.div>
                         </h2>
                       </div>
-                      <div className={styles.lineRight3}>
+                      <div className={styles.lineRight4}>
                         <motion.div
                           className={styles.maskRight}
                           variants={lineAnimate}
@@ -140,7 +171,7 @@ const MenuNotAuth = () => {
                 <li className={styles.list}>
                   <Link to="/Login" className={styles.home}>
                     <div className={styles.wrapper}>
-                      <div className={styles.lineLeft4}>
+                      <div className={styles.lineLeft5}>
                         <motion.div
                           className={styles.maskLeft}
                           variants={lineAnimate}
@@ -158,7 +189,7 @@ const MenuNotAuth = () => {
                           </motion.div>
                         </h2>
                       </div>
-                      <div className={styles.lineRight4}>
+                      <div className={styles.lineRight5}>
                         <motion.div
                           className={styles.maskRight}
                           variants={lineAnimate}
