@@ -1,3 +1,8 @@
+@font-face {
+  font-family: Zelda;
+  src: url("./HyliaSerifBeta-Regular.otf");
+}
+
 .SpaceInvaderContainer {
     box-sizing: border-box;
     height: 100vh;
@@ -23,20 +28,21 @@
   
   .SpaceInvaderText {
     position: relative;
-    font-family: "Montserrat", "sans-serif";
+    font-family: Zelda;
     font-size: x-large;
     font-weight: bold;
     color: #393e46;
     float: left;
     width: 35%;
     padding: 20px;
+    letter-spacing: 1px;
   }
   
   .SpaceInvaderButton {
     position: relative;
     left: 14%;
     margin-top: 2%;
-    font-family: "Montserrat", "sans-serif";
+    font-family: Zelda;
     border: none;
     background-color: white;
     color: #4592af;
@@ -46,7 +52,8 @@
     font-size: 20px;
     border-radius: 10px;
     border-style: solid;
-    border-color: #4592af
+    border-color: #4592af;
+    letter-spacing: 1.5px;
   }
   
   .SpaceInvaderButton:hover {
@@ -76,19 +83,20 @@
     height: 50%;
     position: relative;
     color: #685454;
-    font-family: "Montserrat", "sans-serif";
+    font-family: Zelda;
     font-size: x-large;
     font-weight: bold;
     float: left;
     width: 50%;
     padding: 20px;
+    letter-spacing: 1px;
   }
   
   .PongButton {
     position: absolute;
     left: 21%;
     margin-top: 30%;
-    font-family: "Montserrat", "sans-serif";
+    font-family: Zelda;
     border: none;
     background-color: white;
     color: #fd5e53;
@@ -99,6 +107,7 @@
     border-radius: 10px;
     border-style: solid;
     border-color: #fd5e53;
+    letter-spacing: 1.5px;
   }
   
   .PongButton:hover {
@@ -126,20 +135,21 @@
   .BreakoutText {
     margin-top: 15%;
     position: relative;
-    font-family: "Montserrat", "sans-serif";
+    font-family: Zelda;
     color: #494949;
     font-size: x-large;
     font-weight: bold;
     float: left;
     width: 40%;
     padding: 20px;
+    letter-spacing: 1px;
   }
   
   .BreakoutButton {
     position: absolute;
     left: 67%;
     margin-top: 32%;
-    font-family: "Montserrat", "sans-serif";
+    font-family: Zelda;
     border: none;
     background-color: white;
     color: #854836;
@@ -150,6 +160,7 @@
     border-radius: 10px;
     border-style: solid;
     border-color: #854836;
+    letter-spacing: 1.5px;
   }
   
   .BreakoutButton:hover {

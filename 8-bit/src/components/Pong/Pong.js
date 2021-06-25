@@ -38,6 +38,7 @@ const Pong = () => {
   const ballRef = useRef(ball)
   const userRef = useRef(user)
   const comRef = useRef(com)
+  const requestRef = useRef();
 
   useLayoutEffect(() => {
 
@@ -75,6 +76,7 @@ const Pong = () => {
         ballRef.current.y = height / 2;
         ballRef.current.dx = -5;
         ballRef.current.speed = 7;
+        comRef.current.computerLevel += 0.005
       }
 
       if (lives === 0) {
@@ -108,21 +110,21 @@ const Pong = () => {
 
         ballRef.current.dy = ballRef.current.speed * Math.sin(angleRad)
 
-        ballRef.current.speed += 0.05;
+        ballRef.current.speed += 0.08;
       }
     }
     
     function game() {
       update()
       render()
-      requestAnimationFrame(game)
+      requestRef.current = requestAnimationFrame(game)
     }
 
-    if (gameStarted) {
-      requestAnimationFrame(game)
-    } else {
-      cancelAnimationFrame(game)
+    if(gameStarted) {
+      requestRef.current = requestAnimationFrame(game)
     }
+
+    return () => cancelAnimationFrame(requestRef.current)
 
   }, [gameStarted])
 
@@ -133,6 +135,8 @@ const Pong = () => {
           <ul> Press anywhere to play </ul>
           <br />
           <ul> Move your mouse up and down to move </ul>
+          <br />
+          <ul> Click on the screen again to pause </ul>
           <br />
           <ul> You have 5 tries before you lose</ul>
         </ui>

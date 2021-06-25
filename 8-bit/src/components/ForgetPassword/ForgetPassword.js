@@ -7,7 +7,6 @@ const ForgetPassword = () => {
 
     const emailRef = useRef();
     const [ error, setError ] = useState('');
-    const [ loading, setLoading ] = useState(false);
     const [ msg, setMsg ] = useState('');
     const { forgotPassword } = useAuth();
 
@@ -16,13 +15,11 @@ const ForgetPassword = () => {
         try {
             setMsg('');
             setError('');
-            setLoading(true);
             await forgotPassword(emailRef.current.value);
             setMsg('Please check your email');
         } catch {
             setError("Unable to reset password");
         }
-        setLoading(false);
     }
 
     return (
@@ -32,6 +29,7 @@ const ForgetPassword = () => {
                 <input className= { styles.input } type="text" ref={ emailRef } placeholder="Email"required />
                 <button className= { styles.button } type="submit"> Submit </button>
                 <p className={ styles.msg }> { msg } </p>
+                <p className={ styles.errorMsg }> { error } </p>
                 <Link to="/Login" className={ styles.loginLink }> Login </Link>
             </form>
         </div>

@@ -1,5 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Vollkorn+SC&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Marcellus+SC&display=swap');
+@font-face {
+  font-family: Zelda;
+  src: url("./HyliaSerifBeta-Regular.otf");
+}
 
 .Header {
   position: relative;
@@ -40,12 +42,12 @@
 .Name {
   width: 90%;
   font-size: 25px;
-  font-weight: 500;
   display: flex;
   align-items: center;
-  font-family: 'Marcellus SC', serif;
+  font-family: Zelda;
   text-decoration: none;
   color: black;
+  letter-spacing: 0.5px;
 } 
 
 .nav {
