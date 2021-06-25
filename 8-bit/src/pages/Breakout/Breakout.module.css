@@ -1,68 +1,68 @@
 @font-face {
-  font-family: pixel;
-  src: url("./fonts/PressStart2P.ttf");
+    font-family: pixel;
+    src: url('./fonts/PressStart2P.ttf');
 }
 
 body {
-  height: 100%;
-  margin: 0;
+    height: 100%;
+    margin: 0;
 }
 
 #root {
-  height: 100vh;
+    height: 100vh;
 }
 
 .page {
-  width: 100%;
-  height: 100vh;
-  background: #17181a;
-  padding: 60px;
+    width: 100%;
+    height: 100vh;
+    background: #17181a;
+    padding: 60px;
 }
 
 .sceneContainer {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .instructions {
-  font-size: 10px;
-  display: flex;
-  position: absolute;
-  top: 60%;
+    font-size: 10px;
+    display: flex;
+    position: absolute;
+    top: 60%;
 }
 
 .current-score {
-  padding-top: 20px;
-  font-size: 14px;
-  display: flex;
-  position: absolute;
-  box-sizing: border-box;
-  outline: 0;
-  margin: 0;
+    padding-top: 20px;
+    font-size: 14px;
+    display: flex;
+    position: absolute;
+    box-sizing: border-box;
+    outline: 0;
+    margin: 0;
 }
 
 .page {
-  font-family: "pixel";
-  color: #eeeeee;
-  font-size: 14px;
-  box-sizing: border-box;
-  outline: 0;
-  margin: 0;
+    font-family: 'pixel';
+    color: #eeeeee;
+    font-size: 14px;
+    box-sizing: border-box;
+    outline: 0;
+    margin: 0;
 }
 
-@media only screen and (max-width: 1420px) {
-  div.instructions h3,
-  li {
-    display: none;
-  }
+@media only screen and (max-width: 1530px) {
+    div.instructions h3,
+    li {
+        display: none;
+    }
 }
 
 @media only screen and (max-height: 310px) {
-  div.instructions h3,
-  li {
-    display: none;
-  }
+    div.instructions h3,
+    li {
+        display: none;
+    }
 }
