@@ -6,6 +6,7 @@ import styles from './MusicPlayer.module.css';
 const MusicPlayer = () => {
 
     let audio = new Audio(TownTheme);
+    audio.volume = 0.3;
     const audioRef = useRef(audio)
     const [ musicPlay, setMusicPlay ] = useState(true);
 
