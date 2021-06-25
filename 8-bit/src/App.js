@@ -29,13 +29,13 @@ function App() {
               <Route exact path="/Chat">
                   <Chat />
               </Route>
+              <Route exact path="/">
+                  <HomePage />
+              </Route>
               <Fragment>
                 <div className="Header">
                 <Header />
                 </div>
-                <Route exact path="/">
-                  <HomePage />
-                </Route>
                 <Route exact path="/Games">
                   <Game />
                 </Route>

@@ -1,6 +1,8 @@
+import MusicPlayer from '../../components/MusicPlayer/MusicPlayer';
+
 const HomePage = () => {
   return (
-    <div> Work In Progress </div>
+    <MusicPlayer />
   );
 };
 
