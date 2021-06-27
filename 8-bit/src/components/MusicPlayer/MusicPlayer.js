@@ -8,7 +8,7 @@ const MusicPlayer = () => {
     let audio = new Audio(TownTheme);
     audio.volume = 0.3;
     const audioRef = useRef(audio)
-    const [ musicPlay, setMusicPlay ] = useState(true);
+    const [ musicPlay, setMusicPlay ] = useState(false);
 
     const handleMusic = () => {
         setMusicPlay(!musicPlay)
@@ -19,7 +19,7 @@ const MusicPlayer = () => {
     },[musicPlay])
 
     return (
-        <img className={ styles.musicPlayer }src={ Music } alt="Music" onClick={ handleMusic }/>
+        <img className={ styles.musicPlayer } src={ Music } alt="Music" onClick={ handleMusic }/>
     );
 }
  

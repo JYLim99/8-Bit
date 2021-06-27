@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import SpaceInvaderIcon from '../../images/SpaceInvaderIcon.png';
 import styles from './Header.module.css';
+import MusicPlayer from '../MusicPlayer/MusicPlayer';
 
 const Header = () => {
     return ( 
@@ -11,6 +12,7 @@ const Header = () => {
                         <img className={ styles.SpaceInvaderIcon } src={ SpaceInvaderIcon } alt="SpaceInvaderIcon"/>
                         8 Bit 
                     </Link>
+                    <MusicPlayer />
                     <Link to="/Menu">
                         <div className={ styles.nav }>
                             <span className={ styles.span }></span>

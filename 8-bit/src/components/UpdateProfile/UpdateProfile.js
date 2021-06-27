@@ -88,7 +88,7 @@ const UpdateProfile = () => {
                 <input className={ styles.input } type="text" placeholder="Yes we can" onChange={ handleStatus } />
                 <br />
                 <img className={ styles.profileImg } src={ imgUrl } />
-                <label className={ styles.profileLabel }> Change your profile picture: </label>
+                <label className={ styles.label }> Change your profile picture: </label>
                 <input className={ styles.input } type="file" onChange={ handleImage }/>
                 <br />
                 <button className={ styles.submitButton } onClick={ handleSubmit }> Submit </button>
