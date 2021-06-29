@@ -83,7 +83,7 @@ const MenuAuth = () => {
                     </div>
                   </Link>
                 </motion.li>
-                <li className={styles.list}>
+                {/* <li className={styles.list}>
                   <Link to="/Games" className={styles.home}>
                     <div className={styles.wrapper}>
                       <div className={styles.lineLeft2}>
@@ -113,7 +113,7 @@ const MenuAuth = () => {
                       </div>
                     </div>
                   </Link>
-                </li>
+                </li> */}
                 <li className={styles.list}>
                   <Link to="/Forum" className={styles.home}>
                     <div className={styles.wrapper}>
