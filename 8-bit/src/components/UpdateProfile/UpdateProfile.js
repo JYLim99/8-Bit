@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useAuth } from '../Context/AuthContext';
 import { db, storage } from '../../config/firebase';
-import { useHistory } from 'react-router-dom';
+import { useHistory, Redirect } from 'react-router-dom';
 import styles from './UpdateProfile.module.css';
 
 const UpdateProfile = () => {
@@ -78,24 +78,28 @@ const UpdateProfile = () => {
         history.push('/Dashboard')
     }
 
-    return (
-        <div className={ styles.background }>
-            <form className={ styles.profileContainer }>
-                <label className={ styles.label }> Change your display name: </label>
-                <input className={ styles.input } type="text" placeholder={ currentUser.displayName } onChange={ handleDisplayName } /> 
-                <br />
-                <label className={ styles.label }> Change your status: </label>
-                <input className={ styles.input } type="text" placeholder="Yes we can" onChange={ handleStatus } />
-                <br />
-                <img className={ styles.profileImg } src={ imgUrl } />
-                <label className={ styles.label }> Change your profile picture: </label>
-                <input className={ styles.input } type="file" onChange={ handleImage }/>
-                <br />
-                <button className={ styles.submitButton } onClick={ handleSubmit }> Submit </button>
-                <button className={ styles.dashboardButton } onClick={ handleReturn }> Return back to Dashboard </button>
-            </form>
-        </div>
-    );
+    if(currentUser) {
+        return (
+            <div className={ styles.background }>
+                <form className={ styles.profileContainer }>
+                    <label className={ styles.label }> Change your display name: </label>
+                    <input className={ styles.input } type="text" placeholder={ currentUser.displayName } onChange={ handleDisplayName } /> 
+                    <br />
+                    <label className={ styles.label }> Change your status: </label>
+                    <input className={ styles.input } type="text" placeholder="Yes we can" onChange={ handleStatus } />
+                    <br />
+                    <img className={ styles.profileImg } src={ imgUrl } />
+                    <label className={ styles.label }> Change your profile picture: </label>
+                    <input className={ styles.input } type="file" onChange={ handleImage }/>
+                    <br />
+                    <button className={ styles.submitButton } onClick={ handleSubmit }> Submit </button>
+                    <button className={ styles.dashboardButton } onClick={ handleReturn }> Return back to Dashboard </button>
+                </form>
+            </div>
+        );
+    } else {
+        return <Redirect to="/Login" />
+    }
 }
  
 export default UpdateProfile;

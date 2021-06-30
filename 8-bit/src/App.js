@@ -15,7 +15,6 @@ import ForgetPassword  from "./components/ForgetPassword/ForgetPassword";
 import Chat from "./components/Chat/Chat";
 import UpdateProfile from "./components/UpdateProfile/UpdateProfile";
 import Game from "./pages/GamePage/Game";
-import PrivateRoute from "./components/PrivateRoute/PrivateRoute";
 
 function App() {
   return (
@@ -46,9 +45,9 @@ function App() {
                 <Route path="/Login">
                   <Login />
                 </Route>
-                <PrivateRoute path="/Dashboard">
+                <Route path="/Dashboard">
                   <Dashboard />
-                </PrivateRoute>
+                </Route>
                 <Route path="/SpaceInvaders">
                   <SpaceInvaders />
                 </Route>
@@ -61,9 +60,9 @@ function App() {
                 <Route path="/ForgetPassword">
                   <ForgetPassword />
                 </Route>
-                <PrivateRoute path="/UpdateProfile">
+                <Route path="/UpdateProfile">
                   <UpdateProfile />
-                </PrivateRoute>
+                </Route>
               </Fragment>
             </Switch>
           </div>
