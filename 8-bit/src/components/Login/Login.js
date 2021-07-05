@@ -1,86 +1,157 @@
-import React, { useRef, useState } from 'react';
-import { useAuth } from '../Context/AuthContext';
-import { Link, useHistory } from 'react-router-dom';
-import styles from './Login.module.css';
-import Google from '../../images/Google.png';
+import React, { Component } from 'react'
+import withStyles from '@material-ui/core/styles/withStyles'
+import PropTypes from 'prop-types'
+import { Link } from 'react-router-dom'
 
-const Login = () => {
+// MUI Stuff
+import Grid from '@material-ui/core/Grid'
+import Typography from '@material-ui/core/Typography'
+import TextField from '@material-ui/core/TextField'
+import Button from '@material-ui/core/Button'
+import CircularProgress from '@material-ui/core/CircularProgress'
+// Redux stuff
+import { connect } from 'react-redux'
+import { loginUser } from '../../redux/actions/userActions'
 
-    const emailRef = useRef();
-    const passwordRef = useRef();
-    const { login, googleLogin } = useAuth();
-    const [error, setError] = useState('');
-    const [loading, setLoading] = useState(false);
-    const history = useHistory();
+const styles = (theme) => ({
+  form: {
+    textAlign: 'center',
+  },
+  image: {
+    margin: '20px auto 20px auto',
+  },
+  pageTitle: {
+    margin: '10px auto 10px auto',
+  },
+  textField: {
+    margin: '10px auto 10px auto',
+  },
+  button: {
+    marginTop: 20,
+    position: 'relative',
+  },
+  customError: {
+    color: 'red',
+    fontSize: '0.8rem',
+    marginTop: 10,
+  },
+  progress: {
+    position: 'absolute',
+  },
+})
 
-    async function handleSubmit(event) {
-        event.preventDefault();
-        try {
-            setError('');
-            setLoading(true);
-            await login(emailRef.current.value, passwordRef.current.value);
-            history.push('/');
-        } catch(error) {
-            switch (error.code) { 
-                case "auth/invalid-email":
-                case "auth/user-disabled":
-                case "auth/user-not-found":
-                    setError(error.message);
-                    break;
-                case "auth/wrong-password":
-                    setError(error.message);
-                    break;
-                default:
-            }
-        }
-        setLoading(false);
+class login extends Component {
+  constructor() {
+    super()
+    this.state = {
+      email: '',
+      password: '',
+      errors: {},
     }
-
-    async function handleGoogleLogin(event) {
-        event.preventDefault();
-        try {
-            setError('');
-            setLoading(true);
-            await googleLogin();
-            history.push('/');
-        } catch(error) {
-            switch (error.code) { 
-                case "auth/invalid-email":
-                case "auth/user-disabled":
-                case "auth/user-not-found":
-                    setError(error.message);
-                    break;
-                case "auth/wrong-password":
-                    setError(error.message);
-                    break;
-                default:
-            }
-        }
-        setLoading(false);
+  }
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.UI.errors) {
+      this.setState({ errors: nextProps.UI.errors })
     }
+  }
+  handleSubmit = (event) => {
+    event.preventDefault()
+    const userData = {
+      email: this.state.email,
+      password: this.state.password,
+    }
+    this.props.loginUser(userData, this.props.history)
+  }
+  handleChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    })
+  }
+  render() {
+    const {
+      classes,
+      UI: { loading },
+    } = this.props
+    const { errors } = this.state
 
     return (
-        <div className={ styles.Container }>
-            <form className= { styles.loginForm }>
-                <h2 className={ styles.header }> Welcome back </h2>
-                <input className={ styles.loginInput } type="text" ref={ emailRef } placeholder="Email address" required /> 
-                <input className= { styles.loginInput } type="password" ref={ passwordRef } placeholder="Password"required />
-                <button className= { styles.loginButton } disabled={ loading } onClick={ handleSubmit }> Login </button>
-                <p className={ styles.errorMsg }> { error } </p>
-                <Link to="/ForgetPassword" className={ styles.forgetPassLink }> Forgot Password </Link>
-                <div className={ styles.googleBlock }>
-                    <span className={ styles.googleTag }> Or sign in with </span>
-                    <img 
-                        className={ styles.googleIcon } 
-                        src={ Google } 
-                        alt="Google icon" 
-                        onClick={ handleGoogleLogin }> 
-                    </img>
-                </div>
-                <Link to="/SignUp" className={ styles.signUpLink }> Sign up </Link>
-            </form>
-        </div>
-    );
+      <Grid container className={classes.form}>
+        <Grid item sm />
+        <Grid item sm>
+          <Typography variant='h2' className={classes.pageTitle}>
+            Login
+          </Typography>
+          <form noValidate onSubmit={this.handleSubmit}>
+            <TextField
+              id='email'
+              name='email'
+              type='email'
+              label='Email'
+              className={classes.textField}
+              helperText={errors.email}
+              error={errors.email ? true : false}
+              value={this.state.email}
+              onChange={this.handleChange}
+              fullWidth
+            />
+            <TextField
+              id='password'
+              name='password'
+              type='password'
+              label='Password'
+              className={classes.textField}
+              helperText={errors.password}
+              error={errors.password ? true : false}
+              value={this.state.password}
+              onChange={this.handleChange}
+              fullWidth
+            />
+            {errors.general && (
+              <Typography variant='body2' className={classes.customError}>
+                {errors.general}
+              </Typography>
+            )}
+            <Button
+              type='submit'
+              variant='contained'
+              color='primary'
+              className={classes.button}
+              disabled={loading}
+            >
+              Login
+              {loading && (
+                <CircularProgress size={30} className={classes.progress} />
+              )}
+            </Button>
+            <br />
+            <small>
+              Don't have an account? Sign up <Link to='/signup'>here</Link>
+            </small>
+          </form>
+        </Grid>
+        <Grid item sm />
+      </Grid>
+    )
+  }
 }
- 
-export default Login;
+
+login.propTypes = {
+  classes: PropTypes.object.isRequired,
+  loginUser: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired,
+  UI: PropTypes.object.isRequired,
+}
+
+const mapStateToProps = (state) => ({
+  user: state.user,
+  UI: state.UI,
+})
+
+const mapActionsToProps = {
+  loginUser,
+}
+
+export default connect(
+  mapStateToProps,
+  mapActionsToProps
+)(withStyles(styles)(login))

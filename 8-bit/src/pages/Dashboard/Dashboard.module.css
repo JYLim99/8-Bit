@@ -1,45 +1,59 @@
 @font-face {
-    font-family: Caramel Sweets;
-    src: url('./CaramelSweets.ttf');
+  font-family: Caramel Sweets;
+  src: url('./CaramelSweets.ttf');
+}
+
+.container {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  margin: 40px auto 0 auto;
+  max-width: 1200px;
+}
+
+.page {
+  min-height: 100vh;
+  height: 100%;
+  background-color: #80cee1;
 }
 
 .profileContainer {
-    display: block;
-    text-align: center;
-    width: 30%;
-    height: 100%;
-    justify-content: center;
-    align-items: center;
-    padding: 20px;
-    background: #f8f4e5;
-    margin-left: 0 auto;
-    margin-right: 0 auto;
-    border-radius: 15px;
-    margin-left: 35%;
-    margin-top: 10%;
+  display: block;
+  text-align: center;
+  width: 30%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  background: #f8f4e5;
+  margin-left: 0 auto;
+  margin-right: 0 auto;
+  border-radius: 15px;
+  margin-left: 35%;
+  margin-top: 10%;
 }
 
 .profileImage {
-    display: inline-block;
-    height: 100px;
-    width: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    padding: 20px;
-    border: 2px solid #424C52;
-    margin-bottom: 2%;
+  display: inline-block;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  padding: 20px;
+  border: 2px solid #424c52;
+  margin-bottom: 2%;
 }
 
 .info {
-    font-family: Caramel Sweets;
-    font-size: 20px;
-    letter-spacing: 0.01px;
-    color: #E9454F;
+  font-family: Caramel Sweets;
+  font-size: 20px;
+  letter-spacing: 0.01px;
+  color: #e9454f;
 }
 
 .redirect {
-    font-family: Caramel Sweets;
-    font-size: 20px;
-    text-decoration: none;
-    color: #FBBF7A;
+  font-family: Caramel Sweets;
+  font-size: 20px;
+  text-decoration: none;
+  color: #fbbf7a;
 }

@@ -1,27 +1,23 @@
-import React from "react";
-import { useAuth } from "../Context/AuthContext";
-import { AnimatePresence } from "framer-motion";
-import MenuAuth from "../MenuAuth/MenuAuth";
-import MenuNotAuth from "../MenuNotAuth/MenuNotAuth";
-
+import React from 'react'
+import { AnimatePresence } from 'framer-motion'
+import MenuAuth from '../MenuAuth/MenuAuth'
+import MenuNotAuth from '../MenuNotAuth/MenuNotAuth'
 
 const Menu = () => {
-
-  const { currentUser } = useAuth();
-  
-  if (!currentUser) {
-    return (
-      <AnimatePresence>
-        <MenuNotAuth />
-      </AnimatePresence>
-    );
-  } else {
+  const token = localStorage.FBIdToken
+  if (token) {
     return (
       <AnimatePresence>
         <MenuAuth />
       </AnimatePresence>
-    );
+    )
+  } else {
+    return (
+      <AnimatePresence>
+        <MenuNotAuth />
+      </AnimatePresence>
+    )
   }
-};
+}
 
-export default Menu;
+export default Menu
