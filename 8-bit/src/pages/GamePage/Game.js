@@ -40,6 +40,9 @@ const Game = () => {
           <Link to="/Pong">
               <button className={ styles.PongButton }> Play Now </button>
           </Link>
+          <Link to="/PongMultiplayer">
+              <button className={ styles.PongMultiButton }> Play Multiplayer </button>
+          </Link>
       </div>
       <div className={ styles.BreakoutContainer }>
           <img className={ styles.BreakoutImg } src={ Breakout } alt="Breakout" />

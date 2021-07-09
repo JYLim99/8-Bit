@@ -8,6 +8,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import './App.css'
 import Breakout from './pages/Breakout'
 import Pong from './components/Pong/Pong'
+import PongMultiplayer from './components/PongMultiplayer/PongMultiplayer'
 import SpaceInvaders from './components/GameSpaceInvaders/Game/Game'
 import user from './pages/Dashboard'
 import ForgetPassword from './components/ForgetPassword/ForgetPassword'
@@ -77,6 +78,7 @@ function App() {
                 <Route path='/SpaceInvaders' component={SpaceInvaders} />
                 <Route path='/Breakout' component={Breakout} />
                 <Route path='/Pong' component={Pong} />
+                <Route path='/PongMultiplayer' component={PongMultiplayer} />
                 <Route path='/Forum' component={Forum} />
                 <Route path='/ForgetPassword' component={ForgetPassword} />
                 <Route path='/UpdateProfile' component={UpdateProfile} />

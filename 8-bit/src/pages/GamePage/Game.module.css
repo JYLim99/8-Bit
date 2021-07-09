@@ -109,8 +109,32 @@
     border-color: #fd5e53;
     letter-spacing: 1.5px;
   }
+
+  .PongMultiButton {
+    position: absolute;
+    margin-top: 35%;
+    left: 18%;
+    font-family: Zelda;
+    border: none;
+    background-color: white;
+    color: #fd5e53;
+    display: inline-block;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #fd5e53;
+    letter-spacing: 1.5px;
+  }
   
   .PongButton:hover {
+    cursor: pointer;
+    background-color: #fd5e53;
+    color: white;
+  }
+
+  .PongMultiButton:hover {
     cursor: pointer;
     background-color: #fd5e53;
     color: white;

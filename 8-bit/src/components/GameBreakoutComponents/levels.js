@@ -13,7 +13,7 @@ const getBlocks = (rows, columns) =>
 //Create an array of levels with specifications
 export const LEVELS = [
   {
-    lives: 1,
+    lives: 5,
     paddleWidth: 2,
     speed: 1,
     blocks: getBlocks(3, 6),
