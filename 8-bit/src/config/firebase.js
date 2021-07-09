@@ -4,6 +4,8 @@ import 'firebase/auth'
 const app = firebase.initializeApp({
   apiKey: 'AIzaSyBmumZJp69gho3mtiso0B0KXluBEOj5rtI',
   authDomain: 'orbital-8-bit.firebaseapp.com',
+  databaseURL:
+    'https://orbital-8-bit-default-rtdb.asia-southeast1.firebasedatabase.app',
   projectId: 'orbital-8-bit',
   storageBucket: 'orbital-8-bit.appspot.com',
   messagingSenderId: '376646715941',

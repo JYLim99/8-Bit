@@ -15,6 +15,7 @@ import Chat from './components/Chat/Chat'
 import UpdateProfile from './components/UpdateProfile/UpdateProfile'
 import Game from './pages/GamePage/Game'
 import Forum from './pages/Forum'
+import Leaderboard from './components/Leaderboard/Leaderboards'
 import jwtDecode from 'jwt-decode'
 import axios from 'axios'
 
@@ -72,6 +73,7 @@ function App() {
                   path='/users/:handle/post/:postId'
                   component={user}
                 />
+                <Route path='/Leaderboard' component={Leaderboard} />
                 <Route path='/SpaceInvaders' component={SpaceInvaders} />
                 <Route path='/Breakout' component={Breakout} />
                 <Route path='/Pong' component={Pong} />

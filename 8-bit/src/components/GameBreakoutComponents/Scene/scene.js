@@ -1,24 +1,64 @@
 /* eslint-disable import/no-anonymous-default-export */
-import React, { useEffect, useReducer } from "react"
+import React, { useEffect, useReducer } from 'react'
 
-import styles from "./scene.module.css"
+import styles from './scene.module.css'
 
-import { LEVELS } from "../levels"
+import { LEVELS } from '../levels'
 
 import {
   MOVEMENT,
   getNewGameState,
   getGameStateFromLevel,
   renderScores,
-} from "../core"
+} from '../core'
 
-import { registerListener } from "../utils"
+import { registerListener } from '../utils'
 
-import Level from "../Level/level"
-import Lives from "../Lives/lives"
-import Block from "../Block/block"
-import Paddle from "../Paddle/paddle"
-import Ball from "../Ball/ball"
+import Level from '../Level/level'
+import Lives from '../Lives/lives'
+import Block from '../Block/block'
+import Paddle from '../Paddle/paddle'
+import Ball from '../Ball/ball'
+
+import { db } from '../../../config/firebase'
+import store from '../../../redux/store'
+
+async function addScoreToDatabase(handle, newScore) {
+  let dbScore = await db
+    .collection('breakoutScores')
+    .doc(handle)
+    .get()
+    .then((doc) => {
+      if (doc.exists) {
+        console.log('Document data:', doc.data())
+        console.log(doc.data().score)
+        return doc.data().score
+      } else {
+        // doc.data() will be undefined in this case
+        console.log('No such document!')
+        return undefined
+      }
+    })
+    .catch((error) => {
+      console.log('Error getting document:', error)
+    })
+  console.log(dbScore)
+  if (parseInt(newScore) > dbScore || dbScore === undefined) {
+    db.collection('breakoutScores')
+      .doc(handle)
+      .set({
+        name: handle,
+        score: parseInt(newScore),
+      })
+      .then(function () {
+        console.log(newScore)
+        console.log('Value successfully written!')
+      })
+      .catch(function (error) {
+        console.error('Error writing Value: ', error)
+      })
+  }
+}
 
 //Array of movement keys,
 //left and right arrow keys for movement
@@ -79,10 +119,10 @@ const getInitialState = (containerSize) => {
 }
 
 const ACTION = {
-  CONTAINER_SIZE_CHANGE: "CONTAINER_SIZE_CHANGE",
-  KEY_DOWN: "KEY_DOWN",
-  KEY_UP: "KEY_UP",
-  TICK: "TICK",
+  CONTAINER_SIZE_CHANGE: 'CONTAINER_SIZE_CHANGE',
+  KEY_DOWN: 'KEY_DOWN',
+  KEY_UP: 'KEY_UP',
+  TICK: 'TICK',
 }
 
 //This function is called 60 times a second
@@ -126,9 +166,18 @@ const HANDLER = {
       state.movement,
       time - state.time
     )
+
     const newState = { ...state, time }
     if (newGame.lives < 1) {
-      renderScores(0)
+      const token = localStorage.FBIdToken
+      if (token) {
+        let handle = store.getState().user.credentials.handle
+        addScoreToDatabase(
+          handle,
+          document.getElementById('current-score').innerText
+        )
+      }
+      //renderScores(0)
       return {
         ...newState,
         game: getGameStateFromLevel(LEVELS[state.level], false), //Player lost the game
@@ -136,7 +185,7 @@ const HANDLER = {
     } else if (newGame.blocks.length < 1) {
       const level =
         state.level === LEVELS.length ? state.level : state.level + 1
-      localStorage.setItem("level", level)
+      localStorage.setItem('level', level)
       const game = getGameStateFromLevel(LEVELS[state.level], true)
       return {
         ...newState,
@@ -189,8 +238,8 @@ export default (containerSize) => {
     const tick = () => act(ACTION.TICK)
 
     const timerId = setInterval(tick, UPDATE_EVERY)
-    const unregisterKeydown = registerListener("keydown", onKeyDown)
-    const unregisterKeyup = registerListener("keyup", onKeyUp)
+    const unregisterKeydown = registerListener('keydown', onKeyDown)
+    const unregisterKeyup = registerListener('keyup', onKeyUp)
     return () => {
       clearInterval(timerId)
       unregisterKeydown()

@@ -1,4 +1,4 @@
-import { getRange } from "../GameBreakoutComponents/utils"
+import { getRange } from '../GameBreakoutComponents/utils'
 
 //Determine maximum hit a block need to be taken out
 export const BLOCK_MAX_DENSITY = 3
@@ -13,7 +13,7 @@ const getBlocks = (rows, columns) =>
 //Create an array of levels with specifications
 export const LEVELS = [
   {
-    lives: 5,
+    lives: 1,
     paddleWidth: 2,
     speed: 1,
     blocks: getBlocks(3, 6),
