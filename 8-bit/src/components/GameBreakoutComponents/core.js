@@ -1,5 +1,5 @@
-import Vector from "./vector"
-import { flatten, getRandomFrom, withoutElement, updateElement } from "./utils"
+import Vector from './vector'
+import { flatten, getRandomFrom, withoutElement, updateElement } from './utils'
 
 //Determining area used for each component
 const PADDLE_AREA = 1 / 3
@@ -9,8 +9,8 @@ const BALL_RADIUS = 1 / 5
 const DISTANCE_IN_MS = 0.005
 
 export const MOVEMENT = {
-  LEFT: "LEFT",
-  RIGHT: "RIGHT",
+  LEFT: 'LEFT',
+  RIGHT: 'RIGHT',
 }
 
 //Common vector for reuse
@@ -75,8 +75,8 @@ export const getGameStateFromLevel = (
     lives,
     speed,
     score:
-      parseInt(document.getElementById("current-score").innerText) && lost
-        ? parseInt(document.getElementById("current-score").innerText)
+      parseInt(document.getElementById('current-score').innerText) && lost
+        ? parseInt(document.getElementById('current-score').innerText)
         : 0,
   }
 }
@@ -142,7 +142,7 @@ const getAdjustedVector = (normal, vector, minAngle = 15) => {
 
 //Function to update score
 export const renderScores = (score) => {
-  document.getElementById("current-score").innerText = score
+  document.getElementById('current-score').innerText = score
 }
 
 //Function to create a new state

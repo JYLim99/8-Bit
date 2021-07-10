@@ -1,154 +1,117 @@
+/* For reference, previous CSS used
 @font-face {
-    font-family: Caramel Sweets;
-    src: url('./CaramelSweets.ttf');
+  font-family: Caramel Sweets;
+  src: url('./CaramelSweets.ttf');
 }
 
 .Container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #efefe3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #efefe3;
 }
 
 .loginForm {
-    height: 80%;
-    width: 30%;
-    padding: 30px;
-}
-
-.header {
-    font-family: Caramel Sweets;
-    padding: 10px;
-    border-radius: 15px;
-    color: black;
-    display: block;
-    text-decoration: none;
-    font-weight: 700;
-    text-align: center;
-    position: relative;
-    width: 100%;
-    margin-bottom: 20%;
-    letter-spacing: 1px;
+  height: 80%;
+  width: 30%;
+  padding: 30px;
 }
 
 .loginInput {
-    display: inline-block;
-    text-indent: 0px;
-    text-align: start;
-    cursor: text;
-    font-family: Caramel Sweets;
-    box-sizing: border-box;
-    border-radius: 0;
-    overflow: visible;
-    margin: 0;
-    border: 0px;
-    color: black;
-    font-size: 18px;
-    padding-bottom: 10px;
-    border-bottom: 1px solid #77858a;
-    background-color: transparent;
-    width: 100%;
-    margin-bottom: 8%;
+  display: inline-block;
+  text-indent: 0px;
+  text-align: start;
+  cursor: text;
+  font-family: Caramel Sweets;
+  box-sizing: border-box;
+  border-radius: 0;
+  overflow: visible;
+  margin: 0;
+  border: 0px;
+  color: black;
+  font-size: 18px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #77858a;
+  background-color: transparent;
+  width: 100%;
+  margin-bottom: 8%;
 }
 
 .loginInput:hover {
-    transform: scale(1.05);
-}
-
-.loginButton {
-    font-family: Caramel Sweets;
-    font-size: 14px;
-    margin-top: 30px;
-    border-radius: 15px;
-    background-color: transparent;
-    color: #d4a373;
-    padding: 10px;
-    font-weight: 700;
-    align-items: center;
-    width: 30%;
-    float: right;
-    cursor: pointer;
-    letter-spacing: 1.5px;
-    border: 3px solid #d4a373;
+  transform: scale(1.05);
 }
 
 .loginButton:hover {
-    color: #ee4540;
-}
-
-.errorMsg {
-    font-family: Caramel Sweets;
-    font-size: smaller;
-    color: #ee4540;
-    margin-bottom: 5%;
+  color: #ee4540;
 }
 
 .forgetPassLink {
-    font-family: Caramel Sweets;
-    color: black;
-    display: block;
-    text-decoration: none;
-    float: left;
-    font-size: 14px;
-    padding-left: 10px;
-    font-weight: 700;
+  font-family: Caramel Sweets;
+  color: black;
+  display: block;
+  text-decoration: none;
+  float: left;
+  font-size: 14px;
+  padding-left: 10px;
+  font-weight: 700;
 }
 
 .forgetPassLink:hover {
-    color: #ee4540;
+  color: #ee4540;
 }
 
 .signUpLink {
-    font-family: Caramel Sweets;
-    padding: 10px;
-    border-radius: 15px;
-    opacity: 0.9;
-    color: black;
-    display: block;
-    text-decoration: none;
-    font-size: 15px;
-    font-weight: 700;
-    text-align: center;
-    margin-top: 15%;
-    position: relative;
-    margin-left: auto;
-    margin-right: auto;
+  font-family: Caramel Sweets;
+  padding: 10px;
+  border-radius: 15px;
+  opacity: 0.9;
+  color: black;
+  display: block;
+  text-decoration: none;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  margin-top: 15%;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .signUpLink:hover {
-    color: #ee4540;
-    transform: scale(1.05);
+  color: #ee4540;
+  transform: scale(1.05);
 }
 
 .googleBlock {
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 25%;
-    margin-left: auto;
-    margin-right: auto;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 25%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .googleTag {
-    margin-top: 5%;
-    font-family: Caramel Sweets;
-    padding: 10px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
-    margin-left: auto;
-    margin-right: auto; 
-    text-align: center;
-    color: black;
+  margin-top: 5%;
+  font-family: Caramel Sweets;
+  padding: 10px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  color: black;
 }
 
 .googleIcon {
-    height: 32px;
-    width: 32px;
-    cursor: pointer;
-    align-items: center;
-    padding-top: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    display: block;
+  height: 32px;
+  width: 32px;
+  cursor: pointer;
+  align-items: center;
+  padding-top: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
 }
+*/

@@ -178,15 +178,17 @@ const HANDLER = {
         )
       }
       //renderScores(0)
+      const level = 0
       return {
         ...newState,
-        game: getGameStateFromLevel(LEVELS[state.level], false), //Player lost the game
+        level,
+        game: getGameStateFromLevel(LEVELS[0], false), //Player lost the game
       }
     } else if (newGame.blocks.length < 1) {
       const level =
         state.level === LEVELS.length ? state.level : state.level + 1
-      localStorage.setItem('level', level)
-      const game = getGameStateFromLevel(LEVELS[state.level], true)
+      //localStorage.setItem('level', level)
+      const game = getGameStateFromLevel(LEVELS[level], true)
       return {
         ...newState,
         level,

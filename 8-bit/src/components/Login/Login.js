@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import withStyles from '@material-ui/core/styles/withStyles'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
+import SpaceInvaderIcon from '../../images/SpaceInvaderIcon.png'
 
 // MUI Stuff
 import Grid from '@material-ui/core/Grid'
@@ -9,31 +10,57 @@ import Typography from '@material-ui/core/Typography'
 import TextField from '@material-ui/core/TextField'
 import Button from '@material-ui/core/Button'
 import CircularProgress from '@material-ui/core/CircularProgress'
+
 // Redux stuff
 import { connect } from 'react-redux'
 import { loginUser } from '../../redux/actions/userActions'
 
 const styles = (theme) => ({
+  page: {
+    backgroundColor: '#efefe3',
+    display: 'flex',
+    flexFlow: 'column',
+    height: '84.5vh',
+    width: '100vw',
+  },
   form: {
     textAlign: 'center',
+    fontFamily: 'Caramel Sweets',
   },
   image: {
-    margin: '20px auto 20px auto',
+    margin: '10px auto auto auto',
+    height: 100,
+    width: 100,
   },
   pageTitle: {
-    margin: '10px auto 10px auto',
+    margin: '0px auto 0px auto',
+    fontFamily: 'Caramel Sweets',
+    fontWeight: 700,
   },
   textField: {
     margin: '10px auto 10px auto',
   },
+  input: {
+    fontFamily: 'Caramel Sweets',
+  },
   button: {
-    marginTop: 20,
+    margin: '10px auto 15px auto',
     position: 'relative',
+    fontFamily: 'Caramel Sweets',
+    fontSize: 14,
+    borderRadius: 15,
+    backgroundColor: 'transparent',
+    color: '#d4a373',
+    padding: 10,
+    fontWeight: 700,
+    width: 100,
+    cursor: 'pointer',
+    letterSpacing: 1.5,
+    border: '3px solid #d4a373',
   },
   customError: {
     color: 'red',
     fontSize: '0.8rem',
-    marginTop: 10,
   },
   progress: {
     position: 'absolute',
@@ -75,62 +102,75 @@ class login extends Component {
     const { errors } = this.state
 
     return (
-      <Grid container className={classes.form}>
-        <Grid item sm />
-        <Grid item sm>
-          <Typography variant='h2' className={classes.pageTitle}>
-            Login
-          </Typography>
-          <form noValidate onSubmit={this.handleSubmit}>
-            <TextField
-              id='email'
-              name='email'
-              type='email'
-              label='Email'
-              className={classes.textField}
-              helperText={errors.email}
-              error={errors.email ? true : false}
-              value={this.state.email}
-              onChange={this.handleChange}
-              fullWidth
+      <div className={classes.page}>
+        <Grid container className={classes.form}>
+          <Grid item sm />
+          <Grid item sm>
+            <img
+              src={SpaceInvaderIcon}
+              alt='Space Invaders Logo'
+              className={classes.image}
             />
-            <TextField
-              id='password'
-              name='password'
-              type='password'
-              label='Password'
-              className={classes.textField}
-              helperText={errors.password}
-              error={errors.password ? true : false}
-              value={this.state.password}
-              onChange={this.handleChange}
-              fullWidth
-            />
-            {errors.general && (
-              <Typography variant='body2' className={classes.customError}>
-                {errors.general}
-              </Typography>
-            )}
-            <Button
-              type='submit'
-              variant='contained'
-              color='primary'
-              className={classes.button}
-              disabled={loading}
-            >
+            <Typography variant='h2' className={classes.pageTitle}>
               Login
-              {loading && (
-                <CircularProgress size={30} className={classes.progress} />
+            </Typography>
+            <form noValidate onSubmit={this.handleSubmit}>
+              <TextField
+                id='email'
+                name='email'
+                type='email'
+                label='Email'
+                className={classes.textField}
+                helperText={errors.email}
+                error={errors.email ? true : false}
+                value={this.state.email}
+                onChange={this.handleChange}
+                fullWidth
+                InputProps={{
+                  className: classes.input,
+                }}
+              />
+              <TextField
+                id='password'
+                name='password'
+                type='password'
+                label='Password'
+                className={classes.textField}
+                helperText={errors.password}
+                error={errors.password ? true : false}
+                value={this.state.password}
+                onChange={this.handleChange}
+                fullWidth
+                InputProps={{
+                  className: classes.input,
+                }}
+              />
+              {errors.general && (
+                <Typography variant='body2' className={classes.customError}>
+                  {errors.general}
+                </Typography>
               )}
-            </Button>
-            <br />
-            <small>
-              Don't have an account? Sign up <Link to='/signup'>here</Link>
-            </small>
-          </form>
+              <Button
+                type='submit'
+                variant='contained'
+                color='#ee4540'
+                className={classes.button}
+                disabled={loading}
+              >
+                Login
+                {loading && (
+                  <CircularProgress size={30} className={classes.progress} />
+                )}
+              </Button>
+              <br />
+              <small>
+                Don't have an account? Sign up <Link to='/signup'>here</Link>
+              </small>
+            </form>
+          </Grid>
+          <Grid item sm />
         </Grid>
-        <Grid item sm />
-      </Grid>
+      </div>
     )
   }
 }

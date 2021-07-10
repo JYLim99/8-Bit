@@ -1,3 +1,4 @@
+/* For reference, previous CSS used
 @font-face {
     font-family: Caramel Sweets;
     src: url('./CaramelSweets.ttf');
@@ -5,7 +6,6 @@
 
 .signUpContainer {
     display: flex;
-    background-color: #efefe3;
     height: 100vh;
     align-items: center;
     justify-content: center;
@@ -104,3 +104,4 @@
     color: #ee4540;
     transform: scale(1.05);
 }
+*/
