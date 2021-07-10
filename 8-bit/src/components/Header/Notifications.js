@@ -18,6 +18,17 @@ import ChatIcon from '@material-ui/icons/Chat'
 import { connect } from 'react-redux'
 import { markNotificationsRead } from '../../redux/actions/userActions'
 
+const styles = (theme) => ({
+  palette: {
+    primary: {
+      light: '#000000',
+      main: '#000000',
+      dark: '#000000',
+      contrastText: '#fff',
+    },
+  },
+})
+
 class Notifications extends Component {
   state = {
     anchorEl: null,
@@ -51,12 +62,12 @@ class Notifications extends Component {
               }
               color='secondary'
             >
-              <NotificationsIcon color='primary' />
+              <NotificationsIcon color={styles.primary} />
             </Badge>
           ))
-        : (notificationsIcon = <NotificationsIcon color='primary' />)
+        : (notificationsIcon = <NotificationsIcon color={styles.primary} />)
     } else {
-      notificationsIcon = <NotificationsIcon color='primary' />
+      notificationsIcon = <NotificationsIcon color={styles.primary} />
     }
     let notificationsMarkup =
       notifications && notifications.length > 0 ? (

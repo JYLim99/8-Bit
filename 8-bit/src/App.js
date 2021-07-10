@@ -1,7 +1,6 @@
 import Header from './components/Header'
 import { Fragment } from 'react'
 import Menu from './components/Menu'
-import HomePage from './pages/HomePage/HomePage'
 import SignUp from './components/SignUp/SignUp'
 import Login from './components/Login/Login'
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
@@ -29,9 +28,8 @@ import { logoutUser, getUserData } from './redux/actions/userActions'
 //Components
 import AuthRoute from './util/AuthRoute'
 
-/* For firebase deployment:
 axios.defaults.baseURL =
-  'https://asia-southeast1-orbital-8-bit.cloudfunctions.net/api'*/
+  'https://asia-southeast1-orbital-8-bit.cloudfunctions.net/api'
 
 const token = localStorage.FBIdToken
 
@@ -58,9 +56,6 @@ function App() {
             <Switch>
               <Route exact path='/Menu' component={Menu} />
               <Route exact path='/Chat' component={Chat} />
-              {/* <Route exact path="/">
-                  <Game />
-              </Route> */}
               <Fragment>
                 <div className='Header'>
                   <Header />
