@@ -1,9 +1,11 @@
-/* For reference, previous CSS used
 @font-face {
-    font-family: Caramel Sweets;
-    src: url('./CaramelSweets.ttf');
+  font-family: Caramel Sweets;
+  src: url('./CaramelSweets.ttf');
+  font-family: Chewy Caramel;
+  src: url('./ChewyCaramel.ttf');
 }
 
+/* For reference, previous CSS used
 .signUpContainer {
     display: flex;
     height: 100vh;

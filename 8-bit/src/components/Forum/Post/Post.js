@@ -27,6 +27,8 @@ const styles = {
     position: 'relative',
     display: 'flex',
     marginBottom: 20,
+    fontFamily: 'Chewy Caramel',
+    fontSize: '1.2rem',
   },
   image: {
     minWidth: 200,
@@ -35,6 +37,19 @@ const styles = {
     padding: 25,
     objectFit: 'cover',
   },
+  body: {
+    fontFamily: 'Chewy Caramel',
+    fontSize: '1.3rem',
+  },
+  /*
+  handle: {
+    fontFamily: 'Chewy Caramel',
+    fontSize: '1.6rem',
+  },
+  date: {
+    fontFamily: 'Chewy Caramel',
+    fontSize: '1.2rem',
+  },*/
 }
 class Post extends Component {
   render() {
@@ -74,14 +89,21 @@ class Post extends Component {
             component={Link}
             to={`/users/${userHandle}`}
             color='primary'
+            className={classes.handle}
           >
             {userHandle}
           </Typography>
           {deleteButton}
-          <Typography variant='body2' color='textSecondary'>
+          <Typography
+            variant='body2'
+            color='textSecondary'
+            className={classes.date}
+          >
             {dayjs(createdAt).fromNow()}
           </Typography>
-          <Typography variant='body1'>{body}</Typography>
+          <Typography variant='body1' className={classes.body}>
+            {body}
+          </Typography>
           <LikeButton postId={postId} />
           <span>{likeCount} Likes</span>
           <MyButton tip='comments'>

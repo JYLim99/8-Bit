@@ -28,6 +28,10 @@ const styles = (theme) => ({
   textField: {
     margin: '10px auto 10px auto',
   },
+  input: {
+    fontFamily: 'Chewy Caramel',
+    fontSize: '1.3rem',
+  },
   button: {
     float: 'right',
   },
@@ -101,6 +105,9 @@ class EditDetails extends Component {
                 className={classes.textField}
                 value={this.state.bio}
                 onChange={this.handleChange}
+                InputProps={{
+                  className: classes.input,
+                }}
                 fullWidth
               />
               <TextField
@@ -111,6 +118,9 @@ class EditDetails extends Component {
                 className={classes.textField}
                 value={this.state.website}
                 onChange={this.handleChange}
+                InputProps={{
+                  className: classes.input,
+                }}
                 fullWidth
               />
               <TextField
@@ -121,6 +131,9 @@ class EditDetails extends Component {
                 className={classes.textField}
                 value={this.state.location}
                 onChange={this.handleChange}
+                InputProps={{
+                  className: classes.input,
+                }}
                 fullWidth
               />
             </form>

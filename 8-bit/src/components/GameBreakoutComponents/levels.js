@@ -15,7 +15,7 @@ export const LEVELS = [
   {
     lives: 5,
     paddleWidth: 2,
-    speed: 1.2,
+    speed: 1.1,
     blocks: getBlocks(3, 6),
   },
   {
