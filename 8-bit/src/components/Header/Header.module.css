@@ -39,8 +39,15 @@
   margin-left: 5%;
 }
 
-.Name {
+.LinkWrapper {
   width: 85%;
+  display: flex;
+  align-items: center;
+}
+
+.Link {
+  margin-left: 80px;
+  width: 130px;
   font-size: 25px;
   display: flex;
   align-items: center;
