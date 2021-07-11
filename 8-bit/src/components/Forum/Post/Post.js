@@ -26,12 +26,13 @@ const styles = {
   card: {
     position: 'relative',
     display: 'flex',
+    height: 170,
     marginBottom: 20,
     fontFamily: 'Chewy Caramel',
     fontSize: '1.2rem',
   },
   image: {
-    minWidth: 200,
+    minWidth: 170,
   },
   content: {
     padding: 25,
