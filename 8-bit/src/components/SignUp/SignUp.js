@@ -3,6 +3,7 @@ import withStyles from '@material-ui/core/styles/withStyles'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import SpaceInvaderIcon from '../../images/SpaceInvaderIcon.png'
+import './SignUp.module.css'
 
 // MUI Stuff
 import Grid from '@material-ui/core/Grid'
@@ -21,11 +22,13 @@ const styles = (theme) => ({
     height: '84.5vh',
   },
   form: {
+    margin: '0px auto auto auto',
     textAlign: 'center',
-    fontFamily: 'Caramel Sweets',
+    fontFamily: 'Chewy Caramel',
+    fontSize: '1.5rem',
   },
   image: {
-    margin: '10px auto auto auto',
+    margin: '0px auto auto auto',
     height: 100,
     width: 100,
   },
@@ -35,10 +38,11 @@ const styles = (theme) => ({
     fontWeight: 700,
   },
   textField: {
-    margin: '5px auto 10px auto',
+    margin: '5px auto 5px auto',
   },
   input: {
-    fontFamily: 'Caramel Sweets',
+    fontFamily: 'Chewy Caramel',
+    fontSize: '1.4rem',
   },
   button: {
     margin: '10px auto 15px auto',

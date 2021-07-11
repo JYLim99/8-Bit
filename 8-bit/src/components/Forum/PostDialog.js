@@ -30,7 +30,7 @@ const styles = {
   visibleSeparator: {
     width: '100%',
     borderBottom: '1px solid rgba(0,0,0,0.1)',
-    marginBottom: 20,
+    margin: '0 10px 10px 10px',
   },
   invisibleSeparator: {
     border: 'none',
@@ -39,7 +39,7 @@ const styles = {
   closeButton: {
     position: 'absolute',
     left: '90%',
-    top: '5%',
+    top: '2%',
   },
   expandButton: {
     position: 'absolute',
@@ -53,11 +53,17 @@ const styles = {
   },
   dialogContent: {
     padding: 20,
+    fontFamily: 'Chewy Caramel',
+    fontSize: '1.2rem',
   },
   spinnerDiv: {
     textAlign: 'center',
     marginTop: 50,
     marginBottom: 50,
+  },
+  body: {
+    fontFamily: 'Chewy Caramel',
+    fontSize: '1.3rem',
   },
 }
 
@@ -130,7 +136,7 @@ class PostDialog extends Component {
         <CircularProgress size={200} thickness={2} />
       </div>
     ) : (
-      <Grid container spacing={4}>
+      <Grid container spacing={3}>
         <Grid item sm={5}>
           <img src={userImage} alt='Profile' className={classes.profileImage} />
         </Grid>
@@ -148,7 +154,9 @@ class PostDialog extends Component {
             {dayjs(createdAt).format('h:mm a, MMMM DD YYYY')}
           </Typography>
           <hr className={classes.invisibleSeparator} />
-          <Typography variant='body1'>{body}</Typography>
+          <Typography variant='body1' className={classes.body}>
+            {body}
+          </Typography>
           <IconButton disabled={true}>{likeButton}</IconButton>
           <span>{likeCount} Likes</span>
           <IconButton disabled={true}>

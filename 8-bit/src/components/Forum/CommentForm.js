@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import withStyles from '@material-ui/core/styles/withStyles'
+import './Post/Post.module.css'
 
 //MUI stuff
 import Button from '@material-ui/core/Button'
@@ -15,10 +16,14 @@ const styles = {
   textField: {
     margin: '10px auto 10px auto',
   },
+  input: {
+    fontFamily: 'Chewy Caramel',
+    fontSize: '1.3rem',
+  },
   visibleSeparator: {
     width: '100%',
     borderBottom: '1px solid rgba(0,0,0,0.1)',
-    marginBottom: 20,
+    margin: '10px auto 10px auto',
   },
   button: {
     marginTop: 20,
@@ -67,6 +72,9 @@ class CommentForm extends Component {
             onChange={this.handleChange}
             fullWidth
             className={classes.textField}
+            InputProps={{
+              className: classes.input,
+            }}
           />
           <Button
             type='submit'

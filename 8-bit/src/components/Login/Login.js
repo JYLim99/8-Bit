@@ -25,10 +25,11 @@ const styles = (theme) => ({
   },
   form: {
     textAlign: 'center',
-    fontFamily: 'Caramel Sweets',
+    fontFamily: 'Chewy Caramel',
+    fontSize: '1.8rem',
   },
   image: {
-    margin: '10px auto auto auto',
+    margin: '0px auto auto auto',
     height: 100,
     width: 100,
   },
@@ -41,7 +42,8 @@ const styles = (theme) => ({
     margin: '10px auto 10px auto',
   },
   input: {
-    fontFamily: 'Caramel Sweets',
+    fontFamily: 'Chewy Caramel',
+    fontSize: '1.5rem',
   },
   button: {
     margin: '10px auto 15px auto',
@@ -64,6 +66,11 @@ const styles = (theme) => ({
   },
   progress: {
     position: 'absolute',
+  },
+  tip: {
+    fontFamily: 'Chewy Caramel',
+    fontSize: '1.2rem',
+    margin: '10px auto auto auto',
   },
 })
 
@@ -165,6 +172,11 @@ class login extends Component {
               <br />
               <small>
                 Don't have an account? Sign up <Link to='/signup'>here</Link>
+                <div className={classes.tip}>
+                  Having an account allows you to qualify
+                  <br />
+                  for the leaderboard and use the forum
+                </div>
               </small>
             </form>
           </Grid>

@@ -45,8 +45,14 @@ const styles = {
       maxWidth: '100%',
       borderRadius: '50%',
     },
+    '& .bio': {
+      fontFamily: 'Chewy Caramel',
+      fontSize: '1.3rem',
+    },
     '& .profile-details': {
       textAlign: 'center',
+      fontFamily: 'Chewy Caramel',
+      fontSize: '1.3rem',
       '& span, svg': {
         verticalAlign: 'middle',
       },
@@ -126,7 +132,11 @@ class Profile extends Component {
                 @{handle}
               </MuiLink>
               {<hr />}
-              {bio && <Typography variant='body2'>{bio}</Typography>}
+              {bio && (
+                <Typography variant='body2' className='bio'>
+                  {bio}
+                </Typography>
+              )}
               <hr />
               {location && (
                 <Fragment>

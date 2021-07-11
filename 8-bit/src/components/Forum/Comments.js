@@ -12,7 +12,7 @@ const styles = (theme) => ({
   visibleSeparator: {
     width: '100%',
     borderBottom: '1px solid rgba(0,0,0,0.1)',
-    marginBottom: 20,
+    margin: '10px 20px 10px 20px',
   },
   invisibleSeparator: {
     border: 'none',
@@ -27,6 +27,13 @@ const styles = (theme) => ({
   commentData: {
     marginLeft: 20,
   },
+  body: {
+    fontFamily: 'Chewy Caramel',
+    fontSize: '1.3rem',
+  },
+  container: {
+    margin: 'auto 20px auto 20px',
+  },
 })
 
 class Comments extends Component {
@@ -39,7 +46,7 @@ class Comments extends Component {
           return (
             <Fragment key={createdAt}>
               <Grid item sm={12}>
-                <Grid container>
+                <Grid container className={classes.container}>
                   <Grid item sm={2}>
                     <img
                       src={userImage}
@@ -61,7 +68,9 @@ class Comments extends Component {
                         {dayjs(createdAt).format('h:mm a, MMMM DD YYYY')}
                       </Typography>
                       <hr className={classes.invisibleSeparator} />
-                      <Typography variant='body1'>{body}</Typography>
+                      <Typography variant='body1' className={classes.body}>
+                        {body}
+                      </Typography>
                     </div>
                   </Grid>
                 </Grid>

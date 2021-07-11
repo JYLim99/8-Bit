@@ -110,8 +110,10 @@ class Game extends Component {
   }
 
   nextLevel() {
+    //console.log(this.level)
     this.level = this.level + 1
     this.setState(LEVELS[this.level])
+    //console.log(this.level)
 
     this.generateAliens()
     requestAnimationFrame(() => {
@@ -524,12 +526,12 @@ class Game extends Component {
 
       this.ulPos = newAlienArray
 
-      if (this.state.alienCount === 0) {
-        //Going to the next level
-        this.nextLevel()
-      } else if (this.level === 3) {
+      if (this.level === 3) {
         //Winning the game
         this.gameOver()
+      } else if (this.state.alienCount === 0) {
+        //Going to the next level
+        this.nextLevel()
       } else if (this.state.inGame) {
         requestAnimationFrame(() => {
           this.update()
