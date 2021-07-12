@@ -24,7 +24,7 @@ const styles = (theme) => ({
   form: {
     margin: '0px auto auto auto',
     textAlign: 'center',
-    fontFamily: 'Chewy Caramel',
+    fontFamily: 'Organic Teabags',
     fontSize: '1.5rem',
   },
   image: {
@@ -41,14 +41,14 @@ const styles = (theme) => ({
     margin: '5px auto 5px auto',
   },
   input: {
-    fontFamily: 'Chewy Caramel',
+    fontFamily: 'Organic Teabags',
     fontSize: '1.4rem',
   },
   button: {
-    margin: '10px auto 15px auto',
+    margin: '5px auto 10px auto',
     position: 'relative',
-    fontFamily: 'Caramel Sweets',
-    fontSize: 14,
+    fontFamily: 'Organic Teabags',
+    fontSize: '1.2rem',
     borderRadius: 15,
     backgroundColor: 'transparent',
     color: '#d4a373',

@@ -25,7 +25,7 @@ const styles = (theme) => ({
   },
   form: {
     textAlign: 'center',
-    fontFamily: 'Chewy Caramel',
+    fontFamily: 'Organic Teabags',
     fontSize: '1.8rem',
   },
   image: {
@@ -42,14 +42,14 @@ const styles = (theme) => ({
     margin: '10px auto 10px auto',
   },
   input: {
-    fontFamily: 'Chewy Caramel',
+    fontFamily: 'Organic Teabags',
     fontSize: '1.5rem',
   },
   button: {
     margin: '10px auto 15px auto',
     position: 'relative',
-    fontFamily: 'Caramel Sweets',
-    fontSize: 14,
+    fontFamily: 'Organic Teabags',
+    fontSize: '1.1rem',
     borderRadius: 15,
     backgroundColor: 'transparent',
     color: '#d4a373',
@@ -68,7 +68,7 @@ const styles = (theme) => ({
     position: 'absolute',
   },
   tip: {
-    fontFamily: 'Chewy Caramel',
+    fontFamily: 'Organic Teabags',
     fontSize: '1.2rem',
     margin: '10px auto auto auto',
   },

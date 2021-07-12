@@ -24,9 +24,13 @@ const useStyles = makeStyles({
     fontFamily: 'Caramel Sweets',
     fontSize: 25,
   },
-
-  tablebody: {
+  tablecategory: {
     fontFamily: 'Caramel Sweets',
+    fontSize: 16,
+  },
+  tablebody: {
+    fontFamily: 'Organic Teabags',
+    fontSize: '1.3rem',
   },
 })
 function Pong() {
@@ -58,14 +62,14 @@ function Pong() {
           <TableHead className={classes.tablehead}>Pong Leaderboard</TableHead>
           <TableBody>
             <TableRow>
-              <TableCell className={classes.tablebody} width='10%'>
+              <TableCell className={classes.tablecategory} width='10%'>
                 Index
               </TableCell>
-              <TableCell className={classes.tablebody} width='50%'>
+              <TableCell className={classes.tablecategory} width='50%'>
                 Player
               </TableCell>
               <TableCell
-                className={classes.tablebody}
+                className={classes.tablecategory}
                 width='40%'
                 align='right'
               >

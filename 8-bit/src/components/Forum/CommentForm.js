@@ -17,7 +17,7 @@ const styles = {
     margin: '10px auto 10px auto',
   },
   input: {
-    fontFamily: 'Chewy Caramel',
+    fontFamily: 'Organic Teabags',
     fontSize: '1.3rem',
   },
   visibleSeparator: {

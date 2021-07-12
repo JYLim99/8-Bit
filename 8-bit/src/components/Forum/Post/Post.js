@@ -28,7 +28,7 @@ const styles = {
     display: 'flex',
     height: 170,
     marginBottom: 20,
-    fontFamily: 'Chewy Caramel',
+    fontFamily: 'Organic Teabags',
     fontSize: '1.2rem',
   },
   image: {
@@ -39,16 +39,16 @@ const styles = {
     objectFit: 'cover',
   },
   body: {
-    fontFamily: 'Chewy Caramel',
+    fontFamily: 'Organic Teabags',
     fontSize: '1.3rem',
   },
   /*
   handle: {
-    fontFamily: 'Chewy Caramel',
+    fontFamily: 'Organic Teabags',
     fontSize: '1.6rem',
   },
   date: {
-    fontFamily: 'Chewy Caramel',
+    fontFamily: 'Organic Teabags',
     fontSize: '1.2rem',
   },*/
 }

@@ -28,7 +28,7 @@ const styles = (theme) => ({
     marginLeft: 20,
   },
   body: {
-    fontFamily: 'Chewy Caramel',
+    fontFamily: 'Organic Teabags',
     fontSize: '1.3rem',
   },
   container: {
