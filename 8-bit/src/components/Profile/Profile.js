@@ -46,12 +46,12 @@ const styles = {
       borderRadius: '50%',
     },
     '& .bio': {
-      fontFamily: 'Chewy Caramel',
+      fontFamily: 'Organic Teabags',
       fontSize: '1.3rem',
     },
     '& .profile-details': {
       textAlign: 'center',
-      fontFamily: 'Chewy Caramel',
+      fontFamily: 'Organic Teabags',
       fontSize: '1.3rem',
       '& span, svg': {
         verticalAlign: 'middle',

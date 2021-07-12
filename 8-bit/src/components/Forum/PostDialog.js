@@ -53,7 +53,7 @@ const styles = {
   },
   dialogContent: {
     padding: 20,
-    fontFamily: 'Chewy Caramel',
+    fontFamily: 'Organic Teabags',
     fontSize: '1.2rem',
   },
   spinnerDiv: {
@@ -62,7 +62,7 @@ const styles = {
     marginBottom: 50,
   },
   body: {
-    fontFamily: 'Chewy Caramel',
+    fontFamily: 'Organic Teabags',
     fontSize: '1.3rem',
   },
 }
