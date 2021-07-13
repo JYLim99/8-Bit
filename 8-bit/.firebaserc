@@ -1,5 +1,14 @@
 {
   "projects": {
     "default": "orbital-8-bit"
+  },
+  "targets": {
+    "orbital-8-bit": {
+      "hosting": {
+        "8bit": [
+          "orbital-8-bit"
+        ]
+      }
+    }
   }
 }
