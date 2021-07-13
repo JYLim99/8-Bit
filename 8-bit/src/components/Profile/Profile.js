@@ -45,6 +45,10 @@ const styles = {
       maxWidth: '100%',
       borderRadius: '50%',
     },
+    '& .handle': {
+      fontFamily: 'Organic Teabags',
+      fontSize: '1.8rem',
+    },
     '& .bio': {
       fontFamily: 'Organic Teabags',
       fontSize: '1.3rem',
@@ -128,6 +132,7 @@ class Profile extends Component {
                 to={`/users/${handle}`}
                 color='primary'
                 variant='h5'
+                className='handle'
               >
                 @{handle}
               </MuiLink>

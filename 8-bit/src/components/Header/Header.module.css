@@ -1,6 +1,8 @@
 @font-face {
   font-family: Zelda;
   src: url('./HyliaSerifBeta-Regular.otf');
+  font-family: Organic Teabags;
+  src: url('./OrganicTeabags.ttf');
 }
 
 .Header {
@@ -40,7 +42,7 @@
 }
 
 .LinkWrapper {
-  width: 85%;
+  width: 1225px;
   display: flex;
   align-items: center;
 }
@@ -57,17 +59,28 @@
   letter-spacing: 0.5px;
 }
 
+.helperText {
+  font-family: 'Organic Teabags';
+  font-size: 1.2rem;
+  margin: 23px auto auto 20px;
+  letter-spacing: 0.13px;
+}
+
+.placeHolder {
+  margin-left: 48px;
+}
+
 .nav {
   box-sizing: border-box;
   width: 100%;
 }
 
 .span {
-  height: 3px;
-  width: 30px;
+  font-family: Zelda;
+  font-size: 20px;
+  color: black;
   margin: 6px;
   display: block;
-  background: #12131d;
   cursor: pointer;
-  margin-left: 80%;
+  margin-left: 20px;
 }

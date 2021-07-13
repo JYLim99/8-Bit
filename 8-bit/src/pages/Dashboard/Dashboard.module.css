@@ -7,7 +7,7 @@
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
-  margin: 40px auto 0 auto;
+  margin: 40px auto 0 210px;
   max-width: 1200px;
 }
 
@@ -56,4 +56,40 @@
   font-size: 20px;
   text-decoration: none;
   color: #fbbf7a;
+}
+
+.scoresContainer {
+  min-width: 275;
+  min-height: 200;
+  margin-top: 10px;
+}
+
+.scoresTitle {
+  font-family: Caramel Sweets;
+  font-size: 20px;
+  margin-left: 120px;
+}
+
+.scores {
+  font-family: Organic Teabags;
+  font-size: 18px;
+  padding-left: 20px;
+}
+
+.scoresNumeral {
+  font-family: Organic Teabags;
+  font-size: 18px;
+  margin-left: 300px;
+}
+
+.separator1 {
+  padding-left: 78%;
+}
+
+.separator2 {
+  padding-left: 84%;
+}
+
+.separator3 {
+  padding-left: 65%;
 }

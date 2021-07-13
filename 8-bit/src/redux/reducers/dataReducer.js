@@ -60,12 +60,21 @@ export default function (state = initialState, action) {
         posts: [action.payload, ...state.posts],
       }
     case SUBMIT_COMMENT:
+      let commentedOnIndex = state.posts.findIndex(
+        (post) => post.postId === action.payload.postId
+      )
       return {
         ...state,
         post: {
           ...state.post,
           comments: [action.payload, ...state.post.comments],
+          commentCount: state.post.commentCount + 1,
         },
+        posts: state.posts.map((post, postsArrIndex) =>
+          postsArrIndex === commentedOnIndex
+            ? { ...post, commentCount: post.commentCount + 1 }
+            : post
+        ),
       }
     default:
       return state

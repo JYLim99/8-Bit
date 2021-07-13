@@ -17,7 +17,7 @@ import Typography from '@material-ui/core/Typography'
 //Icon
 import ChatIcon from '@material-ui/icons/Chat'
 import CloseIcon from '@material-ui/icons/Close'
-import UnfoldMore from '@material-ui/icons/UnfoldMore'
+//import UnfoldMore from '@material-ui/icons/UnfoldMore'
 import FavoriteIcon from '@material-ui/icons/Favorite'
 import FavoriteBorder from '@material-ui/icons/FavoriteBorder'
 import IconButton from '@material-ui/core/IconButton'
@@ -41,10 +41,11 @@ const styles = {
     left: '90%',
     top: '2%',
   },
+  /*
   expandButton: {
     position: 'absolute',
     left: '90%',
-  },
+  },*/
   profileImage: {
     maxWidth: 200,
     height: 200,
@@ -177,7 +178,7 @@ class PostDialog extends Component {
           tip='Expand post'
           tipClassName={classes.expandButton}
         >
-          <UnfoldMore color='primary' />
+          <ChatIcon color='primary' />
         </MyButton>
         <Dialog
           open={this.state.open}
