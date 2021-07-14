@@ -26,7 +26,7 @@ class Forum extends Component {
       <div className={styles.page}>
         <div className={styles.container}>
           <Grid container spacing={4}>
-            <Grid item sm={8} xs={12}>
+            <Grid item sm={7} xs={12}>
               {recentPostsMarkup}
             </Grid>
             <Grid item sm={4} xs={12}>

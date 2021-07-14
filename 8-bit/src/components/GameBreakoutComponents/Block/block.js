@@ -1,12 +1,12 @@
 /* eslint-disable import/no-anonymous-default-export */
-import React from "react"
-import { getRange } from "../utils"
-import styles from "./block.module.css"
-import { BLOCK_MAX_DENSITY } from "../levels"
+import React from 'react'
+import { getRange } from '../utils'
+import styles from './block.module.css'
+import { BLOCK_MAX_DENSITY } from '../levels'
 
 //Density determines the opacity of the block color
 const colors = getRange(BLOCK_MAX_DENSITY).map(
-  (i) => `rgba(42, 52, 146, ${1 / (BLOCK_MAX_DENSITY - i)})`
+  (i) => `rgba(125, 249, 255, ${1 / (BLOCK_MAX_DENSITY - i)})`
 )
 
 //Creating the component itself

@@ -6,9 +6,14 @@ import StaticProfile from './StaticProfile'
 import Grid from '@material-ui/core/Grid'
 import styles from './Dashboard.module.css'
 
+import Card from '@material-ui/core/Card'
+import CardContent from '@material-ui/core/CardContent'
+import { Typography } from '@material-ui/core'
+
 import ProfileSkeleton from '../../util/ProfileSkeleton'
 import PostSkeleton from '../../util/PostSkeleton'
 
+import { db } from '../../config/firebase'
 import { connect } from 'react-redux'
 import { getUserData } from '../../redux/actions/dataActions'
 
@@ -16,11 +21,27 @@ class Dashboard extends Component {
   state = {
     profile: null,
     postIdParam: null,
+    scores: [],
   }
 
   componentDidMount() {
     const handle = this.props.match.params.handle
     const postId = this.props.match.params.postId
+
+    const fillScores = async () =>
+      await db
+        .collection('users')
+        .doc(handle)
+        .get()
+        .then((doc) => {
+          if (doc && doc.exists) {
+            this.state.scores.push(doc.data().breakout)
+            this.state.scores.push(doc.data().pong)
+            this.state.scores.push(doc.data().spaceInvaders)
+          }
+        })
+
+    fillScores()
 
     if (postId) this.setState({ postIdParam: postId })
 
@@ -57,14 +78,35 @@ class Dashboard extends Component {
       <div className={styles.page}>
         <div className={styles.container}>
           <Grid container spacing={4}>
-            <Grid item sm={8} xs={12}>
+            <Grid item sm={7} xs={12}>
               {postsMarkup}
             </Grid>
             <Grid item sm={4} xs={12}>
               {this.state.profile === null ? (
                 <ProfileSkeleton />
               ) : (
-                <StaticProfile profile={this.state.profile} />
+                <>
+                  <StaticProfile profile={this.state.profile} />
+                  <Card className={styles.scoresContainer}>
+                    <CardContent className={styles.scoresTitle}>
+                      User Scores
+                    </CardContent>
+                    <CardContent className={styles.scores}>
+                      Breakout:
+                      <span className={styles.separator1} />
+                      {this.state.scores[0] ? this.state.scores[0] : '---'}
+                    </CardContent>
+                    <CardContent className={styles.scores}>
+                      Pong:
+                      <span className={styles.separator2} />
+                      {this.state.scores[1] ? this.state.scores[1] : '---'}
+                    </CardContent>
+                    <CardContent className={styles.scores}>
+                      Space Invaders: <span className={styles.separator3} />
+                      {this.state.scores[2] ? this.state.scores[2] : '-----'}
+                    </CardContent>
+                  </Card>
+                </>
               )}
             </Grid>
           </Grid>
@@ -76,10 +118,12 @@ class Dashboard extends Component {
 
 Dashboard.propTypes = {
   getUserData: PropTypes.func.isRequired,
+  user: PropTypes.object.isRequired,
   data: PropTypes.object.isRequired,
 }
 
 const mapStateToProps = (state) => ({
+  user: state.user,
   data: state.data,
 })
 

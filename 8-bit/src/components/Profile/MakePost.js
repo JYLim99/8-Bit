@@ -23,6 +23,17 @@ const styles = {
   textField: {
     margin: '10px auto 10px auto',
   },
+  input: {
+    fontFamily: 'Organic Teabags',
+    fontSize: '1.3rem',
+    letterSpacing: '0.03rem',
+  },
+  prompt: {
+    fontFamily: 'Organic Teabags',
+    fontSize: '1.0rem',
+    letterSpacing: '0.03rem',
+    margin: 'auto auto auto 0px',
+  },
   submitButton: {
     position: 'relative',
     float: 'right',
@@ -76,6 +87,7 @@ class MakePost extends Component {
     } = this.props
     return (
       <Fragment>
+        <div className={classes.prompt}>Make a Post!</div>
         <MyButton onClick={this.handleOpen} tip='Make a Post!'>
           <AddIcon />
         </MyButton>
@@ -107,6 +119,9 @@ class MakePost extends Component {
                 className={classes.textField}
                 onChange={this.handleChange}
                 fullWidth
+                InputProps={{
+                  className: classes.input,
+                }}
               />
               <Button
                 type='submit'

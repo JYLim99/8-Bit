@@ -9,7 +9,12 @@ import Notifications from './Notifications'
 
 class Header extends Component {
   render() {
-    const { authenticated } = this.props
+    const {
+      authenticated,
+      user: {
+        credentials: { handle },
+      },
+    } = this.props
     return (
       <div className={styles.Header}>
         <div className={styles.container}>
@@ -23,19 +28,25 @@ class Header extends Component {
                 />
                 8 Bit
               </Link>
+              {authenticated ? (
+                <div className={styles.helperText}>Welcome back, {handle}!</div>
+              ) : (
+                <div className={styles.helperText}>
+                  Login to enjoy more features
+                </div>
+              )}
             </div>
             {authenticated ? (
               <Fragment>
                 <Notifications />
               </Fragment>
             ) : (
-              <Fragment></Fragment>
+              <div className={styles.placeHolder}></div>
             )}
             <MusicPlayer />
             <Link to='/Menu'>
               <div className={styles.nav}>
-                <span className={styles.span}></span>
-                <span className={styles.span}></span>
+                <span className={styles.span}>Menu</span>
               </div>
             </Link>
           </div>
@@ -46,10 +57,12 @@ class Header extends Component {
 }
 
 Header.propTypes = {
+  user: PropTypes.object.isRequired,
   authenticated: PropTypes.bool.isRequired,
 }
 
 const mapStateToProps = (state) => ({
+  user: state.user,
   authenticated: state.user.authenticated,
 })
 

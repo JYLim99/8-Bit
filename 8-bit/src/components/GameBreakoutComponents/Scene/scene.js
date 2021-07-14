@@ -60,6 +60,45 @@ async function addScoreToDatabase(handle, newScore) {
   }
 }
 
+async function addScoreToUser(handle, newScore) {
+  let dbUserScore = await db
+    .collection('users')
+    .doc(handle)
+    .get()
+    .then((doc) => {
+      if (doc.exists) {
+        console.log('Document data:', doc.data())
+        console.log(doc.data().breakout)
+        return doc.data().breakout
+      } else {
+        // doc.data() will be undefined in this case
+        console.log('No such document!')
+        return undefined
+      }
+    })
+    .catch((error) => {
+      console.log('Error getting document:', error)
+    })
+  console.log(dbUserScore)
+  if (parseInt(newScore) > dbUserScore || dbUserScore === undefined) {
+    db.collection('users')
+      .doc(handle)
+      .set(
+        {
+          breakout: parseInt(newScore),
+        },
+        { merge: true }
+      )
+      .then(function () {
+        console.log(newScore)
+        console.log('Value successfully written!')
+      })
+      .catch(function (error) {
+        console.error('Error writing Value: ', error)
+      })
+  }
+}
+
 //Array of movement keys,
 //left and right arrow keys for movement
 const MOVEMENT_KEYS = {
@@ -173,6 +212,10 @@ const HANDLER = {
       if (token) {
         let handle = store.getState().user.credentials.handle
         addScoreToDatabase(
+          handle,
+          document.getElementById('current-score').innerText
+        )
+        addScoreToUser(
           handle,
           document.getElementById('current-score').innerText
         )
