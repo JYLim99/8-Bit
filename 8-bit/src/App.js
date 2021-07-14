@@ -27,6 +27,8 @@ import { logoutUser, getUserData } from './redux/actions/userActions'
 
 //Components
 import AuthRoute from './util/AuthRoute'
+import PongGameLobby from './components/PongGameLobby/PongGameLobby'
+import { PongProvider } from './components/PongMultiplayer/PongContext'
 
 axios.defaults.baseURL =
   'https://asia-southeast1-orbital-8-bit.cloudfunctions.net/api'
@@ -73,7 +75,10 @@ function App() {
                 <Route path='/SpaceInvaders' component={SpaceInvaders} />
                 <Route path='/Breakout' component={Breakout} />
                 <Route path='/Pong' component={Pong} />
-                <Route path='/PongMultiplayer' component={PongMultiplayer} />
+                <PongProvider>
+                  <Route path='/PongMultiplayer/GameLobby' component={PongGameLobby} />
+                  <Route path="/PongGame/:id" component={PongMultiplayer} />
+                </PongProvider>
                 <Route path='/Forum' component={Forum} />
                 <Route path='/ForgetPassword' component={ForgetPassword} />
                 <Route path='/UpdateProfile' component={UpdateProfile} />

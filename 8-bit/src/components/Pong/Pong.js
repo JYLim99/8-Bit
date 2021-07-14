@@ -224,7 +224,6 @@ const Pong = () => {
     return (
       <>
         <h1 className={styles.gameOverHeader}>
-          {' '}
           GAME OVER! Your score: {user.score}
         </h1>
         <button

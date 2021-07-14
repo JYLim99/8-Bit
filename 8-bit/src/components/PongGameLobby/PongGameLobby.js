@@ -1,44 +1,32 @@
-import { db } from '../../config/firebase'
-import store from '../../redux/store'
-import { Redirect, Link } from 'react-router-dom';
+import React, { useEffect } from 'react'
+import { usePongContext } from '../PongMultiplayer/PongContext'
 
 const PongGameLobby = () => {
 
-    let id;
-    let handle;
-    const token = localStorage.FBIdToken
+    const { handleJoinRoom, 
+            getWaitingRooms, 
+            createRoom,
+            rooms,
+            handleInputID } = usePongContext()
 
-    function reroute() {
-        if(id !== undefined) {
-            return <Link to={`/PongMultiplayer/GameLobby/${id}`}></Link>
-        } else {
-            console.log("Error occurred while re-routing`")
-        }
-    }
-
-    function getHandle() {
-        if(token) {
-            handle = store.getState().user.credentials.handle;
-        } else {
-            return <Redirect to="/Login" />
-        }
-    }
-
-    function createRoom() {
-
-        const room = db.collection("gamesRoom")
-            .add({
-                player1: true,
-                player1Handle: handle
-            })
-        id = room.id
-    }
+    useEffect(() => {
+        getWaitingRooms()
+    }, [])
 
     return (
         <>
-            <div></div>
-            <button> Create room </button>
-            <button> Join room</button>
+            { rooms && rooms.map(rooms => {
+                    return (
+                        <div> 
+                            {rooms.id} {" "}
+                            {rooms.player1Handle} 
+                        </div>
+                    )
+                }) }
+            <input type="text" placeholder="Input room id" onChange={handleInputID}></input>
+            <button onClick={handleJoinRoom}> Join Room </button>
+            <br />
+            <button onClick={createRoom}> Create room </button>
         </>
     );
 }
