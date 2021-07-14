@@ -1,5 +1,6 @@
 {
   "hosting": {
+	  "target": "8bit",
     "public": "build",
     "ignore": [
       "firebase.json",

@@ -19,7 +19,10 @@ const styles = (theme) => ({
     padding: 25,
   },
   cover: {
-    minWidth: 200,
+    minWidth: 80,
+    height: 80,
+    margin: '15px 0px 10px 15px',
+    borderRadius: '50%',
     objectFit: 'cover',
   },
   handle: {

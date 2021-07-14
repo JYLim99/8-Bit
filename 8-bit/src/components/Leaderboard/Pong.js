@@ -63,7 +63,7 @@ function Pong() {
           <TableBody>
             <TableRow>
               <TableCell className={classes.tablecategory} width='10%'>
-                Index
+                Rank
               </TableCell>
               <TableCell className={classes.tablecategory} width='50%'>
                 Player
