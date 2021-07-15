@@ -18,6 +18,11 @@ const styles = (theme) => ({
     border: 'none',
     margin: 4,
   },
+  handle: {
+    fontFamily: 'Organic Teabags',
+    fontSize: '1.6rem',
+    letterSpacing: '0.02rem',
+  },
   commentImage: {
     maxWidth: '100%',
     height: 100,
@@ -61,6 +66,7 @@ class Comments extends Component {
                         component={Link}
                         to={`/users/${userHandle}`}
                         color='primary'
+                        className={classes.handle}
                       >
                         {userHandle}
                       </Typography>

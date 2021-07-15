@@ -52,6 +52,11 @@ const styles = {
     objectFit: 'cover',
     borderRadius: '50%',
   },
+  handle: {
+    fontFamily: 'Organic Teabags',
+    fontSize: '1.6rem',
+    letterSpacing: '0.02rem',
+  },
   dialogContent: {
     padding: 20,
     fontFamily: 'Organic Teabags',
@@ -147,6 +152,7 @@ class PostDialog extends Component {
             color='primary'
             variant='h5'
             to={`/users/${userHandle}`}
+            className={classes.handle}
           >
             @{userHandle}
           </Typography>
