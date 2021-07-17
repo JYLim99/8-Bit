@@ -108,6 +108,12 @@ function drawText(context, text, x, y) {
   context.fillText(text, x, y)
 }
 
+function drawInitialText(context, text, x, y, style) {
+  context.fillStyle = 'WHITE'
+  context.font = style
+  context.fillText(text, x, y)
+}
+
 let lives = 5
 
 const Pong = () => {
@@ -122,6 +128,19 @@ const Pong = () => {
   useLayoutEffect(() => {
     const canvas = canvasRef.current
     const context = canvas.getContext('2d')
+    context.textBaseline = 'middle'
+    context.textAlign = 'center'; 
+
+    if(!gameStarted) {
+      context.clearRect(0, 0, canvas.width, canvas.height);
+      drawInitialText(context, "Pong", width / 2, height / 4, "80px pixel")
+      drawInitialText(context, "Press anywhere to play", width / 2, height / 2.5, "20px pixel")
+      drawInitialText(context, "Move your mouse up and down to move", width / 2, height / 2, "20px pixel")
+      drawInitialText(context, "Click on the screen again to pause", width/2, height / 1.65, "20px pixel")
+      drawInitialText(context, "You are the left paddle (yellow color)", width/2, height / 1.4, "20px pixel")
+      drawInitialText(context, "You will score a point if the ball goes pass the computer boundary", width/2, height/ 1.23, "20px pixel")
+      drawInitialText(context, "You have 5 tries before you lose", width/2, height / 1.1, "20px pixel")
+    }
 
     function render() {
       drawBall(context, canvas)
@@ -138,8 +157,7 @@ const Pong = () => {
     function movePaddle(event) {
       let rect = canvas.getBoundingClientRect()
 
-      userRef.current.y =
-        event.clientY - rect.top - userRef.current.paddleHeight / 2
+        userRef.current.y = event.clientY - rect.top - userRef.current.paddleHeight / 2
     }
 
     function update() {
@@ -203,7 +221,7 @@ const Pong = () => {
 
         ballRef.current.dy = ballRef.current.speed * Math.sin(angleRad)
 
-        ballRef.current.speed += 0.08
+        ballRef.current.speed += 0.1
       }
     }
 
@@ -230,6 +248,8 @@ const Pong = () => {
           <br />
           <ul> Click on the screen again to pause </ul>
           <br />
+          <ul> You are the left paddle (yellow color) </ul>
+          <br />
           <ul> You have 5 tries before you lose</ul>
         </ui>
       </div>
@@ -245,7 +265,7 @@ const Pong = () => {
   if (!gameOver) {
     return (
       <>
-        {headerDisplay ? <Header /> : null}
+        {/* {headerDisplay ? <Header /> : null} */}
         <canvas
           ref={canvasRef}
           height={height}
@@ -257,7 +277,7 @@ const Pong = () => {
             setHeaderDisplay(false)
           }}
         />
-        {instructDisplay ? <Instructions /> : null}
+        {/* {instructDisplay ? <Instructions /> : null} */}
       </>
     )
   } else {

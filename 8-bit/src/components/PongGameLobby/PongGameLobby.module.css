@@ -1,0 +1,114 @@
+@font-face {
+    font-family: Zelda;
+    src: url("./HyliaSerifBeta-Regular.otf");
+}
+
+.container {
+    height: 100vh;
+    width: 100vw;
+    background-color: #FDF6F0;
+}
+
+.createRoomButton {
+    position: relative;
+    top: 10%;
+    font-family: Zelda;
+    border: none;
+    background-color: white;
+    color: #4592af;
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #4592af;
+    letter-spacing: 1.5px;
+    align-items: center;
+    justify-content: center;
+    margin:auto;
+    margin-bottom: 10%;
+}
+
+.createRoomButton:hover {
+    cursor: pointer;
+    background-color: #4592af;
+    color: white;
+}
+
+.inputField {
+    display: inline-block;
+    text-indent: 0px;
+    text-align: start;
+    cursor: text;
+    font-family: Zelda;
+    box-sizing: border-box;
+    border-radius: 0;
+    overflow: visible;
+    margin: 0;
+    border: 0px;
+    color: black;
+    font-size: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid #77858a;
+    background-color: transparent;
+    width: 100%;
+    text-align: center;
+}
+
+.inputField:focus {
+    outline-width: 0;
+}
+
+.joinRoomButton {
+    font-family: Zelda;
+    border: none;
+    background-color: white;
+    color: #4592af;
+    display: block;
+    text-decoration: none;
+    padding: 10px;
+    font-size: 20px;
+    border-radius: 10px;
+    border-style: solid;
+    border-color: #4592af;
+    letter-spacing: 1.5px;
+    align-items: center;
+    justify-content: center;
+    margin:auto;
+    margin-top: 5%;
+    margin-bottom: 1%;
+}
+
+.joinRoomButton:hover {
+    cursor: pointer;
+    background-color: #4592af;
+    color: white;
+}
+
+.header {
+    display: block;
+    margin: auto;
+    font-family: Zelda;
+    font-size: x-large;
+    font-weight: bold;
+    color: #393e46;
+    padding: 20px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+.instructions {
+    font-size: large;
+    display: block;
+    margin: auto;
+    font-family: Zelda;
+    font-weight: bold;
+    color: #393e46;
+    padding: 15px;
+    letter-spacing: 1px;
+    justify-content: center;
+    text-align: center;
+    margin-left: 0 auto;
+    margin-right: 0 auto;
+}

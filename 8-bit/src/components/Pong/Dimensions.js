@@ -1,4 +1,4 @@
 export const Dimensions = {
-    height: 600,
-    width: 900
+    height: window.innerHeight * 0.88,
+    width: window.innerWidth
 }

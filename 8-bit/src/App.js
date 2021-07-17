@@ -59,9 +59,7 @@ function App() {
               <Route exact path='/Menu' component={Menu} />
               <Route exact path='/Chat' component={Chat} />
               <Fragment>
-                <div className='Header'>
-                  <Header />
-                </div>
+                <Header />
                 <Route exact path='/' component={Game} />
                 <AuthRoute exact path='/SignUp' component={SignUp} />
                 <AuthRoute path='/Login' component={Login} />

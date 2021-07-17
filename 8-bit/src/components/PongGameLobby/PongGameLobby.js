@@ -1,33 +1,26 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import { usePongContext } from '../PongMultiplayer/PongContext'
+import styles from './PongGameLobby.module.css'
 
 const PongGameLobby = () => {
 
-    const { handleJoinRoom, 
-            getWaitingRooms, 
+    const { handleJoinRoom,  
             createRoom,
-            rooms,
             handleInputID } = usePongContext()
 
-    useEffect(() => {
-        getWaitingRooms()
-    }, [])
-
     return (
-        <>
-            { rooms && rooms.map(rooms => {
-                    return (
-                        <div> 
-                            {rooms.id} {" "}
-                            {rooms.player1Handle} 
-                        </div>
-                    )
-                }) }
-            <input type="text" placeholder="Input room id" onChange={handleInputID}></input>
-            <button onClick={handleJoinRoom}> Join Room </button>
+        <div className={styles.container}>
+            <button className={styles.createRoomButton} onClick={createRoom}> Create room </button>
             <br />
-            <button onClick={createRoom}> Create room </button>
-        </>
+            <input className={styles.inputField} type="text" placeholder="Input room id" onChange={handleInputID}></input>
+            <button className={styles.joinRoomButton} onClick={handleJoinRoom}> Join Room </button>
+            <h1 className={styles.header}> Instructions </h1>
+            <div className={styles.instructions}> 1) Click on create room </div>
+            <div className={styles.instructions}> 2) Send the room id to your friend to join and wait </div>
+            <div className={styles.instructions}> 3) Type the room id into the input field (For people joining with room id) </div>
+            <div className={styles.instructions}> 4) Click on join room (For people joining with room id) </div>
+            <div className={styles.instructions}> 5) Enjoy! </div>
+        </div>
     );
 }
  

@@ -11,7 +11,7 @@ export const user= {
 }
 
 export function drawUser(context) {
-    context.fillStyle = "WHITE";
+    context.fillStyle = "Yellow";
     context.fillRect(user.x, user.y, user.paddleWidth, user.paddleHeight);
 }
 

@@ -28,11 +28,10 @@
   background: BLACK;
   margin: auto;
   position: absolute;
-  top: 0;
+  top: 12%;
   bottom: 0;
   right: 0;
   left: 0;
-  border-radius: 15px;
 }
 
 .restartButton {

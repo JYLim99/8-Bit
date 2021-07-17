@@ -12,9 +12,8 @@ export function usePongContext() {
 export function PongProvider({ children }) {
 
     const [ roomID, setRoomID ] = useState("")
-    const [ rooms, setRooms] = useState([])
     let history = useHistory();
-
+    const [ player, setPlayer ] = useState(0);
 
     function getHandle() {
         const token = localStorage.FBIdToken
@@ -27,6 +26,7 @@ export function PongProvider({ children }) {
 
     async function createRoom() {
         let handle = getHandle();
+        setPlayer(1)
         await db.collection("gamesRoom")
             .add({
                 numPlayer: 1,
@@ -48,17 +48,9 @@ export function PongProvider({ children }) {
         history.push(`/PongGame/${id}`)
     }
 
-    async function getWaitingRooms() {
-        await db.collection("gamesRoom")
-            .onSnapshot((snapshot) => {
-                snapshot.forEach((doc) => {
-                    setRooms([...rooms, doc.data()])
-                })
-            })
-    }
-
     async function handleJoinRoom() {
         let handle = getHandle();
+        setPlayer(2);
         await db.collection("gamesRoom")
             .doc(roomID)
             .update({
@@ -73,14 +65,14 @@ export function PongProvider({ children }) {
         setRoomID(event.target.value)
     }
 
+    
     const value = {
-        getWaitingRooms,
         handleJoinRoom,
         getHandle,
         createRoom,
         handleInputID,
         roomID,
-        rooms
+        player
     }
 
     return (
