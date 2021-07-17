@@ -2,13 +2,12 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import axios from 'axios'
 import Post from '../../components/Forum/Post'
-import StaticProfile from './StaticProfile'
+import Profile from '../../components/Profile'
 import Grid from '@material-ui/core/Grid'
 import styles from './Dashboard.module.css'
 
 import Card from '@material-ui/core/Card'
 import CardContent from '@material-ui/core/CardContent'
-import { Typography } from '@material-ui/core'
 
 import ProfileSkeleton from '../../util/ProfileSkeleton'
 import PostSkeleton from '../../util/PostSkeleton'
@@ -86,7 +85,7 @@ class Dashboard extends Component {
                 <ProfileSkeleton />
               ) : (
                 <>
-                  <StaticProfile profile={this.state.profile} />
+                  <Profile />
                   <Card className={styles.scoresContainer}>
                     <CardContent className={styles.scoresTitle}>
                       User Scores

@@ -5,7 +5,6 @@ import { Link } from 'react-router-dom'
 import dayjs from 'dayjs'
 import EditDetails from './EditDetails.js'
 import MyButton from '../../util/MyButton'
-import MakePost from './MakePost'
 
 // MUI stuff
 import Button from '@material-ui/core/Button'
@@ -162,7 +161,6 @@ class Profile extends Component {
               <CalendarToday color='primary' />{' '}
               <span>Joined {dayjs(createdAt).format('MMM YYYY')}</span>
             </div>
-            <MakePost />
             <EditDetails />
           </div>
         </Paper>

@@ -3,8 +3,9 @@ import styles from './Forum.module.css'
 import Grid from '@material-ui/core/Grid'
 import PropTypes from 'prop-types'
 
+import MakePost from '../../components/Forum/MakePost'
 import Post from '../../components/Forum/Post/Post'
-import Profile from '../../components/Profile'
+//import Profile from '../../components/Profile'
 import PostSkeleton from '../../util/PostSkeleton'
 
 import { connect } from 'react-redux'
@@ -26,12 +27,13 @@ class Forum extends Component {
       <div className={styles.page}>
         <div className={styles.container}>
           <Grid container spacing={4}>
+            <Grid item sm={1} xs={12}>
+              <MakePost />
+            </Grid>
             <Grid item sm={7} xs={12}>
               {recentPostsMarkup}
             </Grid>
-            <Grid item sm={4} xs={12}>
-              <Profile />
-            </Grid>
+            <Grid item sm={4} xs={12}></Grid>
           </Grid>
         </div>
       </div>

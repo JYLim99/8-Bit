@@ -44,8 +44,6 @@ const styles = (theme) => ({
   },
   textField: {
     margin: '10px auto 10px auto',
-
-    height: 10,
   },
   input: {
     fontFamily: 'Organic Teabags',
