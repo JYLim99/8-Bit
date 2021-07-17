@@ -35,7 +35,8 @@ const styles = (theme) => ({
   pageTitle: {
     margin: '0px auto 0px auto',
     fontFamily: 'Caramel Sweets',
-    fontWeight: 700,
+    letterSpacing: 0.8,
+    fontWeight: 500,
   },
   textField: {
     margin: '5px auto 5px auto',
@@ -58,6 +59,9 @@ const styles = (theme) => ({
     cursor: 'pointer',
     letterSpacing: 1.5,
     border: '3px solid #d4a373',
+    '&:hover': {
+      background: 'none',
+    },
   },
   customError: {
     color: 'red',
@@ -65,6 +69,9 @@ const styles = (theme) => ({
   },
   progress: {
     position: 'absolute',
+  },
+  tip: {
+    letterSpacing: '0.5px',
   },
 })
 
@@ -203,7 +210,7 @@ class signup extends Component {
                 )}
               </Button>
               <br />
-              <small>
+              <small className={classes.tip}>
                 Already have an account? Login <Link to='/login'>here</Link>
               </small>
             </form>

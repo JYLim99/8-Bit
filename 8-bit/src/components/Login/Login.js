@@ -27,19 +27,25 @@ const styles = (theme) => ({
     textAlign: 'center',
     fontFamily: 'Organic Teabags',
     fontSize: '1.8rem',
+    margin: '45px auto auto auto',
   },
   image: {
     margin: '0px auto auto auto',
+    display: 'block',
+    top: 50,
     height: 100,
     width: 100,
   },
   pageTitle: {
     margin: '0px auto 0px auto',
     fontFamily: 'Caramel Sweets',
-    fontWeight: 700,
+    letterSpacing: 0.8,
+    fontWeight: 500,
   },
   textField: {
     margin: '10px auto 10px auto',
+
+    height: 10,
   },
   input: {
     fontFamily: 'Organic Teabags',
@@ -59,6 +65,9 @@ const styles = (theme) => ({
     cursor: 'pointer',
     letterSpacing: 1.5,
     border: '3px solid #d4a373',
+    '&:hover': {
+      background: 'none',
+    },
   },
   customError: {
     color: 'red',
@@ -70,6 +79,7 @@ const styles = (theme) => ({
   tip: {
     fontFamily: 'Organic Teabags',
     fontSize: '1.2rem',
+    letterSpacing: '0.5px',
     margin: '10px auto auto auto',
   },
 })

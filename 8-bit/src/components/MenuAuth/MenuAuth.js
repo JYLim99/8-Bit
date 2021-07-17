@@ -91,37 +91,6 @@ class MenuAuth extends Component {
                       </div>
                     </Link>
                   </motion.li>
-                  {/* <li className={styles.list}>
-						  <Link to="/Games" className={styles.home}>
-							<div className={styles.wrapper}>
-							  <div className={styles.lineLeft2}>
-								<motion.div
-								  className={styles.maskLeft}
-								  variants={lineAnimate}
-								  transition={{ ...transition, duration: 1 }}
-								></motion.div>
-							  </div>
-							  <div className={styles.title}>
-								<h2 className={styles.menuHeader}>
-								  <motion.div
-									className={styles.text}
-									variants={slideUp}
-									transition={transition}
-								  >
-									Games
-								  </motion.div>
-								</h2>
-							  </div>
-							  <div className={styles.lineRight2}>
-								<motion.div
-								  className={styles.maskRight}
-								  variants={lineAnimate}
-								  transition={{ ...transition, duration: 1 }}
-								></motion.div>
-							  </div>
-							</div>
-						  </Link>
-						</li> */}
                   <li className={styles.list}>
                     <Link to='/Forum' className={styles.home}>
                       <div className={styles.wrapper}>
