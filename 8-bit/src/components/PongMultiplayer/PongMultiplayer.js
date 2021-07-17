@@ -6,22 +6,42 @@ import { db } from '../../config/firebase';
 
 const PongMultiplayer = () => {
 
-    const { roomID, player, getHandle } = usePongContext();
-    const height = 400;
-    const width = 600;
+    const { roomID, player, getHandle } = usePongContext()
+    const height = window.innerHeight * 0.75;
+    const width = window.innerWidth
     const canvasRef = useRef(null)
-    const [ gameOver, setGameOver ] = useState(false);
+    const [ gameOver, setGameOver ] = useState(false)
     const [ twoPlayers, setTwoPlayers ] = useState(false)
     const requestRef = useRef()
-    let upArrowPressed = false;
+    let upArrowPressed = false
     const upArrowRef = useRef(upArrowPressed)
-    let downArrowPressed = false;
+    let downArrowPressed = false
     const downArrowRef = useRef(downArrowPressed)
     let upArrowOpp = false;
     const upArrowOppRef = useRef(upArrowOpp)
-    let downArrowOpp = false;
+    let downArrowOpp = false
     const downArrowOppRef = useRef(downArrowOpp)
     let handle = getHandle()
+    let name = '';
+    const nameRef = useRef(name)
+    const [ winner, setWinner ] = useState('');
+    const ref = useRef();
+
+    function getHandleOpp() {
+        if (player === 1) {
+            db.collection("gamesRoom")
+            .doc(roomID)
+            .onSnapshot((doc) => {
+                nameRef.current = doc.data().player2Handle
+            })
+        } else {
+            db.collection("gamesRoom")
+            .doc(roomID)
+            .onSnapshot((doc) => {
+                nameRef.current = doc.data().player1Handle
+            })
+        }
+    }
 
     const ball = {
         x: width/2,
@@ -186,6 +206,11 @@ const PongMultiplayer = () => {
         context.fillText(text, x, y)
     }
 
+    function drawPaddle(context, x, y, width, height, color) {
+        context.fillStyle = color;
+        context.fillRect(x, y, width, height);
+    }
+
     function resetBall() {
         ball.x = width / 2
         ball.y = height / 2
@@ -198,7 +223,7 @@ const PongMultiplayer = () => {
 
         const canvas = canvasRef.current
         const ctx = canvas.getContext('2d')
-        
+    
         function drawArc(x, y, r, color){
             ctx.fillStyle = color;
             ctx.beginPath();
@@ -210,15 +235,28 @@ const PongMultiplayer = () => {
         function render() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
             drawArc(ball.x, ball.y, ball.radius, "WHITE")
-            ctx.fillRect(paddle1.x, paddle1.y, paddle1.paddleWidth, paddle1.paddleHeight);
-            ctx.fillRect(paddle2.x, paddle2.y, paddle2.paddleWidth, paddle2.paddleHeight);
-            drawText(ctx, paddle1.score, width / 5, height / 10)
-            drawText(ctx, paddle2.score, width / 1.125, height / 10)
-            //drawText(ctx, handle, width / 2, height / 10)
+            drawPaddle(ctx, paddle1.x, paddle1.y, paddle1.paddleWidth, paddle1.paddleHeight, "Yellow");
+            drawPaddle(ctx, paddle2.x, paddle2.y, paddle2.paddleWidth, paddle2.paddleHeight, "Green");
+            if(player === 1) {
+                drawText(ctx, handle, width / 8, height / 10)
+                drawText(ctx, nameRef.current, width/ 1.25, height / 10)
+                drawText(ctx, paddle1.score, width / 8, height / 6)
+                drawText(ctx, paddle2.score, width / 1.25, height / 6)
+            } else {
+                drawText(ctx, handle, width / 1.25, height / 10)
+                drawText(ctx, nameRef.current, width/ 8, height / 10)
+                drawText(ctx, paddle1.score, width / 1.25, height / 6)
+                drawText(ctx, paddle2.score, width / 8, height / 6)
+            }
         }
 
         if(checkTwoPlayers()) {
             initBall()
+            getHandleOpp()
+        } else {
+            ctx.textBaseline = 'middle'
+            ctx.textAlign = 'center'; 
+            drawText(ctx, "Waiting for another player", width / 2, height / 2)
         }
         
         window.addEventListener('keydown', keyDownHandler);
@@ -307,8 +345,12 @@ const PongMultiplayer = () => {
                 ball.dy = -ball.dy
             }
 
-            if(paddle1.score === 3 || paddle2.score === 3) {
+            if(paddle1.score === 1) {
                 setGameOver(true)
+                setWinner(handle)
+            } else if (paddle2.score === 1) {
+                setGameOver(true)
+                setWinner(nameRef.current)
             }
 
             let playerNum = ball.x + ball.radius < width / 2 ? paddle1 : paddle2
@@ -331,46 +373,43 @@ const PongMultiplayer = () => {
             }
         }
 
+        function renderWinner() {
+            console.log(winner)
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.textBaseline = 'middle'
+            ctx.textAlign = 'center'; 
+            drawText(ctx, "Winner is " + winner, width / 2, height / 2)
+        }
+
         function game() {
             update()
             render()
         }
-
-        console.log(gameOver)
 
         if(!gameOver && checkTwoPlayers()) {
             requestRef.current = setInterval(game, 1000 / 30);
         }
 
         if(gameOver) {
-            clearInterval(requestRef.current)
+            ref.current = setTimeout(() => {
+                renderWinner()
+            }, 1000);
+            return clearInterval(requestRef.current)
         }
 
-    }, [gameOver, twoPlayers])
+    }, [gameOver, twoPlayers, winner])
 
-
-    if(!gameOver) {
-        return (
-            <>
-                <h1 className={styles.header}> Room id is: {roomID}</h1>
-                <canvas
-                    ref={canvasRef}
-                    className={styles.CanvasContainer}
-                    width={width}
-                    height={height}>
-                </canvas>
-            </>
-        );
-    } else {
-        return(
-            <>
-                <h1>
-                    The WINNER IS ...
-                </h1>
-                <button> Return to main page </button>
-            </>
-        )
-    }
+    return (
+        <>
+            <h1 className={styles.header}> Room id: {roomID}</h1>
+            <canvas
+                ref={canvasRef}
+                className={styles.canvasContainer}
+                width={width}
+                height={height}>
+            </canvas>
+        </>
+    );
 }
  
 export default PongMultiplayer 

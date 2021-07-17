@@ -124,6 +124,7 @@ const Pong = () => {
   const userRef = useRef(user)
   const comRef = useRef(com)
   const requestRef = useRef()
+  const [anotherFlag, setAnotherFlag] = useState(true)
 
   useLayoutEffect(() => {
     const canvas = canvasRef.current
@@ -131,7 +132,7 @@ const Pong = () => {
     context.textBaseline = 'middle'
     context.textAlign = 'center'; 
 
-    if(!gameStarted) {
+    if(!gameStarted && anotherFlag) {
       context.clearRect(0, 0, canvas.width, canvas.height);
       drawInitialText(context, "Pong", width / 2, height / 4, "80px pixel")
       drawInitialText(context, "Press anywhere to play", width / 2, height / 2.5, "20px pixel")
@@ -173,7 +174,7 @@ const Pong = () => {
         ballRef.current.y = height / 2
         ballRef.current.dx = -5
         ballRef.current.speed = 7
-        comRef.current.computerLevel += 0.005
+        comRef.current.computerLevel += 0.015
       }
 
       if (lives === 0) {
@@ -238,34 +239,10 @@ const Pong = () => {
     return () => cancelAnimationFrame(requestRef.current)
   }, [gameStarted])
 
-  const Instructions = () => {
-    return (
-      <div className={styles.instructsBody}>
-        <ui>
-          <ul> Press anywhere to play </ul>
-          <br />
-          <ul> Move your mouse up and down to move </ul>
-          <br />
-          <ul> Click on the screen again to pause </ul>
-          <br />
-          <ul> You are the left paddle (yellow color) </ul>
-          <br />
-          <ul> You have 5 tries before you lose</ul>
-        </ui>
-      </div>
-    )
-  }
-
-  const Header = () => {
-    return <h3 className={styles.Header}> Pong </h3>
-  }
-  const [instructDisplay, setInstructDisplay] = useState(true)
-  const [headerDisplay, setHeaderDisplay] = useState(true)
 
   if (!gameOver) {
     return (
       <>
-        {/* {headerDisplay ? <Header /> : null} */}
         <canvas
           ref={canvasRef}
           height={height}
@@ -273,11 +250,9 @@ const Pong = () => {
           className={styles.canvasContainer}
           onClick={() => {
             setGameStarted(!gameStarted)
-            setInstructDisplay(false)
-            setHeaderDisplay(false)
+            setAnotherFlag(false)
           }}
         />
-        {/* {instructDisplay ? <Instructions /> : null} */}
       </>
     )
   } else {

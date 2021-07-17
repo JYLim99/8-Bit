@@ -10,6 +10,10 @@ const PongGameLobby = () => {
 
     return (
         <div className={styles.container}>
+            <h1 className={styles.header}> How to play Pong </h1>
+            <div className={styles.instructions}> 1) Control the paddle using your arrow keys </div>
+            <div className={styles.instructions}> 2) First to 5 points wins the game </div>
+            <div className={styles.instructions}> 3) You will get a point if the ball passes the boundary of your opponent </div>
             <button className={styles.createRoomButton} onClick={createRoom}> Create room </button>
             <br />
             <input className={styles.inputField} type="text" placeholder="Input room id" onChange={handleInputID}></input>

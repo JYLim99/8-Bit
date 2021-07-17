@@ -11,7 +11,7 @@
 
 .createRoomButton {
     position: relative;
-    top: 10%;
+    top: 5%;
     font-family: Zelda;
     border: none;
     background-color: white;
@@ -27,7 +27,7 @@
     align-items: center;
     justify-content: center;
     margin:auto;
-    margin-bottom: 10%;
+    margin-bottom: 5%;
 }
 
 .createRoomButton:hover {
@@ -76,7 +76,7 @@
     align-items: center;
     justify-content: center;
     margin:auto;
-    margin-top: 5%;
+    margin-top: 4%;
     margin-bottom: 1%;
 }
 
@@ -105,7 +105,7 @@
     font-family: Zelda;
     font-weight: bold;
     color: #393e46;
-    padding: 15px;
+    padding: 10px;
     letter-spacing: 1px;
     justify-content: center;
     text-align: center;
