@@ -7,6 +7,7 @@ import MakePost from '../../components/Forum/MakePost'
 import Post from '../../components/Forum/Post/Post'
 //import Profile from '../../components/Profile'
 import PostSkeleton from '../../util/PostSkeleton'
+import Chat from '../../components/Chat'
 
 import { connect } from 'react-redux'
 import { getPosts } from '../../redux/actions/dataActions'
@@ -33,7 +34,9 @@ class Forum extends Component {
             <Grid item sm={7} xs={12}>
               {recentPostsMarkup}
             </Grid>
-            <Grid item sm={4} xs={12}></Grid>
+            <Grid item sm={4} xs={12}>
+              <Chat />
+            </Grid>
           </Grid>
         </div>
       </div>

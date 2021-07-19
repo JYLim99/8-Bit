@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import React, { useContext, useState, useRef } from 'react'
 import { useHistory } from 'react-router'
 import store from '../../redux/store'
 import { db } from '../../config/firebase'
@@ -14,6 +14,8 @@ export function PongProvider({ children }) {
     const [ roomID, setRoomID ] = useState("")
     let history = useHistory();
     const [ player, setPlayer ] = useState(0);
+    let num = 0;
+    let numRef = useRef(num)
 
     function getHandle() {
         const token = localStorage.FBIdToken
@@ -49,22 +51,32 @@ export function PongProvider({ children }) {
     }
 
     async function handleJoinRoom() {
-        let handle = getHandle();
-        setPlayer(2);
-        await db.collection("gamesRoom")
-            .doc(roomID)
-            .update({
-                numPlayer: 2,
-                player2Handle: handle
-            })
-        history.push(`/PongGame/${roomID}`)
+        // await db.collection("gamesRoom")
+        //     .doc(roomID)
+        //     .onSnapshot((doc) => {
+        //         numRef.current = doc.data().numPlayer
+        //     })
+        // if(numRef.current === 1) {
+            let handle = getHandle();
+            setPlayer(2);
+            db.collection("gamesRoom")
+                .doc(roomID)
+                .update({
+                    numPlayer: 2,
+                    player2Handle: handle
+                })
+                .then(
+                    history.push(`/PongGame/${roomID}`)
+                )
+        // } else {
+        //     alert("Room is full")
+        // } 
     }
 
     function handleInputID(event) {
         event.preventDefault()
         setRoomID(event.target.value)
     }
-
     
     const value = {
         handleJoinRoom,

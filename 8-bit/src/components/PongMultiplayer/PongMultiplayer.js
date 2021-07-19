@@ -6,8 +6,8 @@ import { db } from '../../config/firebase'
 
 const PongMultiplayer = () => {
   const { roomID, player, getHandle } = usePongContext()
-  const height = 500
-  const width = 900
+  const height = 400
+  const width = 600
   const canvasRef = useRef(null)
   const [gameOver, setGameOver] = useState(false)
   const [twoPlayers, setTwoPlayers] = useState(false)
@@ -111,18 +111,14 @@ const PongMultiplayer = () => {
     db.collection('gamesRoom')
       .doc(roomID)
       .onSnapshot((doc) => {
-        ball.x = doc.data().ballX
-        ball.y = doc.data().ballY
         ball.dx = doc.data().balldx
         ball.dy = doc.data().balldy
         ball.speed = doc.data().ballSpeed
       })
   }
 
-  function sendBallData(x, y, dx, dy, speed) {
+  function sendBallData(dx, dy, speed) {
     db.collection('gamesRoom').doc(roomID).update({
-      ballX: x,
-      ballY: y,
       balldx: dx,
       balldy: dy,
       ballSpeed: speed,
@@ -203,7 +199,7 @@ const PongMultiplayer = () => {
     ball.y = height / 2
     ball.dx = -5
     ball.speed = 7
-    sendBallData(ball.x, ball.y, ball.dx, ball.dy, ball.speed)
+    //sendBallData(ball.dx, ball.dy, ball.speed)
   }
 
   useLayoutEffect(() => {
@@ -335,10 +331,11 @@ const PongMultiplayer = () => {
         resetBall()
       }
 
+      ball.x = ball.x + ball.dx
+      ball.y = ball.y + ball.dy
+      
       if (player === 1) {
-        ball.x = ball.x + ball.dx
-        ball.y = ball.y + ball.dy
-        sendBallData(ball.x, ball.y, ball.dx, ball.dy, ball.speed)
+        sendBallData(ball.dx, ball.dy, ball.speed)
       }
 
       if (player === 2) {
@@ -350,18 +347,19 @@ const PongMultiplayer = () => {
         ball.y + ball.dy > height - ball.radius
       ) {
         ball.dy = -ball.dy
+        sendBallData(ball.dx, ball.dy, ball.speed)
       }
 
-      if (paddle1.score === 1 && player === 1) {
+      if (paddle1.score === 3 && player === 1) {
         setGameOver(true)
         setWinner(handle)
-      } else if (paddle2.score === 1 && player === 1) {
+      } else if (paddle2.score === 3 && player === 1) {
         setGameOver(true)
         setWinner(nameRef.current)
-      } else if (paddle1.score === 1 && player === 2) {
+      } else if (paddle1.score === 3 && player === 2) {
         setGameOver(true)
         setWinner(nameRef.current)
-      } else if (paddle2.score === 1 && player === 2) {
+      } else if (paddle2.score === 3 && player === 2) {
         setGameOver(true)
         setWinner(handle)
       }

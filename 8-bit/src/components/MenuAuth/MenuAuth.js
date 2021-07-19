@@ -108,7 +108,7 @@ class MenuAuth extends Component {
                               variants={slideUp}
                               transition={transition}
                             >
-                              Forum
+                              Forum/SuperChat
                             </motion.div>
                           </h2>
                         </div>
