@@ -1,50 +1,50 @@
-import React, { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react'
 import { db } from '../../config/firebase'
 import SendMessage from './SendMessage'
 import styles from './Chat.module.css'
 
 const Chat = () => {
+  const scrollRef = useRef()
+  const [messages, setMessages] = useState([])
 
-    const scrollRef = useRef()
-    const [ messages, setMessages ] = useState([])
+  const scrollToBottom = () => {
+    scrollRef.current.scrollIntoView({ block: 'end', behavior: 'smooth' })
+  }
 
-    const scrollToBottom = () => {
-        scrollRef.current.scrollIntoView({ block: 'center', behavior: "smooth" });
-    }
+  useEffect(() => {
+    db.collection('messages')
+      .orderBy('createdAt', 'desc')
+      .limit(15)
+      .onSnapshot((snapshot) => {
+        setMessages(snapshot.docs.map((doc) => doc.data()))
+      })
+  }, [])
 
-    useEffect(() => {
-        db.collection('messages')
-            .orderBy('createdAt')
-            .limit(15)
-            .onSnapshot((snapshot) => {
-                setMessages(snapshot.docs.map(
-                        doc => doc.data()
-                ))
-        })
-    }, [])
+  useEffect(() => {
+    scrollToBottom()
+  }, [messages])
 
-    useEffect(() => {
-        scrollToBottom()
-    }, [messages])
-
-    return (
+  return (
+    <div>
+      <div className={styles.chatContainer}>
         <div>
-            <div className={styles.chatContainer}>
+          {messages
+            .slice(0)
+            .reverse()
+            .map(({ id, text, handle }) => (
+              <div>
                 <div>
-                    {messages.map(({ id, text, handle }) => (
-                        <div>
-                            <div>
-                                <span className={styles.handle}> {`${handle}: `}</span> 
-                                <span className={styles.msg}> {text} </span>
-                            </div>
-                        </div>
-                    ))}
-                    <div ref={scrollRef} />
+                  <span className={styles.handle}> {`${handle}: `}</span>
+                  <span className={styles.msg}> {text} </span>
                 </div>
-            </div>
-            <SendMessage />
+              </div>
+            ))}
         </div>
-    );
+      </div>
+      <SendMessage />
+      <div ref={scrollRef} />
+    </div>
+  )
 }
 
-export default Chat;
+export default Chat
