@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component /*useEffect*/ } from 'react'
 import styles from './Forum.module.css'
 import Grid from '@material-ui/core/Grid'
 import PropTypes from 'prop-types'
@@ -11,15 +11,20 @@ import Chat from '../../components/Chat'
 
 import { connect } from 'react-redux'
 import { getPosts } from '../../redux/actions/dataActions'
-const token = localStorage.FBIdToken
+
+/*
+useEffect(() => {
+  const token = localStorage.FBIdToken
+}, [])
+*/
 
 class Forum extends Component {
-  
   componentDidMount() {
     this.props.getPosts()
   }
 
   render() {
+    const { authenticated } = this.props
     const { posts, loading } = this.props.data
     let recentPostsMarkup = !loading ? (
       posts.map((post) => <Post key={post.postId} post={post} />)
@@ -37,7 +42,7 @@ class Forum extends Component {
               {recentPostsMarkup}
             </Grid>
             <Grid item sm={4} xs={12}>
-              { token ? <Chat /> : null }
+              {authenticated ? <Chat /> : null}
             </Grid>
           </Grid>
         </div>
@@ -49,10 +54,12 @@ class Forum extends Component {
 Forum.propTypes = {
   getPosts: PropTypes.func.isRequired,
   data: PropTypes.object.isRequired,
+  authenticated: PropTypes.bool.isRequired,
 }
 
 const mapStateToProps = (state) => ({
   data: state.data,
+  authenticated: state.user.authenticated,
 })
 
 export default connect(mapStateToProps, { getPosts })(Forum)
