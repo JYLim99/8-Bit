@@ -1,4 +1,4 @@
-import React, { useContext, useState, useRef } from 'react'
+import React, { useContext, useState } from 'react'
 import { useHistory } from 'react-router'
 import store from '../../redux/store'
 import { db } from '../../config/firebase'
@@ -14,8 +14,6 @@ export function PongProvider({ children }) {
     const [ roomID, setRoomID ] = useState("")
     let history = useHistory();
     const [ player, setPlayer ] = useState(0);
-    let num = 0;
-    let numRef = useRef(num)
 
     function getHandle() {
         const token = localStorage.FBIdToken
@@ -51,23 +49,41 @@ export function PongProvider({ children }) {
     }
 
     async function handleJoinRoom() {
-        // await db.collection("gamesRoom")
-        //     .doc(roomID)
-        //     .onSnapshot((doc) => {
-        //         numRef.current = doc.data().numPlayer
-        //     })
+        db.collection("gamesRoom")
+            .doc(roomID)
+            .get()
+            .then((doc) => {
+                console.log(doc.data().numPlayer)
+                if(doc.data().numPlayer === 1) {
+                    let handle = getHandle();
+                    setPlayer(2);
+                    db.collection("gamesRoom")
+                        .doc(roomID)
+                        .update({
+                            numPlayer: 2,
+                            player2Handle: handle
+                        })
+                        .then(
+                            history.push(`/PongGame/${roomID}`)
+                        )
+
+                } else {
+                    alert("Room is full")
+
+                }
+            })
         // if(numRef.current === 1) {
-            let handle = getHandle();
-            setPlayer(2);
-            db.collection("gamesRoom")
-                .doc(roomID)
-                .update({
-                    numPlayer: 2,
-                    player2Handle: handle
-                })
-                .then(
-                    history.push(`/PongGame/${roomID}`)
-                )
+        //     let handle = getHandle();
+        //     setPlayer(2);
+        //     db.collection("gamesRoom")
+        //         .doc(roomID)
+        //         .update({
+        //             numPlayer: 2,
+        //             player2Handle: handle
+        //         })
+        //         .then(
+        //             history.push(`/PongGame/${roomID}`)
+        //         )
         // } else {
         //     alert("Room is full")
         // } 

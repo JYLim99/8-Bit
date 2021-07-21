@@ -50,7 +50,6 @@ const PongMultiplayer = () => {
     speed: 7,
     radius: 10,
   }
-
   const paddle1 = {
     x: 0,
     y: height / 2 - 50,
@@ -95,15 +94,15 @@ const PongMultiplayer = () => {
     return twoPlayers
   }
 
-  function initBall() {
+  function initGame() {
     db.collection('gamesRoom')
       .doc(roomID)
       .update({
         ballX: width / 2,
         ballY: height / 2,
-        balldx: 5,
-        balldy: 5,
         ballSpeed: 7,
+        score1: 0,
+        score2: 0
       })
   }
 
@@ -111,17 +110,50 @@ const PongMultiplayer = () => {
     db.collection('gamesRoom')
       .doc(roomID)
       .onSnapshot((doc) => {
-        ball.dx = doc.data().balldx
-        ball.dy = doc.data().balldy
+        ball.x = doc.data().ballX
+        ball.y = doc.data().ballY
+      })
+  }
+
+  function getBallSpeedData() {
+    db.collection('gamesRoom')
+      .doc(roomID)
+      .onSnapshot((doc) => {
         ball.speed = doc.data().ballSpeed
       })
   }
 
-  function sendBallData(dx, dy, speed) {
+  function getScoreData() {
+    db.collection('gamesRoom')
+      .doc(roomID)
+      .onSnapshot((doc) => {
+        paddle1.score = doc.data().score1
+        paddle2.score = doc.data().score2
+      })
+  }
+
+  function sendScore1(score) {
     db.collection('gamesRoom').doc(roomID).update({
-      balldx: dx,
-      balldy: dy,
-      ballSpeed: speed,
+      score1: score,
+    })
+  }
+
+  function sendScore2(score) {
+    db.collection('gamesRoom').doc(roomID).update({
+      score2: score,
+    })
+  }
+
+  function sendBallSpeedData(spd) {
+    db.collection('gamesRoom').doc(roomID).update({
+      ballSpeed: spd,
+    })
+  }
+
+  function sendBallUpdate(x, y) {
+    db.collection('gamesRoom').doc(roomID).update({
+      ballX: x,
+      ballY: y,
     })
   }
 
@@ -199,7 +231,6 @@ const PongMultiplayer = () => {
     ball.y = height / 2
     ball.dx = -5
     ball.speed = 7
-    //sendBallData(ball.dx, ball.dy, ball.speed)
   }
 
   useLayoutEffect(() => {
@@ -246,9 +277,9 @@ const PongMultiplayer = () => {
       }
     }
 
-    if (checkTwoPlayers()) {
-      initBall()
-      getHandleOpp()
+    if (checkTwoPlayers() && !gameOver) {
+        initGame()
+        getHandleOpp()
     } else {
       ctx.textBaseline = 'middle'
       ctx.textAlign = 'center'
@@ -324,42 +355,48 @@ const PongMultiplayer = () => {
       }
 
       if (ball.x - ball.radius < 0) {
-        paddle2.score++
-        resetBall()
+        if(player === 1) {
+          paddle2.score++
+          resetBall()
+          sendScore2(paddle2.score)
+        } else {
+          getScoreData()
+        }
       } else if (ball.x + ball.radius > width) {
-        paddle1.score++
-        resetBall()
+        if(player === 1) {
+          paddle1.score++
+          resetBall()
+          sendScore1(paddle1.score)
+        } else {
+          getScoreData()
+        }
       }
 
-      ball.x = ball.x + ball.dx
-      ball.y = ball.y + ball.dy
-      
-      if (player === 1) {
-        sendBallData(ball.dx, ball.dy, ball.speed)
-      }
-
-      if (player === 2) {
+      if(player === 1) {
+        ball.x = ball.x + ball.dx
+        ball.y = ball.y + ball.dy
+        sendBallUpdate(ball.x, ball.y)
+      } else {
         getBallUpdate()
       }
 
-      if (
-        ball.y + ball.dy < ball.radius ||
-        ball.y + ball.dy > height - ball.radius
+      if (player === 1 &&
+        (ball.y + ball.dy < ball.radius ||
+        ball.y + ball.dy > height - ball.radius)
       ) {
         ball.dy = -ball.dy
-        sendBallData(ball.dx, ball.dy, ball.speed)
       }
 
-      if (paddle1.score === 3 && player === 1) {
+      if (paddle1.score === 5 && player === 1) {
         setGameOver(true)
         setWinner(handle)
-      } else if (paddle2.score === 3 && player === 1) {
+      } else if (paddle2.score === 5 && player === 1) {
         setGameOver(true)
         setWinner(nameRef.current)
-      } else if (paddle1.score === 3 && player === 2) {
+      } else if (paddle1.score === 5 && player === 2) {
         setGameOver(true)
         setWinner(nameRef.current)
-      } else if (paddle2.score === 3 && player === 2) {
+      } else if (paddle2.score === 5 && player === 2) {
         setGameOver(true)
         setWinner(handle)
       }
@@ -375,16 +412,23 @@ const PongMultiplayer = () => {
 
         let direction = ball.x + ball.radius < width / 2 ? 1 : -1
 
-        ball.dx = direction * ball.speed * Math.cos(angleRad)
+        if(player === 1) {
+          ball.dx = direction * ball.speed * Math.cos(angleRad)
 
-        ball.dy = ball.speed * Math.sin(angleRad)
+          ball.dy = ball.speed * Math.sin(angleRad)
 
-        ball.speed += 0.08
+          ball.speed += 0.15
+
+          sendBallSpeedData(ball.speed)
+        }
+
+        if(player === 2) {
+          getBallSpeedData()
+        }
       }
     }
 
     function renderWinner() {
-      console.log(winner)
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       ctx.textBaseline = 'middle'
       ctx.textAlign = 'center'
@@ -397,9 +441,15 @@ const PongMultiplayer = () => {
     }
 
     if (!gameOver && checkTwoPlayers()) {
-      requestRef.current = setInterval(game, 1000 / 30)
+      ctx.textBaseline = 'middle'
+      ctx.textAlign = 'center'
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      drawText(ctx, "Get Ready!", width / 2, height / 2)
+      setTimeout(() => {
+        requestRef.current = setInterval(game, 1000 / 20)
+      }, 3000)
     }
-
+      
     if (gameOver) {
       ref.current = setTimeout(() => {
         renderWinner()

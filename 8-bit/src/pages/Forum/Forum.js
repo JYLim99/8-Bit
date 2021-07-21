@@ -11,8 +11,10 @@ import Chat from '../../components/Chat'
 
 import { connect } from 'react-redux'
 import { getPosts } from '../../redux/actions/dataActions'
+const token = localStorage.FBIdToken
 
 class Forum extends Component {
+  
   componentDidMount() {
     this.props.getPosts()
   }
@@ -35,7 +37,7 @@ class Forum extends Component {
               {recentPostsMarkup}
             </Grid>
             <Grid item sm={4} xs={12}>
-              <Chat />
+              { token ? <Chat /> : null }
             </Grid>
           </Grid>
         </div>
