@@ -1,6 +1,9 @@
 @font-face {
+  rel: "preload";
+  as: 'font';
   font-family: pixel;
-  src: url("./fonts/PressStart2P.ttf");
+  src: url("./fonts/PressStart2P.ttf") format('truetype');
+  crossorigin: "anonymous"
 }
 
 .Header {

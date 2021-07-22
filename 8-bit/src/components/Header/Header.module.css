@@ -42,7 +42,7 @@
 }
 
 .LinkWrapper {
-  width: 80%;
+  width: 85%;
   display: flex;
   align-items: center;
 }
@@ -83,4 +83,6 @@
   display: block;
   cursor: pointer;
   margin-left: 20px;
+  margin-right: 80px;
+  letter-spacing: .5px;
 }

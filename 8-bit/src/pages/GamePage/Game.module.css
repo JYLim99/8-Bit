@@ -94,7 +94,7 @@
   
   .PongButton {
     position: absolute;
-    left: 21%;
+    left: 12%;
     margin-top: 30%;
     font-family: Zelda;
     border: none;
@@ -112,8 +112,8 @@
 
   .PongMultiButton {
     position: absolute;
-    margin-top: 35%;
-    left: 18%;
+    margin-top: 30%;
+    left: 23%;
     font-family: Zelda;
     border: none;
     background-color: white;

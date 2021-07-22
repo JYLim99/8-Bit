@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import withStyles from '@material-ui/core/styles/withStyles'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import SpaceInvaderIcon from '../../images/SpaceInvaderIcon.png'
 
 // MUI Stuff
 import Grid from '@material-ui/core/Grid'
@@ -19,8 +18,7 @@ const styles = (theme) => ({
   page: {
     backgroundColor: '#efefe3',
     display: 'flex',
-    flexFlow: 'column',
-    height: '84.5vh',
+    height: '87vh',
     width: '100vw',
   },
   form: {
@@ -29,25 +27,23 @@ const styles = (theme) => ({
     fontSize: '1.8rem',
     margin: '45px auto auto auto',
   },
-  image: {
-    margin: '0px auto auto auto',
-    display: 'block',
-    top: 50,
-    height: 100,
-    width: 100,
-  },
   pageTitle: {
     margin: '0px auto 0px auto',
     fontFamily: 'Caramel Sweets',
+    fontSize: '40px',
     letterSpacing: 0.8,
     fontWeight: 500,
+    marginBottom: '10%',
+    marginTop: '10%'
   },
   textField: {
     margin: '10px auto 10px auto',
   },
   input: {
-    fontFamily: 'Organic Teabags',
-    fontSize: '1.5rem',
+    fontFamily: 'Caramel Sweets',
+    fontSize: '20px',
+    letterSpacing: '.5px',
+    marginBottom: '5%'
   },
   button: {
     margin: '10px auto 15px auto',
@@ -57,19 +53,22 @@ const styles = (theme) => ({
     borderRadius: 15,
     backgroundColor: 'transparent',
     color: '#d4a373',
-    padding: 10,
+    padding: '10',
     fontWeight: 700,
     width: 100,
     cursor: 'pointer',
     letterSpacing: 1.5,
     border: '3px solid #d4a373',
+    marginTop: '10%',
+    marginBottom: '10%',
     '&:hover': {
       background: 'none',
     },
   },
   customError: {
+    fontFamily: 'Organic Teabags',
     color: 'red',
-    fontSize: '0.8rem',
+    fontSize: '20px',
   },
   progress: {
     position: 'absolute',
@@ -79,6 +78,7 @@ const styles = (theme) => ({
     fontSize: '1.2rem',
     letterSpacing: '0.5px',
     margin: '10px auto auto auto',
+    marginTop: '3%'
   },
 })
 
@@ -121,20 +121,15 @@ class login extends Component {
         <Grid container className={classes.form}>
           <Grid item sm />
           <Grid item sm>
-            <img
-              src={SpaceInvaderIcon}
-              alt='Space Invaders Logo'
-              className={classes.image}
-            />
             <Typography variant='h2' className={classes.pageTitle}>
-              Login
+              Welcome back
             </Typography>
             <form noValidate onSubmit={this.handleSubmit}>
               <TextField
                 id='email'
                 name='email'
                 type='email'
-                label='Email'
+                placeholder='Email'
                 className={classes.textField}
                 helperText={errors.email}
                 error={errors.email ? true : false}
@@ -149,7 +144,7 @@ class login extends Component {
                 id='password'
                 name='password'
                 type='password'
-                label='Password'
+                placeholder='Password'
                 className={classes.textField}
                 helperText={errors.password}
                 error={errors.password ? true : false}
@@ -179,11 +174,9 @@ class login extends Component {
               </Button>
               <br />
               <small>
-                Don't have an account? Sign up <Link to='/signup'>here</Link>
+                <Link to='/signup'> Sign Up </Link>
                 <div className={classes.tip}>
-                  Having an account allows you to qualify
-                  <br />
-                  for the leaderboard and use the forum
+                  Having an account qualifies you for the leaderboard, forum and superchat
                 </div>
               </small>
             </form>

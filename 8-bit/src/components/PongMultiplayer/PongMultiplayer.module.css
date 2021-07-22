@@ -1,3 +1,9 @@
+@font-face {
+  rel: "preload";
+  font-family: pixel;
+  src: url("./PressStart2P.ttf");
+}
+
 .canvasContainer {
   background: BLACK;
   margin: auto;

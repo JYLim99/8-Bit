@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import withStyles from '@material-ui/core/styles/withStyles'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
-import SpaceInvaderIcon from '../../images/SpaceInvaderIcon.png'
 import './SignUp.module.css'
 
 // MUI Stuff
@@ -19,7 +18,7 @@ import { signupUser } from '../../redux/actions/userActions'
 const styles = (theme) => ({
   page: {
     backgroundColor: '#efefe3',
-    height: '84.5vh',
+    height: '87vh',
   },
   form: {
     margin: '0px auto auto auto',
@@ -27,51 +26,56 @@ const styles = (theme) => ({
     fontFamily: 'Organic Teabags',
     fontSize: '1.5rem',
   },
-  image: {
-    margin: '0px auto auto auto',
-    height: 100,
-    width: 100,
-  },
   pageTitle: {
     margin: '0px auto 0px auto',
     fontFamily: 'Caramel Sweets',
+    fontSize: '40px',
     letterSpacing: 0.8,
     fontWeight: 500,
+    marginBottom: '10%',
+    marginTop: '10%'
   },
   textField: {
     margin: '5px auto 5px auto',
   },
   input: {
-    fontFamily: 'Organic Teabags',
-    fontSize: '1.4rem',
+    fontFamily: 'Caramel Sweets',
+    fontSize: '20px',
+    letterSpacing: '.5px',
+    marginBottom: '5%'
   },
   button: {
-    margin: '5px auto 10px auto',
+    margin: '10px auto 15px auto',
     position: 'relative',
     fontFamily: 'Organic Teabags',
-    fontSize: '1.2rem',
+    fontSize: '1.1rem',
     borderRadius: 15,
     backgroundColor: 'transparent',
     color: '#d4a373',
-    padding: 10,
+    padding: '10',
     fontWeight: 700,
     width: 100,
     cursor: 'pointer',
     letterSpacing: 1.5,
     border: '3px solid #d4a373',
+    marginTop: '5%',
+    marginBottom: '10%',
     '&:hover': {
       background: 'none',
     },
   },
   customError: {
+    fontFamily: 'Organic Teabags',
     color: 'red',
-    fontSize: '0.8rem',
+    fontSize: '15px',
   },
   progress: {
     position: 'absolute',
   },
   tip: {
-    letterSpacing: '0.5px',
+    fontSize: '1.8rem',
+    letterSpacing: '0.8px',
+    margin: '10px auto auto auto'
   },
 })
 
@@ -123,11 +127,6 @@ class signup extends Component {
         <Grid container className={classes.form}>
           <Grid item sm />
           <Grid item sm>
-            <img
-              src={SpaceInvaderIcon}
-              alt='Space Invaders Logo'
-              className={classes.image}
-            />
             <Typography variant='h2' className={classes.pageTitle}>
               SignUp
             </Typography>
@@ -136,7 +135,7 @@ class signup extends Component {
                 id='email'
                 name='email'
                 type='email'
-                label='Email'
+                placeholder='Email'
                 className={classes.textField}
                 helperText={errors.email}
                 error={errors.email ? true : false}
@@ -151,7 +150,7 @@ class signup extends Component {
                 id='password'
                 name='password'
                 type='password'
-                label='Password'
+                placeholder='Password'
                 className={classes.textField}
                 helperText={errors.password}
                 error={errors.password ? true : false}
@@ -166,7 +165,7 @@ class signup extends Component {
                 id='confirmPassword'
                 name='confirmPassword'
                 type='password'
-                label='Confirm Password'
+                placeholder='Confirm Password'
                 className={classes.textField}
                 helperText={errors.confirmPassword}
                 error={errors.confirmPassword ? true : false}
@@ -181,7 +180,7 @@ class signup extends Component {
                 id='handle'
                 name='handle'
                 type='text'
-                label='Handle'
+                placeholder='Handle'
                 className={classes.textField}
                 helperText={errors.handle}
                 error={errors.handle ? true : false}
@@ -211,7 +210,7 @@ class signup extends Component {
               </Button>
               <br />
               <small className={classes.tip}>
-                Already have an account? Login <Link to='/login'>here</Link>
+                <Link to='/login'>Login</Link>
               </small>
             </form>
           </Grid>

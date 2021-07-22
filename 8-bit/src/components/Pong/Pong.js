@@ -244,6 +244,8 @@ const Pong = () => {
     return (
       <>
         <canvas
+          rel="preload" as="font"
+          crossorigin="anonymous"
           ref={canvasRef}
           height={height}
           width={width}
