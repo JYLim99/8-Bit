@@ -29,20 +29,20 @@ const styles = (theme) => ({
   pageTitle: {
     margin: '0px auto 0px auto',
     fontFamily: 'Caramel Sweets',
-    fontSize: '40px',
+    fontSize: '50px',
     letterSpacing: 0.8,
     fontWeight: 500,
-    marginBottom: '10%',
-    marginTop: '10%'
+    marginBottom: '5%',
+    marginTop: '10%',
   },
   textField: {
-    margin: '5px auto 5px auto',
+    margin: '5px auto 0px auto',
   },
   input: {
     fontFamily: 'Caramel Sweets',
     fontSize: '20px',
     letterSpacing: '.5px',
-    marginBottom: '5%'
+    marginBottom: '5%',
   },
   button: {
     margin: '10px auto 15px auto',
@@ -59,7 +59,7 @@ const styles = (theme) => ({
     letterSpacing: 1.5,
     border: '3px solid #d4a373',
     marginTop: '5%',
-    marginBottom: '10%',
+    marginBottom: '5%',
     '&:hover': {
       background: 'none',
     },
@@ -73,9 +73,9 @@ const styles = (theme) => ({
     position: 'absolute',
   },
   tip: {
-    fontSize: '1.8rem',
+    fontSize: '1.3rem',
     letterSpacing: '0.8px',
-    margin: '10px auto auto auto'
+    margin: '10px auto auto auto',
   },
 })
 
@@ -210,7 +210,7 @@ class signup extends Component {
               </Button>
               <br />
               <small className={classes.tip}>
-                <Link to='/login'>Login</Link>
+                Already have an account? Login <Link to='/login'>here</Link>
               </small>
             </form>
           </Grid>

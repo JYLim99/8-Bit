@@ -30,11 +30,11 @@ const styles = (theme) => ({
   pageTitle: {
     margin: '0px auto 0px auto',
     fontFamily: 'Caramel Sweets',
-    fontSize: '40px',
+    fontSize: '50px',
     letterSpacing: 0.8,
     fontWeight: 500,
     marginBottom: '10%',
-    marginTop: '10%'
+    marginTop: '5%',
   },
   textField: {
     margin: '10px auto 10px auto',
@@ -43,7 +43,7 @@ const styles = (theme) => ({
     fontFamily: 'Caramel Sweets',
     fontSize: '20px',
     letterSpacing: '.5px',
-    marginBottom: '5%'
+    marginBottom: '5%',
   },
   button: {
     margin: '10px auto 15px auto',
@@ -59,8 +59,8 @@ const styles = (theme) => ({
     cursor: 'pointer',
     letterSpacing: 1.5,
     border: '3px solid #d4a373',
-    marginTop: '10%',
-    marginBottom: '10%',
+    marginTop: '5%',
+    marginBottom: '5%',
     '&:hover': {
       background: 'none',
     },
@@ -78,7 +78,7 @@ const styles = (theme) => ({
     fontSize: '1.2rem',
     letterSpacing: '0.5px',
     margin: '10px auto auto auto',
-    marginTop: '3%'
+    marginTop: '3%',
   },
 })
 
@@ -122,7 +122,7 @@ class login extends Component {
           <Grid item sm />
           <Grid item sm>
             <Typography variant='h2' className={classes.pageTitle}>
-              Welcome back
+              Login
             </Typography>
             <form noValidate onSubmit={this.handleSubmit}>
               <TextField
@@ -174,9 +174,10 @@ class login extends Component {
               </Button>
               <br />
               <small>
-                <Link to='/signup'> Sign Up </Link>
+                Dont have an account? Sign up <Link to='/signup'>here</Link>
                 <div className={classes.tip}>
-                  Having an account qualifies you for the leaderboard, forum and superchat
+                  Having an account qualifies you for the leaderboard, forum and
+                  superchat
                 </div>
               </small>
             </form>
