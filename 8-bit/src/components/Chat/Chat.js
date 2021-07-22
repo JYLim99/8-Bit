@@ -27,6 +27,7 @@ const Chat = () => {
   return (
     <div>
       <div className={styles.chatContainer}>
+        <div className={styles.header}> Superchat </div>
         <div>
           {messages
             .slice(0)

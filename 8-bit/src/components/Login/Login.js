@@ -174,7 +174,7 @@ class login extends Component {
               </Button>
               <br />
               <small>
-                Dont have an account? Sign up <Link to='/signup'>here</Link>
+                Don't have an account? Sign up <Link to='/signup'>here</Link>
                 <div className={classes.tip}>
                   Having an account qualifies you for the leaderboard, forum and
                   superchat

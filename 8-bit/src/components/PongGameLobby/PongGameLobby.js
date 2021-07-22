@@ -25,6 +25,7 @@ const PongGameLobby = () => {
                 <div className={styles.instructions}> 1) Click on create room </div>
                 <div className={styles.instructions}> 2) Send the room id to your friend to join and wait </div>
                 <div className={styles.instructions}> 3) Type the room id into the input field (For people joining with room id) </div>
+                <div className={styles.instructions}> Side Note: Text field is space sensitive ! </div>
                 <div className={styles.instructions}> 4) Click on join room (For people joining with room id) </div>
                 <div className={styles.instructions}> 5) If nothing happens when you click join room, the room is probably full (For people joining with room id) </div>
                 <div className={styles.instructions}> 5) Enjoy! </div>

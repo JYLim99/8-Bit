@@ -6,8 +6,8 @@ import { db } from '../../config/firebase'
 
 const PongMultiplayer = () => {
   const { roomID, player, getHandle } = usePongContext()
-  const height = 400
-  const width = 600
+  const height = 500
+  const width = 900
   const canvasRef = useRef(null)
   const [gameOver, setGameOver] = useState(false)
   const [twoPlayers, setTwoPlayers] = useState(false)
@@ -461,6 +461,8 @@ const PongMultiplayer = () => {
   return (
     <>
       <h1 className={styles.header}> Room id: {roomID}</h1>
+      <div className={styles.tip}> Once the 2nd player joins, you are given 3 seconds to get ready </div>
+      <div className={styles.tip}> There will be no pause in multiplayer mode </div>
       <canvas
         ref={canvasRef}
         className={styles.canvasContainer}

@@ -3,6 +3,15 @@
     max-height: 100vh;
 }
 
+.header {
+    font-family: Caramel Sweets;
+    color: #A73489;
+    letter-spacing: 1px;
+    font-size: 25px;
+    text-align: center;
+    margin-bottom: 2%;
+}
+
 .handle {
     font-family: Caramel Sweets;
     color: #A73489;
