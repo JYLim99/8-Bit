@@ -41,7 +41,7 @@ if (token) {
   //Check if token has expired
   if (decodedToken.exp * 1000 < Date.now()) {
     store.dispatch(logoutUser())
-    window.location.href = '/login'
+    window.location.href = '/'
   } else {
     store.dispatch({ type: SET_AUTHENTICATED })
     axios.defaults.headers.common['Authorization'] = token
@@ -74,8 +74,11 @@ function App() {
                 <Route path='/Breakout' component={Breakout} />
                 <Route path='/Pong' component={Pong} />
                 <PongProvider>
-                  <Route path='/PongMultiplayer/GameLobby' component={PongGameLobby} />
-                  <Route path="/PongGame/:id" component={PongMultiplayer} />
+                  <Route
+                    path='/PongMultiplayer/GameLobby'
+                    component={PongGameLobby}
+                  />
+                  <Route path='/PongGame/:id' component={PongMultiplayer} />
                 </PongProvider>
                 <Route path='/Forum' component={Forum} />
                 <Route path='/ForgetPassword' component={ForgetPassword} />

@@ -32,7 +32,7 @@ class Header extends Component {
                 <div className={styles.helperText}>Welcome back, {handle}!</div>
               ) : (
                 <div className={styles.helperText}>
-                  Login to enjoy more features
+                  <Link to='/Login'>Login</Link> to enjoy more features
                 </div>
               )}
             </div>
