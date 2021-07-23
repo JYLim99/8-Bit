@@ -73,6 +73,13 @@ const styles = (theme) => ({
   progress: {
     position: 'absolute',
   },
+  forgetPassword: {
+    fontFamily: 'Organic Teabags',
+    fontSize: '1.5rem',
+    letterSpacing: '0.5px',
+
+    margin: 'auto auto 10px auto',
+  },
   tip: {
     fontFamily: 'Organic Teabags',
     fontSize: '1.2rem',
@@ -174,6 +181,9 @@ class login extends Component {
               </Button>
               <br />
               <small>
+                <div className={classes.forgetPassword}>
+                  <Link to='/ForgetPassword'>Forget Password</Link>
+                </div>
                 Don't have an account? Sign up <Link to='/signup'>here</Link>
                 <div className={classes.tip}>
                   Having an account qualifies you for the leaderboard, forum and

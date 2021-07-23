@@ -43,16 +43,18 @@
   cursor: text;
   font-family: Zelda;
   box-sizing: border-box;
-  border-radius: 0;
+  border-radius: 10px;
   overflow: visible;
   margin: auto;
-  border: 0px;
   color: black;
+  border: 1px solid #393e46;
+  /* border-width: 1px;
+  border-style: solid;
+  border-color: #77858a;*/
   font-size: 18px;
-  padding-bottom: 10px;
-  border-bottom: 1px solid #77858a;
+  padding: 5px;
   background-color: transparent;
-  width: 50%;
+  width: 40%;
   text-align: center;
 }
 
