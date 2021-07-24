@@ -446,7 +446,7 @@ const PongMultiplayer = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height)
       drawText(ctx, "Get Ready!", width / 2, height / 2)
       setTimeout(() => {
-        requestRef.current = setInterval(game, 1000 / 20)
+        requestRef.current = setInterval(game, 1000 / 40)
       }, 3000)
     }
       
