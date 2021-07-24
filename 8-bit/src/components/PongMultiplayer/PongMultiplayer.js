@@ -102,7 +102,7 @@ const PongMultiplayer = () => {
         ballY: height / 2,
         ballSpeed: 7,
         score1: 0,
-        score2: 0
+        score2: 0,
       })
   }
 
@@ -278,8 +278,8 @@ const PongMultiplayer = () => {
     }
 
     if (checkTwoPlayers() && !gameOver) {
-        initGame()
-        getHandleOpp()
+      initGame()
+      getHandleOpp()
     } else {
       ctx.textBaseline = 'middle'
       ctx.textAlign = 'center'
@@ -355,7 +355,7 @@ const PongMultiplayer = () => {
       }
 
       if (ball.x - ball.radius < 0) {
-        if(player === 1) {
+        if (player === 1) {
           paddle2.score++
           resetBall()
           sendScore2(paddle2.score)
@@ -363,7 +363,7 @@ const PongMultiplayer = () => {
           getScoreData()
         }
       } else if (ball.x + ball.radius > width) {
-        if(player === 1) {
+        if (player === 1) {
           paddle1.score++
           resetBall()
           sendScore1(paddle1.score)
@@ -372,7 +372,7 @@ const PongMultiplayer = () => {
         }
       }
 
-      if(player === 1) {
+      if (player === 1) {
         ball.x = ball.x + ball.dx
         ball.y = ball.y + ball.dy
         sendBallUpdate(ball.x, ball.y)
@@ -380,9 +380,10 @@ const PongMultiplayer = () => {
         getBallUpdate()
       }
 
-      if (player === 1 &&
+      if (
+        player === 1 &&
         (ball.y + ball.dy < ball.radius ||
-        ball.y + ball.dy > height - ball.radius)
+          ball.y + ball.dy > height - ball.radius)
       ) {
         ball.dy = -ball.dy
       }
@@ -412,7 +413,7 @@ const PongMultiplayer = () => {
 
         let direction = ball.x + ball.radius < width / 2 ? 1 : -1
 
-        if(player === 1) {
+        if (player === 1) {
           ball.dx = direction * ball.speed * Math.cos(angleRad)
 
           ball.dy = ball.speed * Math.sin(angleRad)
@@ -422,7 +423,7 @@ const PongMultiplayer = () => {
           sendBallSpeedData(ball.speed)
         }
 
-        if(player === 2) {
+        if (player === 2) {
           getBallSpeedData()
         }
       }
@@ -444,12 +445,12 @@ const PongMultiplayer = () => {
       ctx.textBaseline = 'middle'
       ctx.textAlign = 'center'
       ctx.clearRect(0, 0, canvas.width, canvas.height)
-      drawText(ctx, "Get Ready!", width / 2, height / 2)
+      drawText(ctx, 'Get Ready!', width / 2, height / 2)
       setTimeout(() => {
-        requestRef.current = setInterval(game, 1000 / 40)
+        requestRef.current = setInterval(game, 1000 / 30)
       }, 3000)
     }
-      
+
     if (gameOver) {
       ref.current = setTimeout(() => {
         renderWinner()
@@ -461,8 +462,12 @@ const PongMultiplayer = () => {
   return (
     <>
       <h1 className={styles.header}> Room id: {roomID}</h1>
-      <div className={styles.tip}> Once the 2nd player joins, you are given 3 seconds to get ready </div>
-      <div className={styles.tip}> There will be no pause in multiplayer mode </div>
+      <div className={styles.tip}>
+        Once the 2nd player joins, you are given 3 seconds to get ready
+      </div>
+      <div className={styles.tip}>
+        There will be no pause in multiplayer mode
+      </div>
       <canvas
         ref={canvasRef}
         className={styles.canvasContainer}

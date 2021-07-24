@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import axios from 'axios'
 import Post from '../../components/Forum/Post'
 import Profile from '../../components/Profile'
+import StaticProfile from './StaticProfile'
 import Grid from '@material-ui/core/Grid'
 import styles from './Dashboard.module.css'
 
@@ -58,6 +59,13 @@ class Dashboard extends Component {
   render() {
     const { posts, loading } = this.props.data
     const { postIdParam } = this.state
+    const {
+      user: {
+        credentials: { handle },
+      },
+    } = this.props
+
+    const targetHandle = this.props.match.params.handle
 
     let postsMarkup = loading ? (
       <PostSkeleton />
@@ -85,7 +93,12 @@ class Dashboard extends Component {
                 <ProfileSkeleton />
               ) : (
                 <>
-                  <Profile />
+                  {handle === targetHandle ? (
+                    <Profile />
+                  ) : (
+                    <StaticProfile profile={this.state.profile} />
+                  )}
+
                   <Card className={styles.scoresContainer}>
                     <CardContent className={styles.scoresTitle}>
                       User Scores
