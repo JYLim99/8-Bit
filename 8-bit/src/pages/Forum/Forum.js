@@ -36,7 +36,7 @@ class Forum extends Component {
         <div className={styles.container}>
           <Grid container spacing={4}>
             <Grid item sm={1} xs={12}>
-              <MakePost />
+              {authenticated ? <MakePost /> : null}
             </Grid>
             <Grid item sm={7} xs={12}>
               {recentPostsMarkup}
