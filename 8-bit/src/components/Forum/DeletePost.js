@@ -25,12 +25,16 @@ class DeletePost extends Component {
   state = {
     open: false,
   }
+
+  //Function to handle open and close of the delete post feature
   handleOpen = () => {
     this.setState({ open: true })
   }
   handleClose = () => {
     this.setState({ open: false })
   }
+
+  //Function to delete the respective post with the specified ID
   deletePost = () => {
     this.props.deletePost(this.props.postId)
     this.setState({ open: false })

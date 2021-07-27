@@ -7,6 +7,7 @@ import styles from './Leaderboards.module.css'
 class Leaderboards extends Component {
   render() {
     return (
+      //Display all three leaderboards
       <div className={styles.page}>
         <Breakout />
         <Pong />

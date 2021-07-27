@@ -46,10 +46,12 @@ class CommentForm extends Component {
     }
   }
 
+  //Function to handle change
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value })
   }
 
+  //Function to submit the body as the comment to the respective post
   handleSubmit = (event) => {
     event.preventDefault()
     this.props.submitComment(this.props.postId, { body: this.state.body })

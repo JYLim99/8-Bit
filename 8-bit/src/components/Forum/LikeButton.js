@@ -12,6 +12,7 @@ import { connect } from 'react-redux'
 import { likePost, unlikePost } from '../../redux/actions/dataActions'
 
 export class LikeButton extends Component {
+  //Return the posts that the user likes
   likedPost = () => {
     if (
       this.props.user.likes &&
@@ -20,12 +21,15 @@ export class LikeButton extends Component {
       return true
     else return false
   }
+
+  //Like/Unlike the respective post with the ID
   likePost = () => {
     this.props.likePost(this.props.postId)
   }
   unlikePost = () => {
     this.props.unlikePost(this.props.postId)
   }
+
   render() {
     const { authenticated } = this.props.user
     const likeButton = !authenticated ? (

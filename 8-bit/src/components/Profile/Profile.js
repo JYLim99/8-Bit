@@ -82,7 +82,7 @@ const styles = {
 }
 
 class Profile extends Component {
-  //When image changes, upload
+  //When image changes, upload the image to the database
   handleImageChange = (event) => {
     const image = event.target.files[0]
     const formData = new FormData()

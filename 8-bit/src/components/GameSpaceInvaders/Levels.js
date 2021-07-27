@@ -1,4 +1,4 @@
-//Settings for the game
+//Settings for the game levels
 export const LEVELS = [
   {
     context: null,

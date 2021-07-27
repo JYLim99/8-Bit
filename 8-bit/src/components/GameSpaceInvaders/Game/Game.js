@@ -11,6 +11,9 @@ import { LEVELS } from '../Levels'
 import { db } from '../../../config/firebase'
 import store from '../../../redux/store'
 
+//Function to write score to firestore
+//Only updates the user score if it is higher than the existing
+//If there is no exisiting score for the user, creates a new entry for the user
 async function addScoreToDatabase(handle, newScore) {
   let dbScore = await db
     .collection('spaceInvadersScores')
@@ -48,6 +51,8 @@ async function addScoreToDatabase(handle, newScore) {
   }
 }
 
+//Similar to the function above but instead writes to
+//the user record directly
 async function addScoreToUser(handle, newScore) {
   let dbUserScore = await db
     .collection('users')
@@ -123,7 +128,7 @@ class Game extends Component {
     this.setState({ fuse: true })
   }
 
-  //Function to add points
+  //Function to add points in game
   addScore(points) {
     if (this.state.inGame) {
       this.setState({

@@ -23,6 +23,9 @@ import Ball from '../Ball/ball'
 import { db } from '../../../config/firebase'
 import store from '../../../redux/store'
 
+//Function to write score to firestore
+//Only updates the user score if it is higher than the existing
+//If there is no exisiting score for the user, creates a new entry for the user
 async function addScoreToDatabase(handle, newScore) {
   let dbScore = await db
     .collection('breakoutScores')
@@ -60,6 +63,8 @@ async function addScoreToDatabase(handle, newScore) {
   }
 }
 
+//Similar to the function above but instead writes to
+//the user record directly
 async function addScoreToUser(handle, newScore) {
   let dbUserScore = await db
     .collection('users')

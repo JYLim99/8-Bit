@@ -44,6 +44,8 @@ class EditDetails extends Component {
     location: '',
     open: false,
   }
+
+  //Get current user details (if present) to state
   mapUserDetailsToState = (credentials) => {
     this.setState({
       bio: credentials.bio ? credentials.bio : '',
@@ -51,6 +53,8 @@ class EditDetails extends Component {
       location: credentials.location ? credentials.location : '',
     })
   }
+
+  //Handles opening/closing the dialog to edit details
   handleOpen = () => {
     this.setState({ open: true })
     this.mapUserDetailsToState(this.props.credentials)
@@ -58,10 +62,13 @@ class EditDetails extends Component {
   handleClose = () => {
     this.setState({ open: false })
   }
+
   componentDidMount() {
     const { credentials } = this.props
     this.mapUserDetailsToState(credentials)
   }
+
+  //Handles updating of changes to details if any was made upon submit
   handleChange = (event) => {
     this.setState({
       [event.target.name]: event.target.value,

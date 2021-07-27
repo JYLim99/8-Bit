@@ -65,6 +65,8 @@ class MakePost extends Component {
       this.setState({ body: '', open: false, errors: {} })
     }
   }
+
+  //Functions to handle open and closing of the make post dialog
   handleOpen = () => {
     this.setState({ open: true })
   }
@@ -72,9 +74,13 @@ class MakePost extends Component {
     this.props.clearErrors()
     this.setState({ open: false, errors: {} })
   }
+
+  //Function to handle changes, specific events
   handleChange = (event) => {
     this.setState({ [event.target.name]: event.target.value })
   }
+
+  //Function to submit the text in the field as the post
   handleSubmit = (event) => {
     event.preventDefault()
     this.props.makePost({ body: this.state.body })

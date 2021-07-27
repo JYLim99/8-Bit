@@ -38,25 +38,27 @@ const useStyles = makeStyles({
 function Breakout() {
   const classes = useStyles()
   const [scores, setScores] = useState([])
+
+  //Function to fetch top three scores for Breakout
   const fetchScores = async () => {
     const response = db.collection('breakoutScores')
 
     const data = await response.orderBy('score', 'desc').limit(3).get()
 
     data.docs.forEach((item) => {
-      console.log(item.id, '=> ', item.data())
+      //console.log(item.id, '=> ', item.data())
       setScores([...scores, item.data()])
       scores.push(item.data())
     })
   }
 
-  console.log(scores)
+  //console.log(scores)
 
   useEffect(() => {
     fetchScores()
   }, [])
 
-  console.log(scores)
+  //console.log(scores)
   return (
     <Box display='flex' justifyContent='center' alignItems='center'>
       <TableContainer className={classes.container} component={Paper}>

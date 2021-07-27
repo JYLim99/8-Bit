@@ -86,6 +86,8 @@ class PostDialog extends Component {
     }
   }
 
+  //Function to handle open and close of the dialog box of the post,
+  //including its content & comment
   handleOpen = () => {
     let oldPath = window.location.pathname
 
@@ -106,6 +108,7 @@ class PostDialog extends Component {
     this.props.clearErrors()
   }
 
+  //Function to identify what posts the user like
   likedPost = () => {
     if (
       this.props.user.likes &&
