@@ -15,6 +15,7 @@ export function PongProvider({ children }) {
     let history = useHistory();
     const [ player, setPlayer ] = useState(0);
 
+    // Returns the handle of the user
     function getHandle() {
         const token = localStorage.FBIdToken
         if(token) {
@@ -24,6 +25,7 @@ export function PongProvider({ children }) {
         }
     }
 
+    // Sets the players number and update firestore
     async function createRoom() {
         let handle = getHandle();
         setPlayer(1)
@@ -38,6 +40,7 @@ export function PongProvider({ children }) {
             })
     }
 
+    // Update firestore with room id and redirect user to game room
     async function updateDoc(id) {
         await db.collection("gamesRoom")
             .doc(id)
@@ -48,6 +51,7 @@ export function PongProvider({ children }) {
         history.push(`/PongGame/${id}`)
     }
 
+    // Sets player number, update firestore and redirect user if room is not full
     async function handleJoinRoom() {
         db.collection("gamesRoom")
             .doc(roomID)
@@ -72,21 +76,6 @@ export function PongProvider({ children }) {
 
                 }
             })
-        // if(numRef.current === 1) {
-        //     let handle = getHandle();
-        //     setPlayer(2);
-        //     db.collection("gamesRoom")
-        //         .doc(roomID)
-        //         .update({
-        //             numPlayer: 2,
-        //             player2Handle: handle
-        //         })
-        //         .then(
-        //             history.push(`/PongGame/${roomID}`)
-        //         )
-        // } else {
-        //     alert("Room is full")
-        // } 
     }
 
     function handleInputID(event) {

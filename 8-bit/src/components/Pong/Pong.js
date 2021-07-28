@@ -90,6 +90,7 @@ function clamp(val, min, max) {
   return Math.max(min, Math.min(max, val))
 }
 
+// Checks for collision using clamp
 function collision(ball, rect) {
   let cX = clamp(ball.x, rect.x, rect.x + rect.paddleWidth)
   let cY = clamp(ball.y, rect.y, rect.y + rect.paddleHeight)
@@ -102,12 +103,14 @@ function collision(ball, rect) {
   return dist < ball.radius * ball.radius
 }
 
+// For drawing text on canvas
 function drawText(context, text, x, y) {
   context.fillStyle = 'WHITE'
   context.font = '15px pixel'
   context.fillText(text, x, y)
 }
 
+// For drawing inital instructions on canvas
 function drawInitialText(context, text, x, y, style) {
   context.fillStyle = 'WHITE'
   context.font = style
@@ -126,12 +129,14 @@ const Pong = () => {
   const requestRef = useRef()
   const [anotherFlag, setAnotherFlag] = useState(true)
 
+  // Pong game logic
   useLayoutEffect(() => {
     const canvas = canvasRef.current
     const context = canvas.getContext('2d')
     context.textBaseline = 'middle'
     context.textAlign = 'center'; 
 
+    // Disable start screen after initial click from user
     if(!gameStarted && anotherFlag) {
       context.clearRect(0, 0, canvas.width, canvas.height);
       drawInitialText(context, "Pong", width / 2, height / 4, "80px pixel")
@@ -143,6 +148,7 @@ const Pong = () => {
       drawInitialText(context, "You have 5 tries before you lose", width/2, height / 1.1, "20px pixel")
     }
 
+    // Draw paddles, ball and scores
     function render() {
       drawBall(context, canvas)
       drawUser(context)
@@ -155,12 +161,14 @@ const Pong = () => {
 
     canvas.addEventListener('mousemove', movePaddle)
 
+    // Move paddle via mouse movement
     function movePaddle(event) {
       let rect = canvas.getBoundingClientRect()
 
         userRef.current.y = event.clientY - rect.top - userRef.current.paddleHeight / 2
     }
 
+    // Main game logic
     function update() {
       if (ballRef.current.x - ballRef.current.radius < 0) {
         lives--

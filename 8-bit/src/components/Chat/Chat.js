@@ -7,10 +7,12 @@ const Chat = () => {
   const scrollRef = useRef()
   const [messages, setMessages] = useState([])
 
+  // Enable automatic scrolling according to latest message
   const scrollToBottom = () => {
     scrollRef.current.scrollIntoView({ block: 'end', behavior: 'smooth' })
   }
 
+  // Retrieve 15 more recent messages according to timestamp
   useEffect(() => {
     db.collection('messages')
       .orderBy('createdAt', 'desc')
@@ -20,6 +22,7 @@ const Chat = () => {
       })
   }, [])
 
+  // Trigger every time messages update
   useEffect(() => {
     scrollToBottom()
   }, [messages])

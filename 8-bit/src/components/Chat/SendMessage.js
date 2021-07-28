@@ -9,6 +9,7 @@ const SendMessage = () => {
     let handle = store.getState().user.credentials.handle;
     const [text, setText] = useState("")
 
+    // Send user handle, the text typed and timestamp to firestore
     async function sendMessage(e) {
         e.preventDefault()
         await db.collection('messages').add({

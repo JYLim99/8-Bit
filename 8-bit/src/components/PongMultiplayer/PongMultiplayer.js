@@ -26,6 +26,7 @@ const PongMultiplayer = () => {
   const [winner, setWinner] = useState('')
   const ref = useRef()
 
+  // Gets player 2 handle if current user is player 1, vice versa
   function getHandleOpp() {
     if (player === 1) {
       db.collection('gamesRoom')
@@ -50,6 +51,7 @@ const PongMultiplayer = () => {
     speed: 7,
     radius: 10,
   }
+
   const paddle1 = {
     x: 0,
     y: height / 2 - 50,
@@ -70,6 +72,7 @@ const PongMultiplayer = () => {
     return Math.max(min, Math.min(max, val))
   }
 
+  // Checks for collision using clamp
   function collision(ball, rect) {
     let cX = clamp(ball.x, rect.x, rect.x + rect.paddleWidth)
     let cY = clamp(ball.y, rect.y, rect.y + rect.paddleHeight)
@@ -82,6 +85,7 @@ const PongMultiplayer = () => {
     return dist < ball.radius * ball.radius
   }
 
+  // Checks if there are two players using firestore
   function checkTwoPlayers() {
     db.collection('gamesRoom')
       .doc(roomID)
@@ -94,6 +98,7 @@ const PongMultiplayer = () => {
     return twoPlayers
   }
 
+  // Initialise game by updating firestore document
   function initGame() {
     db.collection('gamesRoom')
       .doc(roomID)
@@ -106,6 +111,7 @@ const PongMultiplayer = () => {
       })
   }
 
+  // Returns ball x and y position from firestore
   function getBallUpdate() {
     db.collection('gamesRoom')
       .doc(roomID)
@@ -115,6 +121,7 @@ const PongMultiplayer = () => {
       })
   }
 
+  // Returns ball speed from firestore
   function getBallSpeedData() {
     db.collection('gamesRoom')
       .doc(roomID)
@@ -123,6 +130,7 @@ const PongMultiplayer = () => {
       })
   }
 
+  // Returns paddle 1 and 2 score from firestore
   function getScoreData() {
     db.collection('gamesRoom')
       .doc(roomID)
@@ -132,24 +140,28 @@ const PongMultiplayer = () => {
       })
   }
 
+  // Updates firstore with paddle 1 score
   function sendScore1(score) {
     db.collection('gamesRoom').doc(roomID).update({
       score1: score,
     })
   }
 
+  // Updates firstore with paddle 2 score
   function sendScore2(score) {
     db.collection('gamesRoom').doc(roomID).update({
       score2: score,
     })
   }
 
+  // Updates firestore with ball speed
   function sendBallSpeedData(spd) {
     db.collection('gamesRoom').doc(roomID).update({
       ballSpeed: spd,
     })
   }
 
+  // Updates firestore with ball x and y position
   function sendBallUpdate(x, y) {
     db.collection('gamesRoom').doc(roomID).update({
       ballX: x,
@@ -157,6 +169,7 @@ const PongMultiplayer = () => {
     })
   }
 
+  // Updates firestore if up arrow key is pressed or not
   function sendUpKey(upArrowPressed) {
     if (player === 1) {
       db.collection('gamesRoom').doc(roomID).update({
@@ -169,6 +182,7 @@ const PongMultiplayer = () => {
     }
   }
 
+  // Updates firestore if down arrow key is pressed or not
   function sendDownKey(downArrowPressed) {
     if (player === 1) {
       db.collection('gamesRoom').doc(roomID).update({
@@ -181,6 +195,7 @@ const PongMultiplayer = () => {
     }
   }
 
+  // Returns if up arrow key is pressed from firestore
   function getUpKey() {
     if (player === 1) {
       db.collection('gamesRoom')
@@ -198,6 +213,7 @@ const PongMultiplayer = () => {
     return upArrowOppRef.current
   }
 
+  // Returns if down arrow key is pressed from firestore
   function getDownKey() {
     if (player === 1) {
       db.collection('gamesRoom')
@@ -233,6 +249,7 @@ const PongMultiplayer = () => {
     ball.speed = 7
   }
 
+  // Main game logic
   useLayoutEffect(() => {
     const canvas = canvasRef.current
     const ctx = canvas.getContext('2d')
@@ -441,6 +458,7 @@ const PongMultiplayer = () => {
       render()
     }
 
+    // Stop animation and render winner
     if (!gameOver && checkTwoPlayers()) {
       ctx.textBaseline = 'middle'
       ctx.textAlign = 'center'
