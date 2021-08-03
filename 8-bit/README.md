@@ -1,23 +1,33 @@
 ## Proposed Level of Achievement
 Project Gemini
 
-## Motivation
-Popular games from the past may be **forgotten by the younger generation**. The authenticity and history of these games may not be relatable to the younger generation.
+## Tech Stack
 
-For the **older generation**, it may be hard to find all these games within the same platform. Currently even though the games may be found easily online, but they are quite scattered. There is a lack of web applications that gathers all of these games.
+Firebase is used for the backend of this website and ReactJS is used for the frontend of the website, overall aesthetics is done using CSS.
+
+## Motivation
+Popular games from the past may be forgotten by youth. We wish to introduce them to the games that were once very popular in the 80s so that they can have some fun.
 
 ## Aim of Project
-We wish to reintroduce popular games from the past to the current generation. Pong, Space Invaders and Breakout were famous games during their time. It is also a platform for the older generation to relive their childhood.
-
-A web based application that serves as a collection of these games would allow users to find and play these games conveniently. Users can access the website to play the game whenever they want to.
+A web based application that serves as a collection of these games would allow users to find and play these games conveniently. Users can access the website to play the game whenever they want to. Our website aims to incorporate a leaderboard and multiplayer feature so that users will be able to play with their friends as this feature is not found in other popular gaming websites.
 
 ## Scope of Project
 
 A website where users can click on images (similar to Y8/Miniclip) and play vintage games. Users can also learn more about the game history while they are playing those games
 
+## Website
+
+https://orbital-8-bit.web.app
+
 ## Features
 
 * Login/Register feature
+
+* Forum
+
+* Chat
+
+* Dashboard
 
 * Vintage games:
 
@@ -27,11 +37,9 @@ A website where users can click on images (similar to Y8/Miniclip) and play vint
 
      ​	Breakout
 
-* Multiplayer feature using Firestore
+* Multiplayer Pong using Firestore
 
 * Point system with a leaderboard
-
-     
 
 ## Development Plan
 
@@ -39,18 +47,20 @@ A website where users can click on images (similar to Y8/Miniclip) and play vint
 
 * Develop a barebone website
 * Develop the game Breakout to be featured using ReactJS
-* Login feature with authentication provided by firebase
+* Login feature with authentication provided by Firebase
 
 ### June
 
 * Develop the other games ie. Space Invaders and Pong using ReactJS
-* Make the website to be more UX/UI friendly by using CSS or other frameworks like Material UI/Bootstrap
-* Create user profile page
-* Adjust the game difficulty for better gaming experience
+* Make the website to be more UX/UI friendly by using CSS
+* Create registered user profile page
+* Adjust the game difficulty for better gaming experience: Change the difficulty of the game levels
 
 ### July
 
-* Set up Firestore
-* Develop a point system with a leaderboard
-* Multiplayer feature using Firestore
+* Complete set up for Firestore: This is to prepare for the leaderboard and multiplayer feature
+* Complete forum and superchat using firebase
+* Develop a leaderboard: Allow users to compare their scores
+* Multiplayer feature on Pong using Firestore
+* User testing & work on feedback
 * Final touch up on the design and UI

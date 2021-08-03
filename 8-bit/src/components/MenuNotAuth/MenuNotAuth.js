@@ -154,7 +154,7 @@ const MenuNotAuth = () => {
                             variants={slideUp}
                             transition={transition}
                           >
-                            Login
+                            Login/Signup
                           </motion.div>
                         </h2>
                       </div>
