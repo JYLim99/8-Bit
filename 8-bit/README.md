@@ -3,7 +3,7 @@ Project Gemini
 
 ## Tech Stack
 
-Firebase is used for the backend of this website and ReactJS is used for the frontend of the website, overall aesthetics is done using CSS.
+ReactJS and Firebase. We chose ReactJS for our frontend as it is faster and it is simpler to use with its good documentation. It is also adequate for our purpose as a gaming website. We chose Firebase for our backend for its simplicity and ease of use for beginners. Firebase takes care of most of the backend intricacies which allows us to focus more on the other aspects of development.
 
 ## Motivation
 Popular games from the past may be forgotten by youth. We wish to introduce them to the games that were once very popular in the 80s so that they can have some fun.
