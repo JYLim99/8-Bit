@@ -13,14 +13,18 @@ const PongGameLobby = () => {
     if(token) {
         return (
             <div className={styles.container}>
+                <div className={styles.pongContainer}>
                 <h1 className={styles.header}> How to play Pong </h1>
                 <div className={styles.instructions}> 1) Control the paddle using your up and down arrow keys </div>
                 <div className={styles.instructions}> 2) First to 5 points wins the game </div>
                 <div className={styles.instructions}> 3) You will get a point if the ball passes the boundary of your opponent </div>
+                </div>
+                <div className={styles.inputContainer}>
                 <button className={styles.createRoomButton} onClick={createRoom}> Create room </button>
-                <br />
                 <input className={styles.inputField} type="text" placeholder="Input room id" onChange={handleInputID}></input>
                 <button className={styles.joinRoomButton} onClick={handleJoinRoom}> Join Room </button>
+                </div>
+                <div className={styles.lobbyContainer}>
                 <h1 className={styles.header}> Instructions </h1>
                 <div className={styles.instructions}> 1) Click on create room </div>
                 <div className={styles.instructions}> 2) Send the room id to your friend to join and wait </div>
@@ -28,7 +32,7 @@ const PongGameLobby = () => {
                 <div className={styles.instructions}> Side Note: Text field is space sensitive ! </div>
                 <div className={styles.instructions}> 4) Click on join room (For people joining with room id) </div>
                 <div className={styles.instructions}> 5) If nothing happens when you click join room, the room is probably full (For people joining with room id) </div>
-                <div className={styles.instructions}> 5) Enjoy! </div>
+                </div>
             </div>
         );
     } else {

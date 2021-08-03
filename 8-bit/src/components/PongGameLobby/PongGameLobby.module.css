@@ -7,10 +7,12 @@
   height: 100%;
   width: 100%;
   background-color: #fdf6f0;
+  columns: 300px 3;
 }
 
 .createRoomButton {
   position: relative;
+  top: 25%;
   font-family: Zelda;
   border: none;
   background-color: white;
@@ -37,6 +39,8 @@
 }
 
 .inputField {
+  position: relative;
+  top: 30%;
   display: block;
   text-indent: 0px;
   text-align: start;
@@ -48,13 +52,10 @@
   margin: auto;
   color: black;
   border: 1px solid #393e46;
-  /* border-width: 1px;
-  border-style: solid;
-  border-color: #77858a;*/
   font-size: 18px;
   padding: 5px;
   background-color: transparent;
-  width: 40%;
+  width: 70%;
   text-align: center;
 }
 
@@ -63,6 +64,8 @@
 }
 
 .joinRoomButton {
+  position: relative;
+  top: 35%;
   font-family: Zelda;
   border: none;
   background-color: white;
@@ -89,6 +92,8 @@
 }
 
 .header {
+  position: relative;
+  top: 15%;
   display: block;
   margin: auto;
   font-family: Zelda;
@@ -97,10 +102,11 @@
   color: #393e46;
   padding: 20px;
   letter-spacing: 1px;
-  text-align: center;
 }
 
 .instructions {
+  position: relative;
+  top: 15%;
   font-size: large;
   display: block;
   margin: auto;
@@ -109,8 +115,16 @@
   color: #393e46;
   padding: 10px;
   letter-spacing: 1px;
-  justify-content: center;
-  text-align: center;
-  margin-left: 0 auto;
-  margin-right: 0 auto;
+}
+
+.pongContainer {
+  height: 100vh;
+}
+
+.inputContainer {
+  height: 100vh
+}
+
+.lobbyContainer {
+  height: 100vh
 }
