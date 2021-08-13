@@ -1,3 +1,5 @@
+Full Documentation: https://docs.google.com/document/d/1ELEjOgtNTOyb5hwFMke93VARFJ-5Tu6H-GmY4td6b9w/edit?usp=sharing
+
 ## Proposed Level of Achievement
 Project Gemini
 
